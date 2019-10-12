@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenManagement.View"
         mc:Ignorable="d"
-        Title="DashboardWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Golden Management" Height="450" Width="800">
+    <DockPanel>
+        <!-- Barre de gauche -->
+        <StackPanel DockPanel.Dock="Left" Width="200" Background="DarkGray">
+            <StackPanel Height="150"/>
+            <Button Margin="5"/>
+            <Button Margin="5"/>
+            <Button Margin="5"/>
+            <Button Margin="5"/>
+        </StackPanel>
+
+        <!-- Barre du haut -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="50" Background="Gray">
+            <Button Width="100" Margin="10" Background="Beige"/>
+            <Button Width="100" Margin="10" Background="Beige"/>
+            <Button Width="100" Margin="10" Background="Beige"/>
+            <Button Width="100" Margin="10" Background="Beige"/>
+            <Button Width="100" Margin="10" Background="Beige"/>
+        </StackPanel>
+
+        <!-- Partie du centre -->
+        <Frame x:Name="F_main" Background="Beige"/>
+
+    </DockPanel>
 </Window>

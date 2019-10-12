@@ -25,6 +25,8 @@ namespace GoldenManagement.View
         public ConnexionWindow()
         {
             InitializeComponent();
+            // Centre la fenêtre à l'écran
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void BTN_seConnecter_Click(object sender, RoutedEventArgs e)
