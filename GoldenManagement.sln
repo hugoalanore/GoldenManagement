@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29201.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoldenManagement", "GoldenManagement\GoldenManagement.csproj", "{4101DB2F-89CA-47E3-BEA1-CC57C3B78FAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4101DB2F-89CA-47E3-BEA1-CC57C3B78FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4101DB2F-89CA-47E3-BEA1-CC57C3B78FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4101DB2F-89CA-47E3-BEA1-CC57C3B78FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4101DB2F-89CA-47E3-BEA1-CC57C3B78FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA3E6366-13B2-4E7D-B431-12C6382CB6B0}
+	EndGlobalSection
+EndGlobal
