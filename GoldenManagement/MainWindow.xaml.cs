@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoldenManagement.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,15 @@ namespace GoldenManagement
         public MainWindow()
         {
             InitializeComponent();
+            OpenConnexionWindow();
+            this.Close();
+        }
+
+        private void OpenConnexionWindow()
+        {
+            // Ouvre la fenêtre de connexion
+            ConnexionWindow connexionWindow = new ConnexionWindow();
+            connexionWindow.ShowDialog();
         }
     }
 }
