@@ -10,20 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GoldenManagement.View
 {
     /// <summary>
-    /// Logique d'interaction pour DashboardWindow.xaml
+    /// Logique d'interaction pour AccueilPage.xaml
     /// </summary>
-    public partial class DashboardWindow : Window
+    public partial class AccueilPage : Page
     {
-        public DashboardWindow()
+        public AccueilPage()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            F_main.Content = new AccueilPage();
         }
     }
 }
