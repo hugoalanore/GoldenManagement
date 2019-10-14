@@ -23,7 +23,7 @@ namespace GoldenManagement.View
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            F_main.Content = new AccueilPage();
+            MainFrame.Content = new AccueilPage();
         }
     }
 }

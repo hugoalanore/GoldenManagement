@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenManagement.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        
         mc:Ignorable="d"
-        Title="Fenêtre de connexion" Height="500" Width="350" ResizeMode="NoResize">
+        Title="Fenêtre de connexion" Height="525" Width="350" ResizeMode="NoResize"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" WindowStyle="None"
+        >
     <Grid>
         <Rectangle Height="280" VerticalAlignment="Top">
             <Rectangle.Fill>
@@ -19,28 +22,48 @@
             </Rectangle.Fill>
         </Rectangle>
 
-        <Ellipse Width="100" Height="100" VerticalAlignment="Top" Margin="0,20,0,0">
+        <Rectangle x:Name="R_appBar" Height="32" VerticalAlignment="Top" MouseLeftButtonDown="R_appBar_MouseLeftButtonDown">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FF303797"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Height="32" VerticalAlignment="Top">
+            <Button x:Name= "BTN_reduire" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{x:Null}" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_reduce_Click">
+                <Border Height="30">
+                    <materialDesign:PackIcon HorizontalAlignment="Right" Kind="WindowMinimize"  Foreground="White" Width="30" Height="20" VerticalAlignment="Center"/>
+                </Border>
+            </Button>
+            <Button x:Name= "BTN_quitter" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{x:Null}" Background="Transparent" Foreground="Transparent" BorderBrush="Transparent" Click="BTN_quitter_Click">
+                <materialDesign:PackIcon HorizontalAlignment="Right" Kind="WindowClose" Foreground="White" Width="30" Height="30"/>
+            </Button>
+        </StackPanel>
+
+
+        <Ellipse Width="100" Height="100" VerticalAlignment="Top" Margin="0,65,0,0">
             <Ellipse.Fill>
                 <ImageBrush ImageSource="../Ressources/GFF_logo_white.jpg"/>
             </Ellipse.Fill>
         </Ellipse>
 
-        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,85" RadiusY="15" RadiusX="15">
+        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,100" RadiusY="15" RadiusX="15">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Rectangle.Effect>
         </Rectangle>
 
-        <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,85">
-            <TextBlock Text="CONNEXION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Foreground="Gray" FontSize="18" />
+        <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
+            <TextBlock Text="CONNEXION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="25" Foreground="Gray" FontSize="18" FontWeight="Light"/>
             <StackPanel VerticalAlignment="Center" Margin="10">
                 <TextBox x:Name="TB_nomUtilisateur" materialDesign:HintAssist.Hint="Nom d'utilisateur" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="16"/>
                 <PasswordBox x:Name="PB_motDePasse" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontSize="16"/>
             </StackPanel>
         </Grid>
 
-        <Button x:Name="BTN_seConnecter" VerticalAlignment="Bottom" Margin="0,70" Width="150" Content="Se connecter" Click="BTN_seConnecter_Click"/>
+        <Button x:Name="BTN_seConnecter" VerticalAlignment="Bottom" Margin="0,85" Width="150" Content="Se connecter" Click="BTN_seConnecter_Click"/>
 
-        <TextBlock x:Name="TB_connexionResultat" Text="" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="35" Foreground="Gray" Cursor="Hand" FontSize="16"/>
+        <Border VerticalAlignment="Bottom" Height="80">
+            <TextBox x:Name="TB_connexionResultat" Margin="25,0,25,0" VerticalAlignment="Center" Foreground="Gray" FontSize="16"  TextAlignment="Center" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0"/>
+        </Border>
     </Grid>
 </Window>
