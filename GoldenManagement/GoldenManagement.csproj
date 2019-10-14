@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App_logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
@@ -81,6 +84,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\AccueilPage.xaml.cs">
+      <DependentUpon>AccueilPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ConnexionWindow.xaml.cs">
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>
@@ -100,6 +106,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AccueilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ConnexionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +159,9 @@
     <Resource Include="Ressources\GFF_logo_black_full.jpg" />
     <Resource Include="Ressources\GFF_logo_white.jpg" />
     <Resource Include="Ressources\GFF_logo_white_full.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App_logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

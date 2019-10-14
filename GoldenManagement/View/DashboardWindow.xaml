@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenManagement.View"
         mc:Ignorable="d"
-        Title="DashboardWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Golden Management" Height="768" Width="1024" MinHeight="600" MinWidth="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
+    
+    <DockPanel>
+        <!-- Barre de gauche -->
+        <StackPanel DockPanel.Dock="Left" Width="200" Background="DarkGray">
+            <StackPanel Height="150">
+                <materialDesign:PackIcon Kind="LanguageJava" Height="150" Width="200" />
+            </StackPanel>
+
+            <TextBlock Text="Bonjour" FontSize="18" FontWeight="Bold" Margin=" 0,20,0,0"/>
+            <TextBlock Text="Gradi DEMO" FontSize="20" FontWeight="Black" Margin="0,0,0,20"/>
+
+            <Button Margin="5">
+                <Grid Width="150">
+                    <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Center" Text="Home" FontFamily="impact"/>
+                </Grid>
+            </Button>
+
+            <Button Margin="5" Content="Gestion du planning"/>
+            <Button Margin="5"/>
+            <Button Margin="5"/>
+        </StackPanel>
+
+        <!-- Barre du haut -->
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="50" Background="Gray" >
+            <Border Height="50">
+                <TextBlock VerticalAlignment="Center"  Text="Dashboard / Gestion des entités / Nouveau candidat" TextWrapping="Wrap" FontSize="20"/>
+            </Border>
+        </StackPanel>
+
+        <!-- Partie du centre -->
+        <Frame x:Name="MainFrame" Background="Beige" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+    </DockPanel>
 </Window>
