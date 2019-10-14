@@ -10,6 +10,7 @@ namespace GoldenManagement.Model
     class LivingData
     {
         public LivingData() { }
+        public int MyProperty { get; set; }
         public Utilisateur UtilisateurActif { get; set; }
     }
 }
