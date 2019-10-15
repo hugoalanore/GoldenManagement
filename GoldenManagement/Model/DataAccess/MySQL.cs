@@ -69,6 +69,7 @@ namespace GoldenManagement.Model.DataAccess
 
             // REQUETE
             bool IsCorrect = false;
+
             MyConn.Open();
             try
             {
