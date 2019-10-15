@@ -5,10 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenManagement.View"
         mc:Ignorable="d"
-        Title="Golden Management" Height="760" Width="1280" MinHeight="760" MinWidth="1280"
+        Title="Golden Management" Height="760" Width="1400" MinHeight="760" MinWidth="1400"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" 
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
@@ -27,7 +25,7 @@
                 <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" Background="#4b2c20" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20"/>
                 </Button>
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"  Text="Golden Management" Foreground="#99FFFFFF" />
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Light" Text="Golden Management" Foreground="#99FFFFFF" />
             </DockPanel>
         </materialDesign:ColorZone>
 
@@ -106,7 +104,7 @@
 
         <!-- Partie du centre -->
         <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth5" materialDesign:ShadowAssist.ShadowEdges="Left"  DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF303030">
-            <Frame x:Name="MainFrame" Background="#FF303030" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Frame x:Name="MainFrame" Background="#FF303030" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1200" Height="720"/>
         </materialDesign:ColorZone>
 
     </DockPanel>

@@ -4,11 +4,299 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GoldenManagement.View"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AccueilPage">
-    <Grid>
-        <Viewbox>
-        </Viewbox>
-    </Grid>
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="720" d:DesignWidth="1100"
+      Title="AccueilPage"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+      >
+    <StackPanel Height="720" Width="1100" Margin="15" Orientation="Vertical">
+        <TextBlock Text="Janvier 2020" FontSize="32" Foreground="#CCFFFFFF" Margin="0,0,0,15"/>
+        <!-- Les entêtes -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="LUNDI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Light"/>
+            </Grid>
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="MARDI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Light"/>
+            </Grid>
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="MERCREDI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Light"/>
+            </Grid>
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="JEUDI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Light"/>
+            </Grid>
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="VENDREDI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="16" FontWeight="Light"/>
+            </Grid>
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="SAMEDI" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF969696" FontSize="16" FontWeight="Light"/>
+            </Grid>
+            <Grid Width="150" Height="25" Margin="0,0,1,0">
+                <TextBlock Text="DIMANCHE" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FF969696" FontSize="16" FontWeight="Light"/>
+            </Grid>
+        </StackPanel>
+        <!-- Les journées de la 1ère ligne -->
+        <StackPanel Orientation="Horizontal">
+            <!-- 1er jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="0,0,0,0">
+                <Grid Width="150" Height="75">
+                    <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Fill="#FF519FE4"/>
+                    <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center" Text="Formation sécurité" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+                    <TextBlock Text="30" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <!-- 2ème jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,0,0,0">
+                <Grid Width="150" Height="75">
+                    <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Fill="#FF519FE4"/>
+                    <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center" Text="Formation sécurité" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                    <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Fill="#FF9B6C1B"/>
+                    <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" HorizontalAlignment="Center" Text="Formation SST" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+                    
+                    <TextBlock Text="31" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,0,0,0">
+                <Grid Width="150" Height="75">
+                    <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Fill="#FF519FE4"/>
+                    <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center" Text="Formation sécurité" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                    <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Fill="#FF9B6C1B"/>
+                    <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" HorizontalAlignment="Center" Text="Formation SST" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+                    
+                    <TextBlock Text="1 Jan" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,0,0,0">
+                <Grid Width="150" Height="75">
+                    <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Fill="#FF9B6C1B"/>
+                    <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" HorizontalAlignment="Center" Text="Formation SST" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+                    
+                    <TextBlock Text="2" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,0,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="3" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,0,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Left,Top" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="4" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,0,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right,Top" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="5" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+        </StackPanel>
+        
+        
+        <!-- Les journées de la 2ème ligne -->
+        <StackPanel Orientation="Horizontal">
+            <!-- 1er jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="0,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="6" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <!-- 2ème jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="7" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="8" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="9" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="10" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Left" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="11" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="12" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+        </StackPanel>
+
+        <!-- Les journées de la 1ère ligne -->
+        <StackPanel Orientation="Horizontal">
+            <!-- 1er jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="0,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="13" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <!-- 2ème jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="14" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="15" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="16" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="17" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Left" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="18" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="19" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+        </StackPanel>
+
+        <!-- Les journées de la 1ère ligne -->
+        <StackPanel Orientation="Horizontal">
+            <!-- 1er jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="0,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="20" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <!-- 2ème jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="21" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="22" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="23" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="24" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Left" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="25" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="26" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+        </StackPanel>
+        <!-- Les journées de la 1ère ligne -->
+        <StackPanel Orientation="Horizontal">
+            <!-- 1er jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="0,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="27" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <!-- 2ème jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="28" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="29" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="30" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="31" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Left" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="1 Fev" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Right" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="2" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+        </StackPanel>
+
+        <!-- Les journées de la 1ère ligne -->
+        <StackPanel Orientation="Horizontal">
+            <!-- 1er jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="0,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="3" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <!-- 2ème jour / 1ère ligne -->
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="4" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="5" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="6" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0">
+                <Grid Width="150" Height="75">
+                    <TextBlock Text="7" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </Grid>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Bottom,Left" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="8" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+            <Border BorderBrush="#FF1E1F23" BorderThickness="1,1,0,0" CornerRadius="15">
+                <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="Bottom,Right" Width="150" Height="75" Background="#FF363636">
+                    <TextBlock Text="9" DockPanel.Dock="Bottom" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" Margin="0,0,5,5"/>
+                </materialDesign:ColorZone>
+            </Border>
+        </StackPanel>
+    </StackPanel>
 </Page>
