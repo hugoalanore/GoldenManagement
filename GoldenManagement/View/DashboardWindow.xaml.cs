@@ -19,11 +19,41 @@ namespace GoldenManagement.View
     /// </summary>
     public partial class DashboardWindow : Window
     {
+        private bool isMaximise = false;
+
         public DashboardWindow()
         {
             InitializeComponent();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             MainFrame.Content = new AccueilPage();
+        }
+
+        private void BTN_maximiser_Click(object sender, RoutedEventArgs e)
+        {
+            if (!isMaximise)
+            {
+                isMaximise = true;
+                this.WindowState = WindowState.Maximized;
+            } else
+            {
+                isMaximise = false;
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void BTN_fermer_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BTN_minimiser_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void CZ_appBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            this.DragMove();
         }
     }
 }
