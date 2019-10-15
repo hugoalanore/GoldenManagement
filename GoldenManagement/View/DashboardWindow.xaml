@@ -5,42 +5,109 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenManagement.View"
         mc:Ignorable="d"
-        Title="Golden Management" Height="768" Width="1024" MinHeight="600" MinWidth="800"
+        Title="Golden Management" Height="760" Width="1280" MinHeight="760" MinWidth="1280"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
-    
-    <DockPanel>
-        <!-- Barre de gauche -->
-        <StackPanel DockPanel.Dock="Left" Width="200" Background="DarkGray">
-            <StackPanel Height="150">
-                <materialDesign:PackIcon Kind="LanguageJava" Height="150" Width="200" />
-            </StackPanel>
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" 
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip">
 
-            <TextBlock Text="Bonjour" FontSize="18" FontWeight="Bold" Margin=" 0,20,0,0"/>
-            <TextBlock Text="Gradi DEMO" FontSize="20" FontWeight="Black" Margin="0,0,0,20"/>
-
-            <Button Margin="5">
-                <Grid Width="150">
-                    <materialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
-                    <TextBlock HorizontalAlignment="Center" Text="Home" FontFamily="impact"/>
-                </Grid>
-            </Button>
-
-            <Button Margin="5" Content="Gestion du planning"/>
-            <Button Margin="5"/>
-            <Button Margin="5"/>
-        </StackPanel>
-
+    <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <!-- Barre du haut -->
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="50" Background="Gray" >
-            <Border Height="50">
-                <TextBlock VerticalAlignment="Center"  Text="Dashboard / Gestion des entités / Nouveau candidat" TextWrapping="Wrap" FontSize="20"/>
-            </Border>
-        </StackPanel>
+        <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548">
+            <DockPanel>
+                <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click" Background="#4b2c20" BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="WindowClose" Height="20" Width="20"/>
+                </Button>
+                <Button x:Name= "BTN_maximiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_maximiser_Click" Background="#4b2c20" BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="WindowMaximize" Height="20" Width="20"/>
+                </Button>
+                <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" Background="#4b2c20" BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20"/>
+                </Button>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"  Text="Golden Management" Foreground="#99FFFFFF" />
+            </DockPanel>
+        </materialDesign:ColorZone>
+
+        <!-- Barre de gauche -->
+        <materialDesign:ColorZone Width="200" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="Accent" DockPanel.Dock="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#5f4339" >
+            <DockPanel>
+                <materialDesign:PackIcon Kind="Person" DockPanel.Dock="Top" Width="200" Height="200" Foreground="White"/>
+
+                <Grid Width="201" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Dashboard</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="Home" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Planning</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="Calendar" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Formation</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="School" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Formateurs</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="Teacher" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Apprenants</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="BusSchool" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Salles</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="Room" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Matériels</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="ToolboxOutline" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Facturation</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="Euro" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Grid Width="200" DockPanel.Dock="Top">
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                        <Button.Content>Paramètres</Button.Content>
+                    </Button>
+                    <materialDesign:PackIcon Kind="Settings" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                </Grid>
+
+                <Rectangle />
+
+            </DockPanel>
+        </materialDesign:ColorZone>
 
         <!-- Partie du centre -->
-        <Frame x:Name="MainFrame" Background="Beige" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth5" materialDesign:ShadowAssist.ShadowEdges="Left"  DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF303030">
+            <Frame x:Name="MainFrame" Background="#FF303030" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        </materialDesign:ColorZone>
+
     </DockPanel>
 </Window>

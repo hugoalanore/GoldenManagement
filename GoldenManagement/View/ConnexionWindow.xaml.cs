@@ -23,7 +23,7 @@ namespace GoldenManagement.View
         private readonly GoldenApp _GA = GoldenApp.Instance;
 
         // Déplacer la fenêtre
-        private void R_appBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void CZ_appBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
@@ -32,8 +32,6 @@ namespace GoldenManagement.View
         public ConnexionWindow()
         {
             InitializeComponent();
-            // Centre la fenêtre à l'écran
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private void BTN_seConnecter_Click(object sender, RoutedEventArgs e)
@@ -62,14 +60,14 @@ namespace GoldenManagement.View
             }
         }
 
-        private void BTN_quitter_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
-        private void BTN_reduce_Click(object sender, RoutedEventArgs e)
+        private void BTN_minimiser_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void BTN_fermer_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

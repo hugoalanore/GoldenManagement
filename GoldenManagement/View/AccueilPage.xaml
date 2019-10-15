@@ -9,7 +9,6 @@
       Title="AccueilPage">
     <Grid>
         <Viewbox>
-            <Calendar></Calendar>
         </Viewbox>
     </Grid>
 </Page>
