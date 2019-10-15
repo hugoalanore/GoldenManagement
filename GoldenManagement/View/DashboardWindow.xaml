@@ -35,63 +35,63 @@
                 <materialDesign:PackIcon Kind="Person" DockPanel.Dock="Top" Width="200" Height="200" Foreground="White"/>
 
                 <Grid Width="201" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Dashboard</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Home" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Planning</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Calendar" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Formation</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="School" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Formateurs</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Teacher" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Apprenants</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="BusSchool" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Salles</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Room" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Matériels</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="ToolboxOutline" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Facturation</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Euro" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
                         <Button.Content>Paramètres</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Settings" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
