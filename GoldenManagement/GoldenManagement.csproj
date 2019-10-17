@@ -84,6 +84,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Calendrier\CalendrierUC.xaml.cs">
+      <DependentUpon>CalendrierUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calendrier\JourUC.xaml.cs">
+      <DependentUpon>JourUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Calendrier\SessionUC.xaml.cs">
+      <DependentUpon>SessionUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Accueil2Page.xaml.cs">
+      <DependentUpon>Accueil2Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -93,6 +105,18 @@
     <Compile Include="View\DashboardWindow.xaml.cs">
       <DependentUpon>DashboardWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Calendrier\CalendrierUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calendrier\JourUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Calendrier\SessionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +130,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Accueil2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AccueilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App_logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\GFF_logo_black.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

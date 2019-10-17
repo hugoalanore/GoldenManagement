@@ -21,10 +21,14 @@ namespace GoldenManagement.View
     {
         private bool isMaximise = false;
 
+        AccueilPage AccueilPage = null;
+        Accueil2Page Accueil2Page = null;
+
         public DashboardWindow()
         {
             InitializeComponent();
-            MainFrame.Content = new AccueilPage();
+            AccueilPage = new AccueilPage();
+            MainFrame.Content = AccueilPage;
         }
 
         private void BTN_maximiser_Click(object sender, RoutedEventArgs e)
@@ -54,6 +58,29 @@ namespace GoldenManagement.View
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
+        }
+
+        private void BTN_planning_Click(object sender, RoutedEventArgs e)
+        {
+            if (Accueil2Page == null)
+            {
+                Accueil2Page = new Accueil2Page();
+            }
+            MainFrame.Content = Accueil2Page;
+            BTN_planning.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
+            BTN_dashboard.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
+        }
+
+        private void BTN_dashboard_Click(object sender, RoutedEventArgs e)
+        {
+            if(AccueilPage == null)
+            {
+                AccueilPage = new AccueilPage();
+            }
+            MainFrame.Content = AccueilPage;
+            BTN_dashboard.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
+            BTN_planning.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
+
         }
     }
 }
