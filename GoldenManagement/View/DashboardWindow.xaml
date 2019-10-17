@@ -5,24 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoldenManagement.View"
         mc:Ignorable="d"
-        Title="Golden Management" Height="760" Width="1400" MinHeight="760" MinWidth="1400"
+        Title="Golden Management" Height="830" Width="1625" MinHeight="830" MinWidth="1350"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" 
         WindowStyle="None" WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         ResizeMode="CanResizeWithGrip">
 
+    <Window.Resources>
+        
+    </Window.Resources>
+
     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <!-- Barre du haut -->
-        <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548">
-            <DockPanel>
-                <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click" Background="#4b2c20" BorderBrush="Transparent">
+        <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548">
+            <DockPanel VerticalAlignment="Center">
+                <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="5,5,10,5" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click" Background="#4b2c20" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="WindowClose" Height="20" Width="20"/>
                 </Button>
-                <Button x:Name= "BTN_maximiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_maximiser_Click" Background="#4b2c20" BorderBrush="Transparent">
+                <Button x:Name= "BTN_maximiser" Height="28" Width="28" Margin="5" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_maximiser_Click" Background="#4b2c20" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="WindowMaximize" Height="20" Width="20"/>
                 </Button>
-                <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" Background="#4b2c20" BorderBrush="Transparent">
+                <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="5" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" Background="#4b2c20" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20"/>
                 </Button>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Light" Text="Golden Management" Foreground="#99FFFFFF" />
@@ -33,16 +37,23 @@
         <materialDesign:ColorZone Width="200" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="Accent" DockPanel.Dock="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#5f4339" >
             <DockPanel>
                 <materialDesign:PackIcon Kind="Person" DockPanel.Dock="Top" Width="200" Height="200" Foreground="White"/>
+                <!--
+                <Ellipse DockPanel.Dock="Top" Width="150" Height="150" Margin="25" Opacity="0.8">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="../Ressources/GFF_logo_black.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                -->
 
                 <Grid Width="201" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_dashboard" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_dashboard_Click">
                         <Button.Content>Dashboard</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Home" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_planning" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_planning_Click">
                         <Button.Content>Planning</Button.Content>
                     </Button>
                     <materialDesign:PackIcon Kind="Calendar" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
@@ -103,9 +114,10 @@
         </materialDesign:ColorZone>
 
         <!-- Partie du centre -->
-        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth5" materialDesign:ShadowAssist.ShadowEdges="Left"  DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF303030">
-            <Frame x:Name="MainFrame" Background="#FF303030" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="1200" Height="720"/>
-        </materialDesign:ColorZone>
-
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" PanningMode="Both" Background="#FF3E3E42">
+            <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth0" materialDesign:ShadowAssist.ShadowEdges="All"  DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF303030">
+                <Frame x:Name="MainFrame" Background="#FF303030" HorizontalAlignment="Left" VerticalAlignment="Top" NavigationUIVisibility="Hidden"/>
+            </materialDesign:ColorZone>
+        </ScrollViewer>
     </DockPanel>
 </Window>

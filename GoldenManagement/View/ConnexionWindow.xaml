@@ -23,10 +23,10 @@
 
         <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#FF2D49A5">
             <DockPanel>
-                <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click">
+                <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click" TabIndex="5">
                     <materialDesign:PackIcon Kind="WindowClose" Height="20" Width="20"/>
                 </Button>
-                <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click">
+                <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" TabIndex="4">
                     <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20"/>
                 </Button>
             </DockPanel>
@@ -47,12 +47,12 @@
         <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
             <TextBlock Text="CONNEXION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="25" Foreground="Gray" FontSize="18" FontWeight="Light"/>
             <StackPanel VerticalAlignment="Center" Margin="10">
-                <TextBox x:Name="TB_nomUtilisateur" materialDesign:HintAssist.Hint="Nom d'utilisateur" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="16"/>
-                <PasswordBox x:Name="PB_motDePasse" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontSize="16"/>
+                <TextBox x:Name="TB_nomUtilisateur" materialDesign:HintAssist.Hint="Nom d'utilisateur" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="16" TabIndex="1"/>
+                <PasswordBox x:Name="PB_motDePasse" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontSize="16" TabIndex="2"/>
             </StackPanel>
         </Grid>
 
-        <Button x:Name="BTN_seConnecter" VerticalAlignment="Bottom" Margin="0,85" Width="150" Content="Se connecter" Click="BTN_seConnecter_Click"/>
+        <Button x:Name="BTN_seConnecter" VerticalAlignment="Bottom" Margin="0,85" Width="150" Content="Se connecter" Click="BTN_seConnecter_Click" TabIndex="3"/>
 
         <Border VerticalAlignment="Bottom" Height="80">
             <TextBox x:Name="TB_connexionResultat" Margin="25,0,25,0" VerticalAlignment="Center" Foreground="Gray" FontSize="16"  TextAlignment="Center" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0"/>
