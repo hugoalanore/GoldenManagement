@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace GoldenManagement.Model.DataAccess
             string username = "RHj5ce97rJ";
             string password = "kHy5SBwVsh";
 
-            string connString = "Server=" + host + ";Database=" + database + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string connString = string.Format("Server={0};Database={1};port={2};User Id={3};password={4}", host, database, port, username, password);
             MyConn = new MySqlConnection(connString);
         }
 
@@ -73,7 +74,7 @@ namespace GoldenManagement.Model.DataAccess
             MyConn.Open();
             try
             {
-                string requete = "SELECT ID FROM UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur AND MOT_DE_PASSE = @motDePasse";
+                string requete = "SELECT ID FROM T_UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur AND MOT_DE_PASSE = @motDePasse";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = MyConn;
                 cmd.CommandText = requete;
