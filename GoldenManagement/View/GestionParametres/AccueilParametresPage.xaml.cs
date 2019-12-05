@@ -1,5 +1,4 @@
-﻿using GoldenManagement.Calendrier;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GoldenManagement.View
+namespace GoldenManagement.View.GestionParametres
 {
     /// <summary>
-    /// Logique d'interaction pour Accueil2Page.xaml
+    /// Logique d'interaction pour AccueilParametresPage.xaml
     /// </summary>
-    public partial class Accueil2Page : Page
+    public partial class AccueilParametresPage : Page
     {
-        public CalendrierUC Calendrier { get; set; } = new CalendrierUC();
-
-        public Accueil2Page()
+        public AccueilParametresPage()
         {
             InitializeComponent();
-            DataContext = this;
-        }        
+        }
     }
 }

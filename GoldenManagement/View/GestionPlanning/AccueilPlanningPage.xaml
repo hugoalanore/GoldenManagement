@@ -1,15 +1,15 @@
-﻿<Page x:Class="GoldenManagement.View.Accueil2Page"
+﻿<Page x:Class="GoldenManagement.View.GestionPlanning.AccueilPlanningPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GoldenManagement.View"
       mc:Ignorable="d"
-      Title="Accueil2Page"
+      Title="Planning"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-      xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier"
-      >
+      xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier">
+    
     <Page.Resources>
         <Style x:Key="cz_alert_cellule" TargetType="materialDesign:ColorZone">
             <Setter Property="Padding" Value="10"/>
@@ -91,3 +91,4 @@
         </materialDesign:ColorZone>
     </StackPanel>
 </Page>
+

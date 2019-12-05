@@ -46,10 +46,10 @@
                 -->
 
                 <Grid Width="201" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_dashboard" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_dashboard_Click">
+                    <Button x:Name="BTN_accueil" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_accueil_Click">
                         <Button.Content>Accueil</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="Home" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Home" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
@@ -58,56 +58,56 @@
                             Assistant de<LineBreak/> planification
                         </TextBlock>
                     </Button>
-                    <materialDesign:PackIcon Kind="Calendar" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Calendar" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
-                        <Button.Content>Formation</Button.Content>
+                    <Button x:Name="BTN_formations" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_formations_Click">
+                        <Button.Content>Formations</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="School" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="School" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_formateurs" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_formateurs_Click">
                         <Button.Content>Formateurs</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="Teacher" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Teacher" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_apprenants" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_apprenants_Click">
                         <Button.Content>Apprenants</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="BusSchool" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="BusSchool" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_salles" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_salles_Click">
                         <Button.Content>Salles</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="Room" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Room" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_materiels" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_materiels_Click">
                         <Button.Content>Matériels</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="ToolboxOutline" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="ToolboxOutline" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_facturation" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_facturation_Click">
                         <Button.Content>Facturation</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="Euro" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Euro" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Grid Width="200" DockPanel.Dock="Top">
-                    <Button FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF">
+                    <Button x:Name="BTN_parametres" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_parametres_Click">
                         <Button.Content>Paramètres</Button.Content>
                     </Button>
-                    <materialDesign:PackIcon Kind="Settings" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Settings" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
 
                 <Rectangle />
