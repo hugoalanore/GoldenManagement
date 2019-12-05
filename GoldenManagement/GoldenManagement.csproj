@@ -93,6 +93,8 @@
     <Compile Include="Calendrier\SessionUC.xaml.cs">
       <DependentUpon>SessionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Securite\StringCipher.cs" />
+    <Compile Include="Model\BusinessObjects\Formation.cs" />
     <Compile Include="View\Accueil2Page.xaml.cs">
       <DependentUpon>Accueil2Page.xaml</DependentUpon>
     </Compile>
@@ -102,8 +104,14 @@
     <Compile Include="View\ConnexionWindow.xaml.cs">
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DashboardWindow.xaml.cs">
-      <DependentUpon>DashboardWindow.xaml</DependentUpon>
+    <Compile Include="View\GestionFormations\DetailsFormation.xaml.cs">
+      <DependentUpon>DetailsFormation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionFormations\Formations.xaml.cs">
+      <DependentUpon>Formations.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionFormations\ListeTypeFormation.xaml.cs">
+      <DependentUpon>ListeTypeFormation.xaml</DependentUpon>
     </Compile>
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
@@ -142,7 +150,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DashboardWindow.xaml">
+    <Page Include="View\GestionFormations\DetailsFormation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionFormations\Formations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionFormations\ListeTypeFormation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,8 +196,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="View\GestionEntites\" />
+    <Folder Include="Controller\GestionApprenants\" />
+    <Folder Include="Controller\GestionBatiments\" />
+    <Folder Include="Controller\GestionFormateurs\" />
+    <Folder Include="Controller\GestionFormations\" />
+    <Folder Include="Controller\GestionMateriels\" />
+    <Folder Include="Controller\GestionPlanning\" />
+    <Folder Include="Controller\GestionSalles\" />
+    <Folder Include="Controller\GestionsParametres\" />
+    <Folder Include="Controller\GestionUtilisateurs\" />
+    <Folder Include="View\GestionApprenants\" />
+    <Folder Include="View\GestionBatiments\" />
+    <Folder Include="View\GestionFormateurs\" />
+    <Folder Include="View\GestionMateriels\" />
+    <Folder Include="View\GestionParametres\" />
     <Folder Include="View\GestionPlanning\" />
+    <Folder Include="View\GestionSalles\" />
+    <Folder Include="View\GestionUtilisateurs\" />
+    <Folder Include="View\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\GFF_logo_black_full.jpg" />

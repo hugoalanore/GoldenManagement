@@ -44,9 +44,9 @@ namespace GoldenManagement.View
                 if (_GA.ConnexionApplication(nomUtilisateur, motDePasse))
                 {
                     TB_connexionResultat.Text = String.Empty;
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
                     this.Close();
-                    DashboardWindow dashboardWindow = new DashboardWindow();
-                    dashboardWindow.ShowDialog();
                 }
                 else
                 {

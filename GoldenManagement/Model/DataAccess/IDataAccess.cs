@@ -11,11 +11,23 @@ namespace GoldenManagement.Model.DataAccess
     {
         #region Gestion des utilisateurs
         // Gestion des utilisateurs
-        bool IsCorrectConnectionInformation(string nomUtilisateur, string motDePasse);
         Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur);
+        String GetPassWordByNomUtilisateur(string nomUtilisateur);
         #endregion
 
-        #region Gestion des entités
+        #region Gestion des formations
+
+        #endregion
+
+        #region Gestion des personnes
+
+        #endregion
+
+        #region Gestion des lieux
+
+        #endregion
+
+        #region Gestion du matériel
 
         #endregion
 

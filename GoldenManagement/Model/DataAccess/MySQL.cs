@@ -24,6 +24,7 @@ namespace GoldenManagement.Model.DataAccess
             MyConn = new MySqlConnection(connString);
         }
 
+        #region Gestion des utilisateurs
         public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             // On teste les valeurs passé en paramètre
@@ -34,7 +35,7 @@ namespace GoldenManagement.Model.DataAccess
             MyConn.Open();
             try
             {
-                string requete = "SELECT ID, NOM_UTILISATEUR, MOT_DE_PASSE, PRENOM, NOM FROM UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur";
+                string requete = "SELECT ID, NOM_UTILISATEUR, MOT_DE_PASSE, PRENOM, NOM FROM T_UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = MyConn;
                 cmd.CommandText = requete;
@@ -62,35 +63,28 @@ namespace GoldenManagement.Model.DataAccess
             return utilisateur;
         }
 
-        public bool IsCorrectConnectionInformation(string nomUtilisateur, string motDePasse)
+        public String GetPassWordByNomUtilisateur(string nomUtilisateur)
         {
             // On teste les valeurs passé en paramètre
-            if (nomUtilisateur == String.Empty || motDePasse == String.Empty) { throw new ArgumentException(); }
+            if (nomUtilisateur == String.Empty) { throw new ArgumentException(); }
 
             // REQUETE
-            bool IsCorrect = false;
-
+            String password = null;
             MyConn.Open();
             try
             {
-                string requete = "SELECT ID FROM UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur AND MOT_DE_PASSE = @motDePasse";
+                string requete = "SELECT MOT_DE_PASSE FROM T_UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = MyConn;
                 cmd.CommandText = requete;
                 cmd.Parameters.Add("@nomUtilisateur", MySqlDbType.VarChar).Value = nomUtilisateur;
-                cmd.Parameters.Add("@motDePasse", MySqlDbType.VarChar).Value = motDePasse;
 
-                using (MySqlDataReader reader = cmd.ExecuteReader())
+                using (DbDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
-                        // Ok
-                        IsCorrect = true;
-                    }
-                    else
-                    {
-                        // Pas Ok
-                        IsCorrect = false;
+                        reader.Read();
+                        password = reader.GetString(0);
                     }
                 }
             }
@@ -100,7 +94,29 @@ namespace GoldenManagement.Model.DataAccess
                 MyConn.Close();
             }
 
-            return IsCorrect;
+            return password;
         }
+
+        #endregion
+
+        #region Gestion des formations
+
+        #endregion
+
+        #region Gestion des personnes
+
+        #endregion
+
+        #region Gestion des lieux
+
+        #endregion
+
+        #region Gestion du matériel
+
+        #endregion
+
+        #region Planification
+
+        #endregion
     }
 }

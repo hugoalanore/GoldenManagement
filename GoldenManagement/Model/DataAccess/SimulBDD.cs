@@ -9,27 +9,15 @@ namespace GoldenManagement.Model.DataAccess
 {
     class SimulBDD : IDataAccess
     {
+        public string GetPassWordByNomUtilisateur(string nomUtilisateur)
+        {
+            throw new NotImplementedException();
+        }
+
         public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             return new Utilisateur() { Id = 0, MotDePasse = "mdp", Nom = "Alanore", NomUtilisateur = "hugo", Prenom = "Hugo" };
         }
 
-        public bool IsCorrectConnectionInformation(string nomUtilisateur, string motDePasse)
-        {
-            // Vérifier que les paramètres semblent correcte
-            if (nomUtilisateur == String.Empty || motDePasse == String.Empty)
-            {
-                throw new ArgumentException();
-            }
-
-            if (nomUtilisateur == "" && motDePasse == "")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }

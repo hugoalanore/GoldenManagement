@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GoldenManagement.Controller.Securite;
 
 namespace GoldenManagement.Controller
 {
@@ -37,7 +38,9 @@ namespace GoldenManagement.Controller
             try
             {
                 // Si les informations sont correctes
-                if (DataAccess.IsCorrectConnectionInformation(nomUtilisateur, motDePasse))
+                String password = StringCipher.Decrypt(DataAccess.GetPassWordByNomUtilisateur(nomUtilisateur));
+
+                if (password == motDePasse)
                 {
                     LivingData.UtilisateurActif = DataAccess.GetUtilisateurByNomUtilisateur(nomUtilisateur);
                     return true;
