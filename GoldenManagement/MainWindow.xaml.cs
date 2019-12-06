@@ -53,7 +53,6 @@ namespace GoldenManagement
         {
             if (!isMaximise)
             {
-
                 isMaximise = true;
                 this.WindowState = WindowState.Maximized;
             }
