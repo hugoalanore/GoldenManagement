@@ -93,8 +93,11 @@
     <Compile Include="Calendrier\SessionUC.xaml.cs">
       <DependentUpon>SessionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\GestionFormations\FormationsController.cs" />
+    <Compile Include="Controller\GestionMateriels\MaterielsController.cs" />
     <Compile Include="Controller\Securite\StringCipher.cs" />
     <Compile Include="Model\BusinessObjects\Formation.cs" />
+    <Compile Include="Model\BusinessObjects\Materiel.cs" />
     <Compile Include="View\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -113,14 +116,14 @@
     <Compile Include="View\GestionFormations\AccueilFormationsPage.xaml.cs">
       <DependentUpon>AccueilFormationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormations\DetailsFormation.xaml.cs">
-      <DependentUpon>DetailsFormation.xaml</DependentUpon>
+    <Compile Include="View\GestionFormations\AjouterCategorieFormationPage.xaml.cs">
+      <DependentUpon>AjouterCategorieFormationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormations\Formations.xaml.cs">
-      <DependentUpon>Formations.xaml</DependentUpon>
+    <Compile Include="View\GestionFormations\AjouterFormationPage.xaml.cs">
+      <DependentUpon>AjouterFormationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormations\ListeTypeFormation.xaml.cs">
-      <DependentUpon>ListeTypeFormation.xaml</DependentUpon>
+    <Compile Include="View\GestionFormations\FicheFormationPage.xaml.cs">
+      <DependentUpon>FicheFormationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GestionLieux\AccueilLieuxPage.xaml.cs">
       <DependentUpon>AccueilLieuxPage.xaml</DependentUpon>
@@ -137,6 +140,7 @@
     <Compile Include="View\GestionUtilisateurs\AccueilUtilisateursPage.xaml.cs">
       <DependentUpon>AccueilUtilisateursPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Tools\SortAdorner.cs" />
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,15 +190,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFormations\DetailsFormation.xaml">
+    <Page Include="View\GestionFormations\AjouterCategorieFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFormations\Formations.xaml">
+    <Page Include="View\GestionFormations\AjouterFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFormations\ListeTypeFormation.xaml">
+    <Page Include="View\GestionFormations\FicheFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,13 +258,10 @@
   <ItemGroup>
     <Folder Include="Controller\GestionApprenants\" />
     <Folder Include="Controller\GestionFormateurs\" />
-    <Folder Include="Controller\GestionFormations\" />
     <Folder Include="Controller\GestionLieux\" />
-    <Folder Include="Controller\GestionMateriels\" />
     <Folder Include="Controller\GestionPlanning\" />
     <Folder Include="Controller\GestionsParametres\" />
     <Folder Include="Controller\GestionUtilisateurs\" />
-    <Folder Include="View\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\GFF_logo_black_full.jpg" />

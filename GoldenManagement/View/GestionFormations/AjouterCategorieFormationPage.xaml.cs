@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GoldenManagement.View.GestionFormations
 {
     /// <summary>
-    /// Logique d'interaction pour ListeTypeFormation.xaml
+    /// Logique d'interaction pour AjouterCategorieFormationPage.xaml
     /// </summary>
-    public partial class ListeTypeFormation : Page
+    public partial class AjouterCategorieFormationPage : Page
     {
-        public ListeTypeFormation()
+        public AjouterCategorieFormationPage()
         {
             InitializeComponent();
         }

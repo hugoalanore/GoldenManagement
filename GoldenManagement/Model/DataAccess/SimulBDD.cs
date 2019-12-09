@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GoldenManagement.Model.DataAccess
 {
-    class SimulBDD : IDataAccess
+    class SimulBDD //: IDataAccess
     {
         public string GetPassWordByNomUtilisateur(string nomUtilisateur)
         {

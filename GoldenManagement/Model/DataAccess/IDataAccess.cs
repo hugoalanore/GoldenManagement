@@ -17,6 +17,21 @@ namespace GoldenManagement.Model.DataAccess
 
         #region Gestion des formations
 
+        List<Formation> GetAllFormations();
+
+        List<String> GetAllFormationsTypes();
+
+        Formation GetFormationById(int id);
+
+        bool UpdateFormations(String intitule, int nbJour, String types, int id);
+
+        bool AddFormations(String intitule, int nbJour, String types);
+
+        bool DeleteFormation(int id);
+
+        bool AddTypeFormations(String types);
+
+        bool GetTypeFormationByType(String types);
         #endregion
 
         #region Gestion des personnes
@@ -29,7 +44,15 @@ namespace GoldenManagement.Model.DataAccess
 
         #region Gestion du matériel
 
+        List<Materiel> GetAllMateriels();
+
+        List<Materiel> GetListMaterielsFormation(int id);
+
+        bool deleteMaterielFormation(int id);
+
+        bool addMaterielFormation(int idFormation, string libelle, int quantite);
         #endregion
+
 
         #region Planification
 
