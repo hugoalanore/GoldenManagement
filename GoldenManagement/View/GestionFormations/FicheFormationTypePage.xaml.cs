@@ -20,75 +20,49 @@ using System.Windows.Shapes;
 namespace GoldenManagement.View.GestionFormations
 {
     /// <summary>
-    /// Logique d'interaction pour AccueilFormationsPage.xaml
+    /// Logique d'interaction pour FicheFormationTypePage.xaml
     /// </summary>
-    public partial class AccueilFormationsPage : Page
+    public partial class FicheFormationTypePage : Page
     {
         private readonly FormationsController FormationsController = FormationsController.Instance;
         private List<Formation> listFormations = new List<Formation>();
 
+        private int id;
+        private MainWindow MainWindow;
+        private AccueilFormationsPage AccueilFormationsPage;
+        private AjouterFormationPage AjouterFormationPage;
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
-        MainWindow MainWindow;
-        //AjouterFormations AjouterFormationsPage;
+        public string formationType;
 
-        public AccueilFormationsPage(MainWindow MainWindow)
+        public FicheFormationTypePage(int id, string formationType, MainWindow MainWindow)
         {
             InitializeComponent();
-            GetAllFormations();
             this.MainWindow = MainWindow;
-            AllFormationsTypes.ItemsSource = FormationsController.GetAllFormationsTypes();
-
+            this.id = id;
+            GetAllFormations();
+            this.formationType = formationType;
+            TB_titleFormationType.Text = formationType;
         }
-
         private void GetAllFormations()
         {
-            listFormations = FormationsController.GetAllFormations();
+            listFormations = FormationsController.GetAllFormationByFormationType(id);
             lvUsers.ItemsSource = listFormations;
 
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvUsers.ItemsSource);
             view.Filter = UserFilter;
         }
-
         private bool UserFilter(object item)
         {
             if (String.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return ((item as Formation).Intitule.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0 || (item as Formation).Libelle.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                return ((item as Formation).Intitule.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
-
         private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(lvUsers.ItemsSource).Refresh();
-            TB_mySearch.Text = "Recherche : " + txtFilter.Text;
-        }
-
-        private void BTN_ajouter_formation_Click(object sender, RoutedEventArgs e)
-        {
-            /*if (AjouterFormationsPage == null)
-            {
-                AjouterFormationsPage = new AjouterFormations(this.DashboardWindowPage, this);
-            }
-            DashboardWindowPage.MainFrame.Content = AjouterFormationsPage;*/
-        }
-
-        private void BTN_show_utilisateur_Click(object sender, MouseButtonEventArgs e)
-        {
-            ListViewItem lvi = sender as ListViewItem;
-            dynamic yourdataObject = lvi.DataContext;
-            int id = yourdataObject.Id;
-
-            MainWindow.MainFrame.Content = new FicheFormationPage(id, this.MainWindow, this);
-        }
-
-        private void BTN_FormationType_Click(object sender, RoutedEventArgs e)
-        {
-            var idFormationType = ((Button)sender).Tag;
-            var formationType = ((Button)sender).Content;
-
-            MainWindow.MainFrame.Content = new FicheFormationTypePage((int)idFormationType, formationType.ToString(), this.MainWindow);
         }
 
         private void lvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
@@ -111,9 +85,28 @@ namespace GoldenManagement.View.GestionFormations
             lvUsers.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
-        private void BTN_addFormationType_Click(object sender, RoutedEventArgs e)
+        private void BTN_show_utilisateur_Click(object sender, MouseButtonEventArgs e)
         {
 
+        }
+        
+
+        private void BTN_retour_Click(object sender, RoutedEventArgs e)
+        {
+            if (AccueilFormationsPage == null)
+            {
+                AccueilFormationsPage = new AccueilFormationsPage(this.MainWindow);
+            }
+            MainWindow.MainFrame.Content = AccueilFormationsPage;
+        }
+
+        private void BTN_addFormation_Click(object sender, RoutedEventArgs e)
+        {
+            if (AjouterFormationPage == null)
+            {
+                AjouterFormationPage = new AjouterFormationPage(this.MainWindow, this);
+            }
+            MainWindow.MainFrame.Content = AjouterFormationPage;
         }
     }
 }

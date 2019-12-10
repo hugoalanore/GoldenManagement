@@ -135,15 +135,15 @@ namespace GoldenManagement.Model.DataAccess
             return allFormations;
         }
 
-        public List<String> GetAllFormationsTypes()
+        public List<TypeFormation> GetAllFormationsTypes()
         {
-            List<String> allFormationsTypes = new List<string>();
+            List<TypeFormation> allFormationsTypes = new List<TypeFormation>();
 
             // REQUETE
             MyConn.Open();
             try
             {
-                string requete = "SELECT LIBELLE FROM T_FORMATIONS_TYPES";
+                string requete = "SELECT ID, LIBELLE FROM T_FORMATIONS_TYPES";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = MyConn;
                 cmd.CommandText = requete;
@@ -151,7 +151,10 @@ namespace GoldenManagement.Model.DataAccess
 
                 while (reader.Read())
                 {
-                    allFormationsTypes.Add(reader.GetString(0));
+                    TypeFormation typeFormation = new TypeFormation();
+                    typeFormation.Id = reader.GetInt32(0);
+                    typeFormation.Libelle = reader.GetString(1);
+                    allFormationsTypes.Add(typeFormation);
                 }
             }
             catch (Exception) { }
@@ -196,6 +199,39 @@ namespace GoldenManagement.Model.DataAccess
             }
 
             return formation;
+        }
+
+        public List<Formation> GetAllFormationByFormationType(int id)
+        {
+            List<Formation> formationsSameType = new List<Formation>();
+            MyConn.Open();
+            try
+            {
+                string requete = "SELECT T_FORMATIONS.ID, T_FORMATIONS.INTITULE, T_FORMATIONS.NB_JOUR, T_FORMATIONS.EST_ACTIVE, T_FORMATIONS_TYPES.LIBELLE FROM T_FORMATIONS INNER JOIN T_FORMATIONS_TYPES ON T_FORMATIONS.FORMATIONS_TYPE_ID=T_FORMATIONS_TYPES.ID WHERE T_FORMATIONS_TYPES.ID = @id";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = MyConn;
+                cmd.CommandText = requete;
+                cmd.Parameters.Add("@id", MySqlDbType.Int64).Value = id;
+                DbDataReader reader = cmd.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    Formation formation = new Formation();
+                    formation.Id = reader.GetInt16(0);
+                    formation.Intitule = reader.GetString(1);
+                    formation.NbJour = reader.GetInt16(2);
+                    formation.Libelle = reader.GetString(4);
+                    formationsSameType.Add(formation);
+                }
+            }
+            catch (Exception) { }
+            finally
+            {
+                MyConn.Close();
+            }
+
+            return formationsSameType;
         }
 
         public bool UpdateFormations(String intitule, int nbJour, String types, int id)

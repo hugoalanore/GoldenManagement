@@ -19,9 +19,11 @@ namespace GoldenManagement.Model.DataAccess
 
         List<Formation> GetAllFormations();
 
-        List<String> GetAllFormationsTypes();
+        List<TypeFormation> GetAllFormationsTypes();
 
         Formation GetFormationById(int id);
+
+        List<Formation> GetAllFormationByFormationType(int id);
 
         bool UpdateFormations(String intitule, int nbJour, String types, int id);
 

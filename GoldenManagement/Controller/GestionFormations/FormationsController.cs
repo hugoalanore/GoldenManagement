@@ -38,7 +38,7 @@ namespace GoldenManagement.Controller.GestionFormations
             return DataAccess.GetAllFormations();
         }
 
-        public List<String> GetAllFormationsTypes()
+        public List<TypeFormation> GetAllFormationsTypes()
         {
             return DataAccess.GetAllFormationsTypes();
         }
@@ -48,6 +48,11 @@ namespace GoldenManagement.Controller.GestionFormations
             Formation formation = DataAccess.GetFormationById(id);
             formation.MaterielsFormation = DataAccess.GetListMaterielsFormation(id);
             return formation;
+        }
+
+        public List<Formation> GetAllFormationByFormationType(int id)
+        {
+            return DataAccess.GetAllFormationByFormationType(id);
         }
 
         public bool UpdateFormation(int id, string libelle, int nbJour, String intitule)

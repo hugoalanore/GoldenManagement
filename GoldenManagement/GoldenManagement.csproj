@@ -98,6 +98,7 @@
     <Compile Include="Controller\Securite\StringCipher.cs" />
     <Compile Include="Model\BusinessObjects\Formation.cs" />
     <Compile Include="Model\BusinessObjects\Materiel.cs" />
+    <Compile Include="Model\BusinessObjects\TypeFormation.cs" />
     <Compile Include="View\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -116,14 +117,17 @@
     <Compile Include="View\GestionFormations\AccueilFormationsPage.xaml.cs">
       <DependentUpon>AccueilFormationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormations\AjouterCategorieFormationPage.xaml.cs">
-      <DependentUpon>AjouterCategorieFormationPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\GestionFormations\AjouterFormationPage.xaml.cs">
       <DependentUpon>AjouterFormationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GestionFormations\AjouterFormationTypePage.xaml.cs">
+      <DependentUpon>AjouterFormationTypePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GestionFormations\FicheFormationPage.xaml.cs">
       <DependentUpon>FicheFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionFormations\FicheFormationTypePage.xaml.cs">
+      <DependentUpon>FicheFormationTypePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GestionLieux\AccueilLieuxPage.xaml.cs">
       <DependentUpon>AccueilLieuxPage.xaml</DependentUpon>
@@ -190,15 +194,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFormations\AjouterCategorieFormationPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\GestionFormations\AjouterFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\GestionFormations\AjouterFormationTypePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GestionFormations\FicheFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionFormations\FicheFormationTypePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
