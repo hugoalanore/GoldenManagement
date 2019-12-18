@@ -397,6 +397,93 @@ namespace GoldenManagement.Model.DataAccess
 
         #endregion
 
+        #region Gestion des formateurs
+            
+        public List<Formateur> GetAllFormateursFormations()
+        {
+            List<Formateur> allFormateurs = new List<Formateur>();
+
+            // REQUETE
+            MyConn.Open();
+            try
+            {
+                string requete = "SELECT T_FORMATEURS.ID, T_FORMATEURS.NOM, T_FORMATEURS.PRENOM FROM T_FORMATEURS";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = MyConn;
+                cmd.CommandText = requete;
+                DbDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Formateur formateur = new Formateur();
+                    formateur.Id = reader.GetInt16(0);
+                    formateur.Nom = reader.GetString(1);
+                    formateur.Prenom = reader.GetString(2);
+                    allFormateurs.Add(formateur);
+                }
+
+            }
+            catch (Exception) { }
+            finally
+            {
+                MyConn.Close();
+            }
+
+            return allFormateurs;
+        } 
+
+        public bool addFormateurFormation(int idFormation, int idFormateur)
+        {
+            MyConn.Open();
+            bool IsDo = false;
+            try
+            {
+                string requete = "INSERT INTO T_GROUPE_MATERIELS_REQUIS_FORMATION (FORMATIONS_ID, FORMATEURS_ID) VALUES (@idFormation, @idFormateur)";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = MyConn;
+                cmd.CommandText = requete;
+                cmd.Parameters.Add("@idFormation", MySqlDbType.Int32).Value = idFormation;
+                cmd.Parameters.Add("@idFormateur", MySqlDbType.Int32).Value = idFormateur;
+                DbDataReader reader = cmd.ExecuteReader();
+
+                IsDo = true;
+            }
+            catch (Exception) { }
+            finally
+            {
+                MyConn.Close();
+            }
+
+            return IsDo;
+        }
+
+        public bool deleteFormateurFormation(int id)
+        {
+            MyConn.Open();
+            bool IsDo = false;
+            try
+            {
+                string requete = "DELETE FROM T_GROUPE_FORMATIONS_FORMATEURS WHERE ID = @id";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = MyConn;
+                cmd.CommandText = requete;
+                cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+                DbDataReader reader = cmd.ExecuteReader();
+
+                IsDo = true;
+
+            }
+            catch (Exception) { }
+            finally
+            {
+                MyConn.Close();
+            }
+
+            return IsDo;
+        }
+
+        #endregion
+
         #region Gestion des personnes
 
         #endregion

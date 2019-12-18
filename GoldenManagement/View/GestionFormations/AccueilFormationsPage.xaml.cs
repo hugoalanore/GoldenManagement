@@ -121,9 +121,9 @@ namespace GoldenManagement.View.GestionFormations
             lvUsers.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
-        private void DisplayPopup(object sender, RoutedEventArgs e)
+        /*private void DisplayPopup(object sender, RoutedEventArgs e)
         {
             myPopup.IsOpen = true;
-        }
+        }*/
     }
 }

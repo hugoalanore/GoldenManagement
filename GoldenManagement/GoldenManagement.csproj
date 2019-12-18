@@ -93,9 +93,11 @@
     <Compile Include="Calendrier\SessionUC.xaml.cs">
       <DependentUpon>SessionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\GestionFormateurs\FormateursController.cs" />
     <Compile Include="Controller\GestionFormations\FormationsController.cs" />
     <Compile Include="Controller\GestionMateriels\MaterielsController.cs" />
     <Compile Include="Controller\Securite\StringCipher.cs" />
+    <Compile Include="Model\BusinessObjects\Formateur.cs" />
     <Compile Include="Model\BusinessObjects\Formation.cs" />
     <Compile Include="Model\BusinessObjects\Materiel.cs" />
     <Compile Include="Model\BusinessObjects\TypeFormation.cs" />
@@ -116,6 +118,9 @@
     </Compile>
     <Compile Include="View\GestionFormations\AccueilFormationsPage.xaml.cs">
       <DependentUpon>AccueilFormationsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionFormations\AjouterFormateurFormationPage.xaml.cs">
+      <DependentUpon>AjouterFormateurFormationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\GestionFormations\AjouterFormationPage.xaml.cs">
       <DependentUpon>AjouterFormationPage.xaml</DependentUpon>
@@ -194,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\GestionFormations\AjouterFormateurFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GestionFormations\AjouterFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -265,7 +274,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controller\GestionApprenants\" />
-    <Folder Include="Controller\GestionFormateurs\" />
     <Folder Include="Controller\GestionLieux\" />
     <Folder Include="Controller\GestionPlanning\" />
     <Folder Include="Controller\GestionsParametres\" />

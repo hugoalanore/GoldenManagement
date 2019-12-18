@@ -38,6 +38,12 @@ namespace GoldenManagement.Model.DataAccess
 
         #region Gestion des personnes
 
+        List<Formateur> GetAllFormateursFormations();
+
+        bool addFormateurFormation(int idFormation, int idFormateur);
+
+        bool deleteFormateurFormation(int id);
+
         #endregion
 
         #region Gestion des lieux

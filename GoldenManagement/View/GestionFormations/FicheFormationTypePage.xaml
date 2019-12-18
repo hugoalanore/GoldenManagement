@@ -63,6 +63,7 @@
                 </Grid>
                 <Grid>
                     <Button Content="+ Ajouter" Click="BTN_addFormation_Click" Width="150" HorizontalAlignment="Left"/>
+                    <Button Content="Supprimer" Click="BTN_deleteFormation_Click" Width="150" HorizontalAlignment="Center"/>
                     <Button Content="Retour" Click="BTN_retour_Click" Width="150" HorizontalAlignment="Right" Margin="0,0,0,0"/>
                 </Grid>
             </StackPanel>

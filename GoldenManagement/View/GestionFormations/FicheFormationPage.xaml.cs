@@ -29,17 +29,17 @@ namespace GoldenManagement.View.GestionFormations
         private readonly MaterielsController MaterielsController = MaterielsController.Instance;
         private int idFormation;
         private MainWindow MainWindow;
-        private AccueilFormationsPage AccueilFormationsPage;
+        private Page RetourPage;
 
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
 
-        public FicheFormationPage(int id, MainWindow MainWindow, AccueilFormationsPage AccueilFormationsPage)
+        public FicheFormationPage(int id, MainWindow MainWindow, Page RetourPage)
         {
             InitializeComponent();
             this.idFormation = id;
             this.MainWindow = MainWindow;
-            this.AccueilFormationsPage = AccueilFormationsPage;
+            this.RetourPage = RetourPage;
             GetFormation();
 
             // ComboBox Formation
@@ -117,7 +117,8 @@ namespace GoldenManagement.View.GestionFormations
 
         private void BTN_ajoutFormateur_Click(object sender, RoutedEventArgs e)
         {
-
+            var AjouterFormateurFormationPage = new AjouterFormateurFormationPage(this.MainWindow, this);//TODO faire la modif
+            MainWindow.MainFrame.Content = AjouterFormateurFormationPage;
         }
 
         private void BTN_deleteFormateur_Click(object sender, MouseButtonEventArgs e)
@@ -132,11 +133,7 @@ namespace GoldenManagement.View.GestionFormations
 
         private void BTN_retour_Click(object sender, RoutedEventArgs e)
         {
-            if (AccueilFormationsPage == null)
-            {
-                AccueilFormationsPage = new AccueilFormationsPage(this.MainWindow);
-            }
-            MainWindow.MainFrame.Content = AccueilFormationsPage;
+            MainWindow.MainFrame.Content = RetourPage;
         }
 
         private void lvUsersColumnHeader_Click(object sender, RoutedEventArgs e)

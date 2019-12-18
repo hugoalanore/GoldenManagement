@@ -15,6 +15,8 @@ namespace GoldenManagement.Model.BusinessObjects
         public String Libelle { get; set; }
         //Dans table T_GROUPE_MATERIELS_REQUIS_FORMATION & T_MATERIELS
         public List<Materiel> MaterielsFormation { get; set; }
+        //Dans table T_GROUPE_FORMATIONS_FORMATEURS
+        public List<Formateur> FormateursFormation { get; set; }
 
 
         public Formation() { }

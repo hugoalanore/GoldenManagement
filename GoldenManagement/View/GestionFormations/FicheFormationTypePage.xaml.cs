@@ -87,9 +87,12 @@ namespace GoldenManagement.View.GestionFormations
 
         private void BTN_show_utilisateur_Click(object sender, MouseButtonEventArgs e)
         {
+            ListViewItem lvi = sender as ListViewItem;
+            dynamic yourdataObject = lvi.DataContext;
+            int id = yourdataObject.Id;
 
+            MainWindow.MainFrame.Content = new FicheFormationPage(id, this.MainWindow, this);
         }
-        
 
         private void BTN_retour_Click(object sender, RoutedEventArgs e)
         {
@@ -107,6 +110,11 @@ namespace GoldenManagement.View.GestionFormations
                 AjouterFormationPage = new AjouterFormationPage(this.MainWindow, this);
             }
             MainWindow.MainFrame.Content = AjouterFormationPage;
+        }
+
+        private void BTN_deleteFormation_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO demander si delete des formation lier ou est active ?
         }
     }
 }
