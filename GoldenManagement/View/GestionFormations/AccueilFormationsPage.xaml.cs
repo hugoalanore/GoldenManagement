@@ -31,6 +31,7 @@ namespace GoldenManagement.View.GestionFormations
         private SortAdorner listViewSortAdorner = null;
         MainWindow MainWindow;
         //AjouterFormations AjouterFormationsPage;
+        AjouterFormationTypePage AjouterFormationTypePage;
 
         public AccueilFormationsPage(MainWindow MainWindow)
         {
@@ -91,6 +92,15 @@ namespace GoldenManagement.View.GestionFormations
             MainWindow.MainFrame.Content = new FicheFormationTypePage((int)idFormationType, formationType.ToString(), this.MainWindow);
         }
 
+        private void BTN_addFormationType_Click(object sender, RoutedEventArgs e)
+        {
+            if (AjouterFormationTypePage == null)
+            {
+                AjouterFormationTypePage = new AjouterFormationTypePage(this.MainWindow, this);
+            }
+            MainWindow.MainFrame.Content = AjouterFormationTypePage;
+        }
+
         private void lvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
@@ -111,9 +121,9 @@ namespace GoldenManagement.View.GestionFormations
             lvUsers.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
 
-        private void BTN_addFormationType_Click(object sender, RoutedEventArgs e)
+        private void DisplayPopup(object sender, RoutedEventArgs e)
         {
-
+            myPopup.IsOpen = true;
         }
     }
 }

@@ -85,6 +85,18 @@ namespace GoldenManagement.Controller.GestionFormations
                 return DataAccess.AddFormations(intitule, nbJour, libelle);
             }
         }
+
+        public bool AddTypeFormations(string libelle)
+        {
+            if (DataAccess.GetTypeFormationByType(libelle))
+            {
+                return false;
+            } else
+            {
+                return DataAccess.AddTypeFormations(libelle);
+            }
+        }
+
         #endregion
     }
 }

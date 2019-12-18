@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GoldenManagement.Controller.GestionFormations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,43 @@ namespace GoldenManagement.View.GestionFormations
     /// </summary>
     public partial class AjouterFormationTypePage : Page
     {
-        public AjouterFormationTypePage()
+        private readonly FormationsController FormationsController = FormationsController.Instance;
+        private MainWindow MainWindow;
+        private AccueilFormationsPage AccueilFormationsPage;
+
+        public AjouterFormationTypePage(MainWindow MainWindow, AccueilFormationsPage AccueilFormationsPage)
         {
             InitializeComponent();
+            this.MainWindow = MainWindow;
+            this.AccueilFormationsPage = AccueilFormationsPage;
+        }
+
+        private void BTN_annuler_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MainFrame.Content = AccueilFormationsPage;
+        }
+
+        private void BTN_ajouterTypeFormation_Click(object sender, RoutedEventArgs e)
+        {
+            string typeFormation = TB_nomTypeFormation.Text;
+
+            try
+            {
+                TB_message.Text = String.Empty;
+                if (FormationsController.AddTypeFormations(typeFormation))
+                {
+                    TB_message.Text = "Ajout Effectuer";
+                    TB_nomTypeFormation.Text = String.Empty;
+                }
+                else
+                {
+                    TB_message.Text = "Ajout erreur";
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

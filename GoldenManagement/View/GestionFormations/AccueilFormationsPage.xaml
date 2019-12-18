@@ -40,6 +40,21 @@
                         </ItemsControl>
                     </WrapPanel>
                 </Grid>
+                <Grid>
+                    <Button FontSize="16" x:Name="BTN_addFormationType" Margin="0,0,0,0" Foreground="Aqua" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" Click="BTN_addFormationType_Click">
+                        <Button.Content>+ Ajouter une categorie</Button.Content>
+                    </Button>
+                    <Button HorizontalAlignment="Left" Click="DisplayPopup" Width="150" Margin="20,10,0,0">
+                        <StackPanel>
+                            <TextBlock>Display Your Popup Text</TextBlock>
+                            <Popup Name="myPopup">
+                                <TextBlock Name="myPopupText"  Background="LightBlue" Foreground="Blue">
+                                    Popup Text
+                                </TextBlock>
+                            </Popup>
+                        </StackPanel>
+                    </Button>
+                </Grid>
                 <Grid Margin="0,10,0,0">
                     <TextBlock x:Name="TB_mySearch" Text="Recherche :" FontSize="20" Foreground="#CCFFFFFF" Margin="0,0,0,5"/>
                 </Grid>
