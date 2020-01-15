@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public abstract class ARepository<T> : ICRUD<T>  where T : class
+    internal abstract class ARepository<T> : ICRUD<T>  where T : class
     {
         public void Create(T entity)
         {

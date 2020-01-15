@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public class FormationRepository : ARepository<Formation>
+    internal class FormationRepository : ARepository<Formation>
     {
     }
 }

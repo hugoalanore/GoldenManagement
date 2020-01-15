@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public class FormateurRepository : ARepository<Formateur>
+    internal class FormateurRepository : ARepository<Formateur>
     {
     }
 }

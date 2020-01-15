@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public class SessionRepository : ARepository<Session>
+    internal class SessionRepository : ARepository<Session>
     {
     }
 }

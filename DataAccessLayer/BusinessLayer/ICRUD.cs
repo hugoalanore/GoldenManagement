@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    interface ICRUD<T> where T : class
+    internal interface ICRUD<T> where T : class
     {
         IEnumerable<T> GetAll();
         T GetById(object id);
