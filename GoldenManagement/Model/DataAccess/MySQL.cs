@@ -103,5 +103,10 @@ namespace GoldenManagement.Model.DataAccess
 
             return IsCorrect;
         }
+
+        public string GetPassWordByNomUtilisateur(string nomUtilisateur)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

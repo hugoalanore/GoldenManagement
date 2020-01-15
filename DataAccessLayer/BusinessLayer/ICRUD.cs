@@ -6,16 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    interface ICRUD  <T>
+    interface ICRUD<T> where T : class
     {
-        void Creat();
-
-        Object GetByID();
-
-        ICollection<T> GetAll();
-
-        void Update(T obj);
-
-        void Delete(T obj);
+        IEnumerable<T> GetAll();
+        T GetById(object id);
+        void Create(T entity);
+        void Update(T entity);
+        void Delete(object id);
     }
 }
