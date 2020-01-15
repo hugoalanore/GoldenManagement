@@ -1,11 +1,12 @@
 namespace DataAccessLayer.Migrations
 {
+    using DataAccessLayer.AccessLayer;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AccessLayer.DBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DBContext>
     {
         public Configuration()
         {
@@ -13,9 +14,9 @@ namespace DataAccessLayer.Migrations
             SetSqlGenerator("MySql.Data.MySqlClient", new CustomizedMySqlMigrationSqlGenerator());
         }
 
-        protected override void Seed(AccessLayer.DBContext context)
+        protected override void Seed(DBContext context)
         {
-            // SeedDB.Seed(dBContext);
+            SeedDB.Seed();
         }
     }
 }

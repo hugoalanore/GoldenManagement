@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    internal class MaterielRepository : ARepository<Materiel>
+    public class MaterielRepository : ARepository<Materiel>
     {
     }
 }

@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    internal abstract class ARepository<T> : ICRUD<T>  where T : class
+    public abstract class ARepository<T> : ICRUD<T>  where T : class
     {
-        public void Create(T entity)
+        public T Create(T entity)
         {
             try
             {
-                DBContext.Instance.Set<T>().Add(entity);
+                entity = DBContext.Instance.Set<T>().Add(entity);
                 Save();
             }
             catch (Exception e)
             {
                 throw new Exception("Error on Create", e);
             }
+            return entity;
         }
 
         public IEnumerable<T> GetAll()
@@ -46,11 +47,11 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public void Update(T entity)
+        public T Update(T entity)
         {
             try
             {
-                DBContext.Instance.Set<T>().Attach(entity);
+                entity = DBContext.Instance.Set<T>().Attach(entity);
                 DBContext.Instance.Entry(entity).State = System.Data.Entity.EntityState.Modified;
                 Save();
             }
@@ -58,6 +59,7 @@ namespace DataAccessLayer.BusinessLayer
             {
                 throw new Exception("Error on Update", e);
             }
+            return entity;
         }
 
         public void Delete(object id)

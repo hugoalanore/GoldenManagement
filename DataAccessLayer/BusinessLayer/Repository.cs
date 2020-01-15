@@ -15,8 +15,10 @@ namespace DataAccessLayer.BusinessLayer
         public static FormationRepository Formations { get; set; } = new FormationRepository();
         public static JourRepository Jours { get; set; } = new JourRepository();
         public static MaterielRepository Materiels { get; set; } = new MaterielRepository();
+        public static RoleUtilisateurRepository RoleUtilisateurs { get; set; } = new RoleUtilisateurRepository();
         public static SalleRepository Salles { get; set; } = new SalleRepository();
         public static SessionRepository Sessions { get; set; } = new SessionRepository();
         public static TypeFormationRepository TypeFormations { get; set; } = new TypeFormationRepository();
+        public static UtilisateurRepository Utilisateurs { get; set; } = new UtilisateurRepository();
     }
 }

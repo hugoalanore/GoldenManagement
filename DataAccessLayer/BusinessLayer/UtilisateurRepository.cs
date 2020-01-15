@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public class JourRepository : ARepository<Jour>
+    public class UtilisateurRepository : ARepository<Utilisateur>
     {
     }
 }

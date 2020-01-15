@@ -77,12 +77,18 @@
     <Compile Include="BusinessLayer\JourRepository.cs" />
     <Compile Include="BusinessLayer\MaterielRepository.cs" />
     <Compile Include="BusinessLayer\Repository.cs" />
+    <Compile Include="BusinessLayer\RoleUtilisateurRepository.cs" />
     <Compile Include="BusinessLayer\SalleRepository.cs" />
     <Compile Include="BusinessLayer\SessionRepository.cs" />
     <Compile Include="BusinessLayer\TypeFormationRepository.cs" />
-    <Compile Include="Migrations\202001151543409_Models_0.cs" />
-    <Compile Include="Migrations\202001151543409_Models_0.Designer.cs">
-      <DependentUpon>202001151543409_Models_0.cs</DependentUpon>
+    <Compile Include="BusinessLayer\UtilisateurRepository.cs" />
+    <Compile Include="Migrations\202001152029263_Models_0.cs" />
+    <Compile Include="Migrations\202001152029263_Models_0.Designer.cs">
+      <DependentUpon>202001152029263_Models_0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001152118277_Models_01.cs" />
+    <Compile Include="Migrations\202001152118277_Models_01.Designer.cs">
+      <DependentUpon>202001152118277_Models_01.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\CustomizedMySqlMigrationSqlGenerator.cs" />
@@ -115,8 +121,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001151543409_Models_0.resx">
-      <DependentUpon>202001151543409_Models_0.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001152029263_Models_0.resx">
+      <DependentUpon>202001152029263_Models_0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001152118277_Models_01.resx">
+      <DependentUpon>202001152118277_Models_01.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

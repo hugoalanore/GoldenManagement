@@ -11,8 +11,11 @@ namespace DataAccessLayer.Models
     [ComplexType]
     public class Adresse
     {
+        [Column("Rue")]
         public string Rue { get; set; }
+        [Column("Ville")]
         public string Ville { get; set; }
+        [Column("CodePostal")]
         public string CodePostal { get; set; }
     }
 }

@@ -31,7 +31,7 @@
 
         // À la fin du dev, passer le constructeur en "private"
         public DBContext()
-            : base("name=DB_MYSQL_RMS")
+            : base("name=DB_MYSQL_LOCAL_ADMIN")
         {
             Database.SetInitializer<DBContext>(new DBInitializer());
 
