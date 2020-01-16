@@ -9,18 +9,17 @@ namespace DataAccessLayer.BusinessLayer
 {
     public abstract class ARepository<T> : ICRUD<T>  where T : class
     {
-        public T Create(T entity)
+        public void Create(T entity)
         {
             try
             {
-                entity = DBContext.Instance.Set<T>().Add(entity);
+                DBContext.Instance.Set<T>().Add(entity);
                 Save();
             }
             catch (Exception e)
             {
                 throw new Exception("Error on Create", e);
             }
-            return entity;
         }
 
         public IEnumerable<T> GetAll()
@@ -47,7 +46,7 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public T Update(T entity)
+        public void Update(T entity)
         {
             try
             {
@@ -59,7 +58,6 @@ namespace DataAccessLayer.BusinessLayer
             {
                 throw new Exception("Error on Update", e);
             }
-            return entity;
         }
 
         public void Delete(int id)
@@ -76,7 +74,7 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        private void Save()
+        public void Save()
         {
             DBContext.Instance.SaveChanges();
         }

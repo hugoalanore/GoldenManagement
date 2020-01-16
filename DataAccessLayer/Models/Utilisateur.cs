@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Chiffrement;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -14,10 +15,17 @@ namespace DataAccessLayer.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public String Prenom { get; set; }
-        public String Nom { get; set; }
-        public String NomUtilisateur { get; set; }
-        public String MotDePasse { get; set; }
+        public string Prenom { get; set; }
+        public string Nom { get; set; }
+        public string NomUtilisateur { get; set; }
+        public string MotDePasse { get; set; }
         public RoleUtilisateur Role { get; set; }
+
+        public Utilisateur() { }
+
+        public Utilisateur Clone()
+        {
+            return new Utilisateur() { Id = Id, Prenom = Prenom, NomUtilisateur = NomUtilisateur, MotDePasse = MotDePasse, Role = Role };
+        }
     }
 }

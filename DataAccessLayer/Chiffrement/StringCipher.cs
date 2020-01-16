@@ -1,12 +1,12 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace GoldenManagement.Controller.Securite
+namespace DataAccessLayer.Chiffrement
 {
     public static class StringCipher
     {

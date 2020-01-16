@@ -62,10 +62,10 @@
             return true;
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            // base.OnModelCreating(modelBuilder);
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    // base.OnModelCreating(modelBuilder);
+        //}
     }
 
     // Ajoutez un DbSet pour chaque type d'entité à inclure dans votre modèle. Pour plus d'informations 

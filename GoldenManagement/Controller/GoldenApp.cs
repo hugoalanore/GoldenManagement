@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GoldenManagement.Controller.Securite;
+using DataAccessLayer.BusinessLayer;
+using DataAccessLayer.Models;
 
 namespace GoldenManagement.Controller
 {
@@ -28,32 +29,38 @@ namespace GoldenManagement.Controller
             LivingData = new LivingData(); // Living Data
 
             // DataAccess = new SimulBDD(); // Data Access
-            DataAccess = new MySQL();       // Data Access
+            DataAccess = new DataAccessLayerBDD();       // Data Access
         }
         #endregion
 
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
-            try
+            if((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
             {
-                // Si les informations sont correctes
-                String password = StringCipher.Decrypt(DataAccess.GetPassWordByNomUtilisateur(nomUtilisateur));
+                try
+                {
+                    Utilisateur utilisateur = DataAccess.GetUtilisateurByNomUtilisateur(nomUtilisateur);
+                    if (utilisateur != null && utilisateur.MotDePasse == motDePasse)
+                    {
+                        LivingData.UtilisateurActif = utilisateur;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
 
-                if (password == motDePasse)
-                {
-                    LivingData.UtilisateurActif = DataAccess.GetUtilisateurByNomUtilisateur(nomUtilisateur);
-                    return true;
                 }
-                else
+                // Les arguments ne sont pas correcte (nom d'utilisateur ou mot de passe vide)
+                catch (ArgumentException e)
                 {
-                    return false;
+                    throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
                 }
             }
-            // Les arguments ne sont pas correcte (nom d'utilisateur ou mot de passe vide)
-            catch (ArgumentException e)
+            else
             {
-                throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
+                throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes");
             }
         }
         #endregion

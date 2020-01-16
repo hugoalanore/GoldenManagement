@@ -3,7 +3,7 @@ namespace DataAccessLayer.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Models_0 : DbMigration
+    public partial class Models0 : DbMigration
     {
         public override void Up()
         {

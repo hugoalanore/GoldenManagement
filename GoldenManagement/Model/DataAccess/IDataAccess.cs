@@ -1,9 +1,9 @@
-﻿using GoldenManagement.Model.BusinessObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccessLayer.Models;
 
 namespace GoldenManagement.Model.DataAccess
 {
@@ -12,7 +12,6 @@ namespace GoldenManagement.Model.DataAccess
         #region Gestion des utilisateurs
         // Gestion des utilisateurs
         Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur);
-        String GetPassWordByNomUtilisateur(string nomUtilisateur);
         #endregion
 
         #region Gestion des formations

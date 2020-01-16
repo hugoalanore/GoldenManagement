@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.BusinessLayer;
+using DataAccessLayer.Chiffrement;
 using DataAccessLayer.Models;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace DataAccessLayer.AccessLayer
                 new TypeFormation() { Designation = "Informatique"},
                 new TypeFormation() { Designation = "Sport"},
             };
-            typesFormation.ForEach(tf => tf = Repository.TypeFormations.Create(tf));
+            typesFormation.ForEach(tf => Repository.TypeFormations.Create(tf));
 
             List<Formation> formations = new List<Formation>
             {
@@ -41,7 +42,7 @@ namespace DataAccessLayer.AccessLayer
                 new Formation() { Intitule = "Bachelor Management du sport", TypeFormation = typesFormation[4], NbJours = 60, EstActif = true},
                 new Formation() { Intitule = "Bachelor 3 Commerce du sport", TypeFormation = typesFormation[4], NbJours = 420, EstActif = true},
             };
-            formations.ForEach(f => f = Repository.Formations.Create(f));
+            formations.ForEach(f => Repository.Formations.Create(f));
             #endregion
 
             #region Lieux
@@ -72,7 +73,7 @@ namespace DataAccessLayer.AccessLayer
                 new Batiment(){Designation = "Bâtiment 4", Adresse = adresses[3], Salles = null, EstActif = true},
                 new Batiment(){Designation = "Bâtiment 5", Adresse = adresses[4], Salles = null, EstActif = true}
             };
-            batiments.ForEach(b => b = Repository.Batiments.Create(b));
+            batiments.ForEach(b => Repository.Batiments.Create(b));
 
             List<Salle> salles = new List<Salle>
             {
@@ -96,7 +97,7 @@ namespace DataAccessLayer.AccessLayer
                 new Salle(){Designation = "Salle 4", Batiment = batiments[4], EstActif = true},
                 new Salle(){Designation = "Salle 5", Batiment = batiments[4], EstActif = true}
             };
-            salles.ForEach(s => s = Repository.Salles.Create(s));
+            salles.ForEach(s => Repository.Salles.Create(s));
             #endregion
 
             #region Biens
@@ -109,7 +110,7 @@ namespace DataAccessLayer.AccessLayer
                 new Materiel(){Designation = "Sifflet", EstActif = true, MaterielRequisFormations = new List<MaterielFormation>(), StockMateriels = new List<StockMateriel>()}
 
             };
-            materiels.ForEach(m => m = Repository.Materiels.Create(m));
+            materiels.ForEach(m => Repository.Materiels.Create(m));
 
             List<MaterielFormation> materielFormations = new List<MaterielFormation>
             {
@@ -262,7 +263,7 @@ namespace DataAccessLayer.AccessLayer
                 new Jour(){JourSessions = new List<JourSession>(), Date = DateTime.Now.AddDays(6)},
                 new Jour(){JourSessions = new List<JourSession>(), Date = DateTime.Now.AddDays(7)}
             };
-            jours.ForEach(j => j = Repository.Jours.Create(j));
+            jours.ForEach(j => Repository.Jours.Create(j));
 
             List<Session> sessions = new List<Session>()
             {
@@ -272,7 +273,7 @@ namespace DataAccessLayer.AccessLayer
                 new Session(){Formation = formations[6], Salle = salles[8], JourSessions = new List<JourSession>(), SessionApprenants = new List<SessionApprenant>(), SessionFormateurs = new List<SessionFormateur>()},
                 new Session(){Formation = formations[8], Salle = salles[11], JourSessions = new List<JourSession>(), SessionApprenants = new List<SessionApprenant>(), SessionFormateurs = new List<SessionFormateur>()}
             };
-            sessions.ForEach(s => s = Repository.Sessions.Create(s));
+            sessions.ForEach(s => Repository.Sessions.Create(s));
 
             Repository.Sessions.GetById(sessions[0].Id).JourSessions.Add(new JourSession() { Jour = jours[0], Session = sessions[0] });
             Repository.Sessions.GetById(sessions[0].Id).JourSessions.Add(new JourSession() { Jour = jours[1], Session = sessions[0] });
@@ -338,9 +339,9 @@ namespace DataAccessLayer.AccessLayer
             {
                 new Utilisateur(){Prenom = "Dir", Nom = "Igeant", NomUtilisateur = "dir", MotDePasse = "pass", Role = new RoleUtilisateur(){Designation = EEnum.ERoleUtilisateur.Dirigeant } },
                 new Utilisateur(){Prenom = "Sec", Nom = "Retaire", NomUtilisateur = "sec", MotDePasse = "pass", Role = new RoleUtilisateur(){Designation = EEnum.ERoleUtilisateur.Secretaire} },
-                new Utilisateur(){Prenom = "Com", Nom = "Ptable", NomUtilisateur = "com", MotDePasse = "pass", Role = new RoleUtilisateur(){Designation = EEnum.ERoleUtilisateur.Comptable } }
+                new Utilisateur(){Prenom = "Com", Nom = "Ptable", NomUtilisateur = "com", MotDePasse = "pass", Role = new RoleUtilisateur(){Designation = EEnum.ERoleUtilisateur.Comptable } },
             };
-            utilisateurs.ForEach(u => u = Repository.Utilisateurs.Create(u));
+            utilisateurs.ForEach(u => Repository.Utilisateurs.Create(u));
 
             #endregion
         }
