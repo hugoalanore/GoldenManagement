@@ -171,7 +171,7 @@ namespace GoldenManagement
         {
             if (AccueilParametresPage == null)
             {
-                AccueilParametresPage = new AccueilParametresPage();
+                AccueilParametresPage = new AccueilParametresPage(this);
             }
             MainFrame.Content = AccueilParametresPage;
             ResetColorButtonMenu();
