@@ -91,6 +91,7 @@
     <Compile Include="Calendrier\SessionUC.xaml.cs">
       <DependentUpon>SessionUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controller\GestionUtilisateurs\UtilisateursController.cs" />
     <Compile Include="Model\DataAccess\DataAccessLayerBDD.cs" />
     <Compile Include="View\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
@@ -122,9 +123,19 @@
     <Compile Include="View\GestionPlanning\AccueilPlanningPage.xaml.cs">
       <DependentUpon>AccueilPlanningPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GestionUtilisateurs\AccueilMonProfilPage.xaml.cs">
+      <DependentUpon>AccueilMonProfilPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\GestionUtilisateurs\AccueilUtilisateursPage.xaml.cs">
       <DependentUpon>AccueilUtilisateursPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\GestionUtilisateurs\AjouterUtilisateurPage.xaml.cs">
+      <DependentUpon>AjouterUtilisateurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GestionUtilisateurs\ModifierUtilisateurPage.xaml.cs">
+      <DependentUpon>ModifierUtilisateurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Tools\SortAdorner.cs" />
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -190,7 +201,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\GestionUtilisateurs\AccueilMonProfilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\GestionUtilisateurs\AccueilUtilisateursPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionUtilisateurs\AjouterUtilisateurPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GestionUtilisateurs\ModifierUtilisateurPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,8 +256,6 @@
     <Folder Include="Controller\GestionMateriels\" />
     <Folder Include="Controller\GestionPlanning\" />
     <Folder Include="Controller\GestionsParametres\" />
-    <Folder Include="Controller\GestionUtilisateurs\" />
-    <Folder Include="View\Tools\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\GFF_logo_black_full.jpg" />

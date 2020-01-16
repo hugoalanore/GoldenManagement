@@ -9,10 +9,54 @@ namespace GoldenManagement.Model.DataAccess
 {
     class SimulBDD : IDataAccess
     {
-        public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
+        public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string password, RoleUtilisateur role)
         {
-            return new Utilisateur() { Id = 0, MotDePasse = "mdp", Nom = "Alanore", NomUtilisateur = "hugo", Prenom = "Hugo" };
+            throw new NotImplementedException();
         }
 
+        public bool CheckNomUtilisateur(string nomUtilisateur)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteUtilisateur(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<string> GetAllRoleUtilisateur()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Utilisateur> GetAllUtilisateurs()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Utilisateur GetUtilisateurById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ResetPassWord(int id, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdatePassWord(int id, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateUtilisateur(string prenom, string nom, string nomUtilisateur, RoleUtilisateur role, int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -54,6 +54,22 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
+        public void UpdateById(int id, string prenom, string nom, RoleUtilisateur role)
+        {
+            try
+            {
+                Utilisateur utilisateur = GetById(id);
+                utilisateur.Prenom = prenom;
+                utilisateur.Nom = nom;
+                utilisateur.Role = role;
+                Update(utilisateur);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error on UpdateById", e);
+            }
+        }
+
         public new ICollection<Utilisateur> GetAll()
         {
             try
