@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,11 +21,10 @@ namespace GoldenManagement.Model.DataAccess
             string username = "RHj5ce97rJ";
             string password = "kHy5SBwVsh";
 
-            string connString = "Server=" + host + ";Database=" + database + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string connString = string.Format("Server={0};Database={1};port={2};User Id={3};password={4}", host, database, port, username, password);
             MyConn = new MySqlConnection(connString);
         }
 
-        #region Gestion des utilisateurs
         public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             // On teste les valeurs passé en paramètre
@@ -35,7 +35,7 @@ namespace GoldenManagement.Model.DataAccess
             MyConn.Open();
             try
             {
-                string requete = "SELECT ID, NOM_UTILISATEUR, MOT_DE_PASSE, PRENOM, NOM FROM T_UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur";
+                string requete = "SELECT ID, NOM_UTILISATEUR, MOT_DE_PASSE, PRENOM, NOM FROM UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = MyConn;
                 cmd.CommandText = requete;
@@ -63,28 +63,35 @@ namespace GoldenManagement.Model.DataAccess
             return utilisateur;
         }
 
-        public String GetPassWordByNomUtilisateur(string nomUtilisateur)
+        public bool IsCorrectConnectionInformation(string nomUtilisateur, string motDePasse)
         {
             // On teste les valeurs passé en paramètre
-            if (nomUtilisateur == String.Empty) { throw new ArgumentException(); }
+            if (nomUtilisateur == String.Empty || motDePasse == String.Empty) { throw new ArgumentException(); }
 
             // REQUETE
-            String password = null;
+            bool IsCorrect = false;
+
             MyConn.Open();
             try
             {
-                string requete = "SELECT MOT_DE_PASSE FROM T_UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur";
+                string requete = "SELECT ID FROM T_UTILISATEURS WHERE NOM_UTILISATEUR = @nomUtilisateur AND MOT_DE_PASSE = @motDePasse";
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = MyConn;
                 cmd.CommandText = requete;
                 cmd.Parameters.Add("@nomUtilisateur", MySqlDbType.VarChar).Value = nomUtilisateur;
+                cmd.Parameters.Add("@motDePasse", MySqlDbType.VarChar).Value = motDePasse;
 
-                using (DbDataReader reader = cmd.ExecuteReader())
+                using (MySqlDataReader reader = cmd.ExecuteReader())
                 {
                     if (reader.HasRows)
                     {
-                        reader.Read();
-                        password = reader.GetString(0);
+                        // Ok
+                        IsCorrect = true;
+                    }
+                    else
+                    {
+                        // Pas Ok
+                        IsCorrect = false;
                     }
                 }
             }
@@ -94,29 +101,12 @@ namespace GoldenManagement.Model.DataAccess
                 MyConn.Close();
             }
 
-            return password;
+            return IsCorrect;
         }
 
-        #endregion
-
-        #region Gestion des formations
-
-        #endregion
-
-        #region Gestion des personnes
-
-        #endregion
-
-        #region Gestion des lieux
-
-        #endregion
-
-        #region Gestion du matériel
-
-        #endregion
-
-        #region Planification
-
-        #endregion
+        public string GetPassWordByNomUtilisateur(string nomUtilisateur)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

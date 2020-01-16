@@ -39,7 +39,6 @@ namespace GoldenManagement
         AccueilPlanningPage AccueilPlanningPage = null;
         AccueilFacturationPage AccueilFacturationPage = null;
 
-
         private bool isMaximise = false;
 
         public MainWindow()
