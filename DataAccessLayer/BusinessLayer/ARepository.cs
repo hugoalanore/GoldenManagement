@@ -35,7 +35,7 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public T GetById(object id)
+        public T GetById(int id)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace DataAccessLayer.BusinessLayer
             return entity;
         }
 
-        public void Delete(object id)
+        public void Delete(int id)
         {
             try
             {

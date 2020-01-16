@@ -9,9 +9,9 @@ namespace DataAccessLayer.BusinessLayer
     internal interface ICRUD<T> where T : class
     {
         IEnumerable<T> GetAll();
-        T GetById(object id);
+        T GetById(int id);
         T Create(T entity);
         T Update(T entity);
-        void Delete(object id);
+        void Delete(int id);
     }
 }
