@@ -12,7 +12,7 @@ namespace DataAccessLayer.Models
     [ComplexType]
     public class Adresse
     {
-        [MinLength(2, ErrorMessage = "Le format du champ \"Rue\" est incorrecte!")]
+        [MinLength(5, ErrorMessage = "Le format du champ \"Rue\" est incorrecte!")]
         public string Rue { get; set; }
 
         [AlphaValidation(ErrorMessage = "Le format du champ \"Ville\" est incorrecte!")]

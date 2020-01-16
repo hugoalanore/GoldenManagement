@@ -13,40 +13,24 @@ namespace DataAccessLayer
         static void Main(string[] args)
         {
             Console.WriteLine("Start");
-            List<TypeFormation> typesFormation = new List<TypeFormation>
+            List<Adresse> adresses = new List<Adresse>
             {
-                new TypeFormation() { Designation = "Architecture"},
-                new TypeFormation() { Designation = "Artisanat Bâtiment"},
-                new TypeFormation() { Designation = "Droit - Justice"},
-                new TypeFormation() { Designation = "Informatique"},
-                new TypeFormation() { Designation = "Sport"},
+                new Adresse(){ Rue = "A", Ville = "Pira8cicaba", CodePostal = "74h35" },
+                new Adresse() { Rue = "6250 Enim, Chemin", Ville = "Schwedt", CodePostal = "91321" },
+                new Adresse() { Rue = "747-2534 Non, Route", Ville = "Green Bay", CodePostal = "55562" },
+                new Adresse() { Rue = "5334 Volutpat. Route", Ville = "Drachten", CodePostal = "91941" },
+                new Adresse() { Rue = "CP 796, 8883 Leo. Impasse", Ville = "Champdani", CodePostal = "37156" },
             };
-            typesFormation.ForEach(tf => Repository.TypeFormations.Create(tf));
 
-            List<Formation> formations = new List<Formation>
+            List<Batiment> batiments = new List<Batiment>
             {
-                new Formation() { Intitule = "Mastère Architecture Intérieure / Design", TypeFormation = typesFormation[0], NbJours = 5, EstActif = true},
-                new Formation() { Intitule = "Mastère Design Global", TypeFormation = typesFormation[0], NbJours = 45, EstActif = true},
-
-                new Formation() { Intitule = "CAP Tailleur de pierre", TypeFormation = typesFormation[1], NbJours = 100, EstActif = true},
-                new Formation() { Intitule = "CAP Maçon", TypeFormation = typesFormation[1], NbJours = 77, EstActif = true},
-
-                new Formation() { Intitule = "Master Droit et Gestion de la santé", TypeFormation = typesFormation[2], NbJours = 600, EstActif = true},
-                new Formation() { Intitule = "Master 1 Droit des affaires", TypeFormation = typesFormation[2], NbJours = 35, EstActif = true},
-
-                new Formation() { Intitule = "Master Administrateur Systèmes et Réseaux", TypeFormation = typesFormation[3], NbJours = 10, EstActif = true},
-                new Formation() { Intitule = "Développeur WEB", TypeFormation = typesFormation[3], NbJours = 20, EstActif = true},
-
-                new Formation() { Intitule = "Bachelor Management du sport", TypeFormation = typesFormation[4], NbJours = 60, EstActif = true},
-                new Formation() { Intitule = "Bachelor 3 Commerce du sport", TypeFormation = typesFormation[4], NbJours = 420, EstActif = true},
+                new Batiment(){Designation = "Bâtiment 1", Adresse = adresses[0], Salles = null},
+                new Batiment(){Designation = "Bâtiment 2", Adresse = adresses[1], Salles = null},
+                new Batiment(){Designation = "Bâtiment 3", Adresse = adresses[2], Salles = null},
+                new Batiment(){Designation = "Bâtiment 4", Adresse = adresses[3], Salles = null},
+                new Batiment(){Designation = "Bâtiment 5", Adresse = adresses[4], Salles = null}
             };
-            formations.ForEach(f => Repository.Formations.Create(f));
-
-            foreach (Formation f in Repository.Formations.GetAll())
-            {
-                Console.WriteLine(string.Format("- {0} durrée {1}", f.Intitule, f.NbJours.ToString()));
-            }
-            Console.WriteLine("END");
+            batiments.ForEach(b => Repository.Batiments.Create(b));
             Console.ReadLine();
         }
     }

@@ -84,6 +84,10 @@
     <Compile Include="Migrations\202001151543409_Models_0.Designer.cs">
       <DependentUpon>202001151543409_Models_0.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001161549024_Annotation_0.cs" />
+    <Compile Include="Migrations\202001161549024_Annotation_0.Designer.cs">
+      <DependentUpon>202001161549024_Annotation_0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\CustomizedMySqlMigrationSqlGenerator.cs" />
     <Compile Include="Models\Adresse.cs" />
@@ -114,6 +118,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DAL.resx</DependentUpon>
     </Compile>
+    <Compile Include="Ressources\ValidationAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -122,6 +127,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001151543409_Models_0.resx">
       <DependentUpon>202001151543409_Models_0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001161549024_Annotation_0.resx">
+      <DependentUpon>202001161549024_Annotation_0.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ressources\DAL.resx">
       <Generator>ResXFileCodeGenerator</Generator>
