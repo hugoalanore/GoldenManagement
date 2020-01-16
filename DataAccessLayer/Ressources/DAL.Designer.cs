@@ -61,11 +61,29 @@ namespace DataAccessLayer.Ressources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à .
+        ///   Recherche une chaîne localisée semblable à Erreur connection à la base de données  &quot;{0}&quot;..
+        /// </summary>
+        internal static string ErrorDb {
+            get {
+                return ResourceManager.GetString("ErrorDb", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Le format du champ &quot;{0}&quot; est incorrecte!.
         /// </summary>
         internal static string ErrorFormat {
             get {
                 return ResourceManager.GetString("ErrorFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Erreur de la méthode &quot;{0}&quot; de la classe &quot;{1}&quot;!.
+        /// </summary>
+        internal static string ErrorTransaction {
+            get {
+                return ResourceManager.GetString("ErrorTransaction", resourceCulture);
             }
         }
     }

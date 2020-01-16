@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.AccessLayer;
+using DataAccessLayer.Ressources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Create", e);
+                throw new Exception(string.Format(DAL.ErrorTransaction,"Create()" , this.GetType().Name), e);
             }
         }
 
@@ -30,7 +31,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on GetAll", e);
+                throw new Exception(string.Format(DAL.ErrorTransaction, "GetAll()", this.GetType().Name), e);
             }
         }
 
@@ -42,7 +43,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on GetById", e);
+                throw new Exception(string.Format(DAL.ErrorTransaction, "GetByID()", this.GetType().Name), e);
             }
         }
 
@@ -56,7 +57,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Update", e);
+                throw new Exception(string.Format(DAL.ErrorTransaction, "Update()", this.GetType().Name), e);
             }
         }
 
@@ -70,7 +71,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Delete", e);
+                throw new Exception(string.Format(DAL.ErrorTransaction, "Update()", this.GetType().Name), e);
             }
         }
 

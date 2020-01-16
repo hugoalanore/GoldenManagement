@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.AccessLayer
 {
-    class DBInitializer : DropCreateDatabaseIfModelChanges<DBContext>
+    class DBInitializer : CreateDatabaseIfNotExists<DBContext>
     {
         protected override void Seed(DBContext dBContext)
         {
