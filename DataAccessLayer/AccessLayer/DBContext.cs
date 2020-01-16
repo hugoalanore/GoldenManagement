@@ -1,8 +1,10 @@
 ﻿namespace DataAccessLayer.AccessLayer
 {
+    using DataAccessLayer.Chiffrement;
     using DataAccessLayer.Models;
     using MySql.Data.Entity;
     using System;
+    using System.Configuration;
     using System.Data.Entity;
     using System.Data.SqlClient;
     using System.Linq;
@@ -31,7 +33,7 @@
 
         // À la fin du dev, passer le constructeur en "private"
         public DBContext()
-            : base("name=DB_MYSQL_LOCAL_ADMIN")
+            : base(StringCipher.Decrypt(ConfigurationManager.ConnectionStrings["DB_MYSQL_LOCAL_ADMIN"].ConnectionString))
         {
             Database.SetInitializer<DBContext>(new DBInitializer());
 

@@ -110,15 +110,6 @@
     <Compile Include="View\GestionFormations\AccueilFormationsPage.xaml.cs">
       <DependentUpon>AccueilFormationsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormations\DetailsFormation.xaml.cs">
-      <DependentUpon>DetailsFormation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\GestionFormations\Formations.xaml.cs">
-      <DependentUpon>Formations.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\GestionFormations\ListeTypeFormation.xaml.cs">
-      <DependentUpon>ListeTypeFormation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\GestionLieux\AccueilLieuxPage.xaml.cs">
       <DependentUpon>AccueilLieuxPage.xaml</DependentUpon>
     </Compile>
@@ -180,18 +171,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\GestionFormations\AccueilFormationsPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GestionFormations\DetailsFormation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GestionFormations\Formations.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\GestionFormations\ListeTypeFormation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
