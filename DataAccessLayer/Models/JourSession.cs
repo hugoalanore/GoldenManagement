@@ -14,7 +14,9 @@ namespace DataAccessLayer.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         public Jour Jour { get; set; }
+
         public Session Session { get; set; }
     }
 }

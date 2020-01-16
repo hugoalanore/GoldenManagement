@@ -14,10 +14,15 @@ namespace DataAccessLayer.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
         public Formation Formation { get; set; }
+
         public Salle Salle { get; set; }
+
         public virtual ICollection<JourSession> JourSessions { get; set; }
+        
         public virtual ICollection<SessionApprenant> SessionApprenants { get; set; }
+
         public virtual ICollection<SessionFormateur> SessionFormateurs { get; set; }
     }
 }
