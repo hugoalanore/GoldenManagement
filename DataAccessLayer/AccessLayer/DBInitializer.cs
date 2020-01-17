@@ -12,7 +12,7 @@ namespace DataAccessLayer.AccessLayer
     {
         protected override void Seed(DBContext dBContext)
         {
-            SeedDB.Seed();
+            //SeedDB.Seed();
         }
     }
 }

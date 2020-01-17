@@ -1,4 +1,4 @@
-﻿using GoldenManagement.View;
+﻿using GoldenManagement.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GoldenManagement.View.GestionApprenants;
-using GoldenManagement.View.GestionFormateurs;
-using GoldenManagement.View.GestionFormations;
-using GoldenManagement.View.GestionLieux;
-using GoldenManagement.View.GestionMateriels;
-using GoldenManagement.View.GestionParametres;
-using GoldenManagement.View.GestionPlanning;
-using GoldenManagement.View.GestionFacturation;
+using GoldenManagement.Views.GestionApprenant;
+using GoldenManagement.Views.GestionFormateur;
+using GoldenManagement.Views.GestionFormation;
+using GoldenManagement.Views.GestionLieu;
+using GoldenManagement.Views.GestionMateriel;
+using GoldenManagement.Views.GestionParametre;
+using GoldenManagement.Views.GestionPlanning;
+using GoldenManagement.Views.GestionFacturation;
 
 namespace GoldenManagement
 {
@@ -30,12 +30,12 @@ namespace GoldenManagement
     public partial class MainWindow : Window
     {
         AccueilPage AccueilPage = null;
-        AccueilApprenantsPage AccueilApprenantsPage = null;
-        AccueilFormateursPage AccueilFormateursPage = null;
-        AccueilFormationsPage AccueilFormationsPage = null;
-        AccueilLieuxPage AccueilLieuxPage = null;
-        AccueilMaterielsPage AccueilMaterielsPage = null;
-        AccueilParametresPage AccueilParametresPage = null;
+        AccueilApprenantPage AccueilApprenantsPage = null;
+        AccueilFormateurPage AccueilFormateursPage = null;
+        AccueilFormationPage AccueilFormationsPage = null;
+        AccueilLieuPage AccueilLieuxPage = null;
+        AccueilMaterielPage AccueilMaterielsPage = null;
+        AccueilParametrePage AccueilParametresPage = null;
         AccueilPlanningPage AccueilPlanningPage = null;
         AccueilFacturationPage AccueilFacturationPage = null;
 
@@ -105,7 +105,7 @@ namespace GoldenManagement
         {
             if (AccueilFormationsPage == null)
             {
-                AccueilFormationsPage = new AccueilFormationsPage();
+                AccueilFormationsPage = new AccueilFormationPage();
             }
             MainFrame.Content = AccueilFormationsPage;
             ResetColorButtonMenu();
@@ -116,7 +116,7 @@ namespace GoldenManagement
         {
             if (AccueilFormateursPage == null)
             {
-                AccueilFormateursPage = new AccueilFormateursPage();
+                AccueilFormateursPage = new AccueilFormateurPage();
             }
             MainFrame.Content = AccueilFormateursPage;
             ResetColorButtonMenu();
@@ -127,7 +127,7 @@ namespace GoldenManagement
         {
             if (AccueilApprenantsPage == null)
             {
-                AccueilApprenantsPage = new AccueilApprenantsPage();
+                AccueilApprenantsPage = new AccueilApprenantPage();
             }
             MainFrame.Content = AccueilApprenantsPage;
             ResetColorButtonMenu();
@@ -138,7 +138,7 @@ namespace GoldenManagement
         {
             if (AccueilLieuxPage == null)
             {
-                AccueilLieuxPage = new AccueilLieuxPage();
+                AccueilLieuxPage = new AccueilLieuPage();
             }
             MainFrame.Content = AccueilLieuxPage;
             ResetColorButtonMenu();
@@ -149,7 +149,7 @@ namespace GoldenManagement
         {
             if (AccueilMaterielsPage == null)
             {
-                AccueilMaterielsPage = new AccueilMaterielsPage();
+                AccueilMaterielsPage = new AccueilMaterielPage();
             }
             MainFrame.Content = AccueilMaterielsPage;
             ResetColorButtonMenu();
@@ -171,7 +171,7 @@ namespace GoldenManagement
         {
             if (AccueilParametresPage == null)
             {
-                AccueilParametresPage = new AccueilParametresPage(this);
+                AccueilParametresPage = new AccueilParametrePage(this);
             }
             MainFrame.Content = AccueilParametresPage;
             ResetColorButtonMenu();

@@ -91,51 +91,58 @@
     <Compile Include="Calendrier\SessionUC.xaml.cs">
       <DependentUpon>SessionUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controller\GestionUtilisateurs\UtilisateursController.cs" />
-    <Compile Include="Model\DataAccess\DataAccessLayerBDD.cs" />
-    <Compile Include="View\AccueilPage.xaml.cs">
+    <Compile Include="Controllers\GestionApprenant\ApprenantController.cs" />
+    <Compile Include="Controllers\GestionFormateur\FormateurController.cs" />
+    <Compile Include="Controllers\GestionFormation\FormationController.cs" />
+    <Compile Include="Controllers\GestionLieu\LieuController.cs" />
+    <Compile Include="Controllers\GestionMateriel\MaterielController.cs" />
+    <Compile Include="Controllers\GestionPlanning\PlanningController.cs" />
+    <Compile Include="Controllers\GestionParametre\ParametreController.cs" />
+    <Compile Include="Controllers\GestionUtilisateur\UtilisateurController.cs" />
+    <Compile Include="Models\DataAccess\DataAccessLayerBDD.cs" />
+    <Compile Include="Views\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ConnexionWindow.xaml.cs">
+    <Compile Include="Views\ConnexionWindow.xaml.cs">
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionApprenants\AccueilApprenantsPage.xaml.cs">
-      <DependentUpon>AccueilApprenantsPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionApprenant\AccueilApprenantPage.xaml.cs">
+      <DependentUpon>AccueilApprenantPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFacturation\AccueilFacturationPage.xaml.cs">
+    <Compile Include="Views\GestionFacturation\AccueilFacturationPage.xaml.cs">
       <DependentUpon>AccueilFacturationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormateurs\AccueilFormateursPage.xaml.cs">
-      <DependentUpon>AccueilFormateursPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionFormateur\AccueilFormateurPage.xaml.cs">
+      <DependentUpon>AccueilFormateurPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionFormations\AccueilFormationsPage.xaml.cs">
-      <DependentUpon>AccueilFormationsPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionFormation\AccueilFormationPage.xaml.cs">
+      <DependentUpon>AccueilFormationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionLieux\AccueilLieuxPage.xaml.cs">
-      <DependentUpon>AccueilLieuxPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionLieu\AccueilLieuPage.xaml.cs">
+      <DependentUpon>AccueilLieuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionMateriels\AccueilMaterielsPage.xaml.cs">
-      <DependentUpon>AccueilMaterielsPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionMateriel\AccueilMaterielPage.xaml.cs">
+      <DependentUpon>AccueilMaterielPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionParametres\AccueilParametresPage.xaml.cs">
-      <DependentUpon>AccueilParametresPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionParametre\AccueilParametrePage.xaml.cs">
+      <DependentUpon>AccueilParametrePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionPlanning\AccueilPlanningPage.xaml.cs">
+    <Compile Include="Views\GestionPlanning\AccueilPlanningPage.xaml.cs">
       <DependentUpon>AccueilPlanningPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionUtilisateurs\AccueilMonProfilPage.xaml.cs">
+    <Compile Include="Views\GestionUtilisateur\AccueilMonProfilPage.xaml.cs">
       <DependentUpon>AccueilMonProfilPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionUtilisateurs\AccueilUtilisateursPage.xaml.cs">
-      <DependentUpon>AccueilUtilisateursPage.xaml</DependentUpon>
+    <Compile Include="Views\GestionUtilisateur\AccueilUtilisateurPage.xaml.cs">
+      <DependentUpon>AccueilUtilisateurPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionUtilisateurs\AjouterUtilisateurPage.xaml.cs">
+    <Compile Include="Views\GestionUtilisateur\AjouterUtilisateurPage.xaml.cs">
       <DependentUpon>AjouterUtilisateurPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\GestionUtilisateurs\ModifierUtilisateurPage.xaml.cs">
+    <Compile Include="Views\GestionUtilisateur\ModifierUtilisateurPage.xaml.cs">
       <DependentUpon>ModifierUtilisateurPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Tools\SortAdorner.cs" />
+    <Compile Include="Views\Tools\SortAdorner.cs" />
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,72 +163,72 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\GoldenApp.cs" />
+    <Compile Include="Controllers\GoldenApp.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\AccueilPage.xaml">
+    <Page Include="Views\AccueilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ConnexionWindow.xaml">
+    <Page Include="Views\ConnexionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionApprenants\AccueilApprenantsPage.xaml">
+    <Page Include="Views\GestionApprenant\AccueilApprenantPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFacturation\AccueilFacturationPage.xaml">
+    <Page Include="Views\GestionFacturation\AccueilFacturationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFormateurs\AccueilFormateursPage.xaml">
+    <Page Include="Views\GestionFormateur\AccueilFormateurPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionFormations\AccueilFormationsPage.xaml">
+    <Page Include="Views\GestionFormation\AccueilFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionLieux\AccueilLieuxPage.xaml">
+    <Page Include="Views\GestionLieu\AccueilLieuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionMateriels\AccueilMaterielsPage.xaml">
+    <Page Include="Views\GestionMateriel\AccueilMaterielPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionParametres\AccueilParametresPage.xaml">
+    <Page Include="Views\GestionParametre\AccueilParametrePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionPlanning\AccueilPlanningPage.xaml">
+    <Page Include="Views\GestionPlanning\AccueilPlanningPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionUtilisateurs\AccueilMonProfilPage.xaml">
+    <Page Include="Views\GestionUtilisateur\AccueilMonProfilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionUtilisateurs\AccueilUtilisateursPage.xaml">
+    <Page Include="Views\GestionUtilisateur\AccueilUtilisateurPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionUtilisateurs\AjouterUtilisateurPage.xaml">
+    <Page Include="Views\GestionUtilisateur\AjouterUtilisateurPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\GestionUtilisateurs\ModifierUtilisateurPage.xaml">
+    <Page Include="Views\GestionUtilisateur\ModifierUtilisateurPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\DataAccess\IDataAccess.cs" />
-    <Compile Include="Model\DataAccess\SimulBDD.cs" />
-    <Compile Include="Model\LivingData.cs" />
+    <Compile Include="Models\DataAccess\IDataAccess.cs" />
+    <Compile Include="Models\DataAccess\SimulBDD.cs" />
+    <Compile Include="Models\LivingData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -248,15 +255,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\GestionApprenants\" />
-    <Folder Include="Controller\GestionFormateurs\" />
-    <Folder Include="Controller\GestionFormations\" />
-    <Folder Include="Controller\GestionLieux\" />
-    <Folder Include="Controller\GestionMateriels\" />
-    <Folder Include="Controller\GestionPlanning\" />
-    <Folder Include="Controller\GestionsParametres\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Ressources\GFF_logo_black_full.jpg" />
     <Resource Include="Ressources\GFF_logo_white.jpg" />
