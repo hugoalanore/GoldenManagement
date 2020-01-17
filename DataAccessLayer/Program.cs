@@ -13,7 +13,6 @@ namespace DataAccessLayer
     {
         static void Main(string[] args)
         {
-
         }
     }
 }

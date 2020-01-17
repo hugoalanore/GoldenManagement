@@ -11,7 +11,7 @@ namespace DataAccessLayer.Models
 {
     public abstract class APersonne
     {
-        public ECivilite Civilite { get; set; } 
+        public ECivilite Civilite { get; set; }
 
         [StringLength(50, ErrorMessage = "Le Nom ne peux pas dépasser 50 caractères.")]
         public string Nom { get; set; }
@@ -22,17 +22,17 @@ namespace DataAccessLayer.Models
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateNaissance { get; set; }
-        
+
         public string LieuNaissance { get; set; }
-       
+
         public string Nationalite { get; set; }
-        
+
         public Adresse Adresse { get; set; }
-        
+
         public string NumeroPortable { get; set; }
-        
+
         public string NumeroDomicile { get; set; }
-        
+
         public string AdresseMail { get; set; }
     }
 }
