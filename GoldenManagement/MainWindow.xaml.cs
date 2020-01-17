@@ -127,7 +127,7 @@ namespace GoldenManagement
         {
             if (AccueilApprenantsPage == null)
             {
-                AccueilApprenantsPage = new AccueilApprenantPage();
+                AccueilApprenantsPage = new AccueilApprenantPage(this);
             }
             MainFrame.Content = AccueilApprenantsPage;
             ResetColorButtonMenu();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,16 @@ namespace GoldenManagement.Controllers.GestionApprenant
         public static ApprenantController Instance { get { return lazy.Value; } }
         #endregion
         
+        private readonly GoldenApp _GA = GoldenApp.Instance;
         #region Constructeurs
         private ApprenantController()
         {
         }
-        #endregion  
+        #endregion
+
+        public List<Apprenant> GetAllApprenants()
+        {
+            return _GA.DataAccess.GetAllApprenants();
+        }
     }
 }

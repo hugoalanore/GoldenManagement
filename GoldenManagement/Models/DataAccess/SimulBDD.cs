@@ -24,6 +24,11 @@ namespace GoldenManagement.Models.DataAccess
             throw new NotImplementedException();
         }
 
+        public List<Apprenant> GetAllApprenants()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<string> GetAllRoleUtilisateur()
         {
             throw new NotImplementedException();

@@ -5,10 +5,110 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GoldenManagement.Views.GestionApprenant"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+      d:DesignHeight="600" d:DesignWidth="800"
+      MinHeight="600"
+      MinWidth="800"
       Title="AccueilApprenantPage">
 
-    <Grid>
-        
-    </Grid>
+
+
+    <materialDesign:ColorZone  Padding="24"  CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All" Height="600" Width="1000">
+        <StackPanel>
+            <Grid Margin="0,0,0,10">
+                <TextBlock Text="Liste Apprenants" FontSize="32" Foreground="#CCFFFFFF" Margin="0,0,0,5"/>
+                <Button FontSize="16" x:Name="BTN_ajouter_apprenant" Foreground="Aqua" Background="Transparent" BorderBrush="Transparent" Click="BTN_ajouter_apprenant_Click">
+                    <Button.Content>+ Ajouter</Button.Content>
+                </Button>
+            </Grid>
+
+            <Grid>
+                <ListView  Name="lvApprenants" Grid.IsSharedSizeScope="True">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Prenom" Click="LvApprenantsColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">PRENOM</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Prenom}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Nom" Click="LvApprenantsColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NOM</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Nom}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="190">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="DateNaissance" Click="LvApprenantsColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">DATE DE NAISSANCE</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding DateNaissance, StringFormat='{}{0:dd/MM/yyyy}'}" Foreground="#CCFFFFFF"   FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Ville" Click="LvApprenantsColumnHeader_Click" Foreground="#CCFFFFFF" FontSize="16">VILLE</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Adresse.Ville}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="NumeroPortable" Click="LvApprenantsColumnHeader_Click" Foreground="#CCFFFFFF" FontSize="16">TELEPHONE</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding NumeroPortable}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="AdresseMail" Click="LvApprenantsColumnHeader_Click" Foreground="#CCFFFFFF" FontSize="16">MAIL</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding AdresseMail}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Focusable" Value="false"/>
+                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="BTN_show_apprenant_Click"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Background" Value="Gray"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
+            
+        </StackPanel>
+    </materialDesign:ColorZone>
 </Page>

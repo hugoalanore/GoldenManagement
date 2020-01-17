@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="GoldenManagement.Calendrier.JourUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GoldenManagement.Calendrier"
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+             xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier"
+             >
+    <UserControl.Resources>
+        <!-- Style pour les SessionUI -->
+        <Style x:Key="style_SessionUI" TargetType="Grid">
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+        <!-- Style pour les SessionUI réduites -->
+        <Style x:Key="style_SessionUIMin" TargetType="Grid">
+            <Setter Property="Margin" Value="0,5,5,0"/>
+        </Style>
+        <!-- Style pour le Textblock de la date du jour -->
+        <Style x:Key="tb_date_jour" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property ="HorizontalAlignment" Value="Right"/>
+            <Setter Property ="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid MinWidth="150">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" MinHeight="75"/>
+            <RowDefinition Height="1*" MinHeight="25" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" MinHeight="25"/>
+                <RowDefinition Height="1*" MinHeight="25"/>
+                <RowDefinition Height="1*" MinHeight="25"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Style="{StaticResource style_SessionUI}">
+                <ContentPresenter Content="{Binding Sessions[0]}"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Style="{StaticResource style_SessionUI}">
+                <ContentPresenter Content="{Binding Sessions[1]}"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Style="{StaticResource style_SessionUI}">
+                <ContentPresenter Content="{Binding Sessions[2]}"/>
+            </Grid>
+            <!--
+            <Calendrier:SessionUC Grid.Row="0" Content="{Binding Sessions[0]}" Style="{StaticResource style_SessionUI}"/>
+            <Calendrier:SessionUC Grid.Row="1" Content="{Binding Sessions[1]}" Style="{StaticResource style_SessionUI}"/>
+            <Calendrier:SessionUC Grid.Row="2" Content="{Binding Sessions[2]}" Style="{StaticResource style_SessionUI}"/>
+            -->
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="25"/>
+                <ColumnDefinition Width="1*" MinWidth="25"/>
+                <ColumnDefinition Width="1*" MinWidth="25"/>
+                <ColumnDefinition Width="1*" MinWidth="25"/>
+                <ColumnDefinition Width="2*" MinWidth="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Style="{StaticResource style_SessionUIMin}">
+                <ContentPresenter Content="{Binding Sessions[3]}"/>
+            </Grid>
+            <Grid Grid.Column="1" Style="{StaticResource style_SessionUIMin}">
+                <ContentPresenter Content="{Binding Sessions[4]}"/>
+            </Grid>
+            <Grid Grid.Column="2" Style="{StaticResource style_SessionUIMin}">
+                <ContentPresenter Content="{Binding Sessions[5]}"/>
+            </Grid>
+            <Grid Grid.Column="3" Style="{StaticResource style_SessionUIMin}">
+                <ContentPresenter Content="{Binding Sessions[6]}"/>
+            </Grid>
+            <!--
+            <Calendrier:SessionUC Grid.Column="0" Content="{Binding Sessions[3]}" Style="{StaticResource style_SessionUIMin}"/>
+            <Calendrier:SessionUC Grid.Column="1" Content="{Binding Sessions[4]}" Style="{StaticResource style_SessionUIMin}"/>
+            <Calendrier:SessionUC Grid.Column="2" Content="{Binding Sessions[5]}" Style="{StaticResource style_SessionUIMin}"/>
+            <Calendrier:SessionUC Grid.Column="3" Content="{Binding Sessions[6]}" Style="{StaticResource style_SessionUIMin}"/>
+            -->
+            <TextBlock Grid.Column="4" Text="{Binding Date}" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -45,6 +45,11 @@ namespace GoldenManagement.Models.DataAccess
             return Repository.Utilisateurs.GetAll().ToList();
         }
 
+        public List<Apprenant> GetAllApprenants()
+        {
+            return Repository.Apprenants.GetAll().ToList();
+        }
+
         public Utilisateur GetUtilisateurById(int id)
         {
             return Repository.Utilisateurs.GetById(id);

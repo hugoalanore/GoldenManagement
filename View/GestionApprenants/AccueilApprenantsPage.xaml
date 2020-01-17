@@ -1,0 +1,57 @@
+﻿<Page x:Class="GoldenManagement.View.GestionApprenants.AccueilApprenantsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GoldenManagement.View.GestionApprenants"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AccueilApprenantsPage">
+
+
+
+    <materialDesign:ColorZone  Padding="24"  CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All" Height="450" Width="800">
+        <StackPanel>
+            <Border Padding="10" Height="172">
+                <Grid Height="202">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="600"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock FontSize="20" Grid.Row="0" Grid.Column="0">Les apprenants</TextBlock>
+                    <Label Grid.Row="0" Grid.Column="1">Recherche :</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="90,0,0,0"></TextBox>
+
+                    <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">Afficher les apprenants innactifs</Label>
+                    <CheckBox Grid.Column="0" Grid.Row="1" Margin="186,10,161,11"/>
+                    <Button VerticalAlignment="Center" Background="transparent" BorderThickness="0,0,0,0"  Grid.Row="1" Grid.Column="1" Height="Auto">+ Ajouter</Button>
+
+                    <DataGrid x:Name="AllApprenants" Grid.Row="2" Grid.ColumnSpan="2" ItemsSource="{Binding Apprenant}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="100"  Header="Prénom" Binding="{Binding Prenom}"/>
+                            <DataGridTextColumn Width="100" Header="Nom" Binding="{Binding Nom}"/>
+                            <DataGridTextColumn Width="150" Header="Date de naissance" Binding="{Binding DateNaissance}"/>
+                            <DataGridTextColumn Width="100" Header="Ville" Binding="{Binding Ville}"/>
+                            <DataGridTextColumn Width="100" Header="Téléphone" Binding="{Binding TelephonePortable}"/>
+                            <DataGridTextColumn Width="100" Header="Mail" Binding="{Binding Mail}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+
+                </Grid>
+
+
+
+            </Border>
+        </StackPanel>
+    </materialDesign:ColorZone>
+</Page>

@@ -81,5 +81,10 @@ namespace GoldenManagement.Views.GestionUtilisateur
             AdornerLayer.GetAdornerLayer(listViewSortCol).Add(listViewSortAdorner);
             lvUsers.Items.SortDescriptions.Add(new SortDescription(sortBy, newDir));
         }
+
+        private void BTN_show_utilisateur_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

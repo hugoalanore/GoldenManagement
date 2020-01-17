@@ -27,6 +27,7 @@ namespace GoldenManagement.Models.DataAccess
         #endregion
 
         #region Gestion des personnes
+        List<Apprenant> GetAllApprenants();
 
         #endregion
 
