@@ -124,6 +124,7 @@ namespace DataAccessLayer.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        Quantite = c.Int(nullable: false),
                         Formation_Id = c.Int(),
                         Materiel_Id = c.Int(),
                     })

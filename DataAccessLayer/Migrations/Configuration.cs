@@ -16,7 +16,7 @@ namespace DataAccessLayer.Migrations
 
         protected override void Seed(DBContext context)
         {
-            //SeedDB.Seed();
+            // SeedDB.Seed();
         }
     }
 }

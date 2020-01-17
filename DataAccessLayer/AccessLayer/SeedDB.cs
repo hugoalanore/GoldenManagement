@@ -114,16 +114,16 @@ namespace DataAccessLayer.AccessLayer
 
             List<MaterielFormation> materielFormations = new List<MaterielFormation>
             {
-                new MaterielFormation(){Formation = formations[0], Materiel = materiels[0]},
-                new MaterielFormation(){Formation = formations[1], Materiel = materiels[0]},
-                new MaterielFormation(){Formation = formations[2], Materiel = materiels[1]},
-                new MaterielFormation(){Formation = formations[3], Materiel = materiels[1]},
-                new MaterielFormation(){Formation = formations[4], Materiel = materiels[2]},
-                new MaterielFormation(){Formation = formations[5], Materiel = materiels[2]},
-                new MaterielFormation(){Formation = formations[6], Materiel = materiels[3]},
-                new MaterielFormation(){Formation = formations[7], Materiel = materiels[3]},
-                new MaterielFormation(){Formation = formations[8], Materiel = materiels[4]},
-                new MaterielFormation(){Formation = formations[9], Materiel = materiels[4]}
+                new MaterielFormation(){Formation = formations[0], Materiel = materiels[0], Quantite = 5},
+                new MaterielFormation(){Formation = formations[1], Materiel = materiels[0], Quantite = 10},
+                new MaterielFormation(){Formation = formations[2], Materiel = materiels[1], Quantite = 15},
+                new MaterielFormation(){Formation = formations[3], Materiel = materiels[1], Quantite = 5},
+                new MaterielFormation(){Formation = formations[4], Materiel = materiels[2], Quantite = 10},
+                new MaterielFormation(){Formation = formations[5], Materiel = materiels[2], Quantite = 15},
+                new MaterielFormation(){Formation = formations[6], Materiel = materiels[3], Quantite = 5},
+                new MaterielFormation(){Formation = formations[7], Materiel = materiels[3], Quantite = 10},
+                new MaterielFormation(){Formation = formations[8], Materiel = materiels[4], Quantite = 15},
+                new MaterielFormation(){Formation = formations[9], Materiel = materiels[4], Quantite = 50}
             };
 
             Repository.Materiels.GetById(materiels[0].Id).MaterielRequisFormations.Add(materielFormations[0]);

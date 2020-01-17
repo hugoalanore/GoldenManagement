@@ -83,9 +83,9 @@
     <Compile Include="BusinessLayer\TypeFormationRepository.cs" />
     <Compile Include="BusinessLayer\UtilisateurRepository.cs" />
     <Compile Include="Chiffrement\StringCipher.cs" />
-    <Compile Include="Migrations\202001170912099_Models0.cs" />
-    <Compile Include="Migrations\202001170912099_Models0.Designer.cs">
-      <DependentUpon>202001170912099_Models0.cs</DependentUpon>
+    <Compile Include="Migrations\202001171533260_Models0.cs" />
+    <Compile Include="Migrations\202001171533260_Models0.Designer.cs">
+      <DependentUpon>202001171533260_Models0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\CustomizedMySqlMigrationSqlGenerator.cs" />
@@ -118,8 +118,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001170912099_Models0.resx">
-      <DependentUpon>202001170912099_Models0.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001171533260_Models0.resx">
+      <DependentUpon>202001171533260_Models0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
