@@ -23,11 +23,11 @@ namespace GoldenManagement.Views.Application.Utilisateur
     public partial class AccueilUtilisateurPage : Page
     {
         private readonly GoldenApp _GA = GoldenApp.Instance;
-        private List<DataAccessLayer.Models.Utilisateur> utilisateurs = new List<DataAccessLayer.Models.Utilisateur>();
+        // private List<DataAccessLayer.Models.Utilisateur> utilisateurs = new List<DataAccessLayer.Models.Utilisateur>();
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
 
-        // public ObservableCollection<DataAccessLayer.Models.Utilisateur> lesUtilisateurs = new ObservableCollection<DataAccessLayer.Models.Utilisateur>();
+        public ObservableCollection<DataAccessLayer.Models.Utilisateur> lesUtilisateurs;
 
         AjouterUtilisateurPage AjouterUtilisateurPage;
         readonly MainWindow MainWindow;
@@ -42,7 +42,8 @@ namespace GoldenManagement.Views.Application.Utilisateur
         private void GetAllUtilisateurs()
         {
             // utilisateurs = _GA.GetAllUtilsateurs();
-            lvUsers.ItemsSource = _GA.GetAllUtilsateurs();        
+            lesUtilisateurs = new ObservableCollection<DataAccessLayer.Models.Utilisateur>(_GA.GetAllUtilsateurs());
+            lvUsers.ItemsSource = lesUtilisateurs;
         }
 
         private void BTN_ajouter_utilisateur_Click(object sender, RoutedEventArgs e)

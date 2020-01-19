@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
 namespace GoldenManagement.Views.Application.Utilisateur
 {
@@ -38,7 +39,6 @@ namespace GoldenManagement.Views.Application.Utilisateur
             {
                 CB_role.Items.Add(roleUtilisateur);
             }
-
         }
 
         private void BTN_retour_Click(object sender, RoutedEventArgs e)
@@ -79,6 +79,7 @@ namespace GoldenManagement.Views.Application.Utilisateur
                         CB_role.Text = String.Empty;
                         PB_motDePasse.Password = String.Empty;
                         PB_motDePasseConfirmation.Password = String.Empty;
+                        AccueilUtilisateursPage.lesUtilisateurs = new ObservableCollection<DataAccessLayer.Models.Utilisateur>(_GA.GetAllUtilsateurs());
                     }
                     else
                     {

@@ -24,7 +24,7 @@
                     <materialDesign:PackIcon Kind="WindowClose" Height="20" Width="20"/>
                 </Button>
                 <Button x:Name= "BTN_maximiser" Height="28" Width="28" Margin="5" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_maximiser_Click" Background="#4b2c20" BorderBrush="Transparent">
-                    <materialDesign:PackIcon Kind="WindowMaximize" Height="20" Width="20"/>
+                    <materialDesign:PackIcon Name="BTN_maximiser_icon"  Kind="WindowMaximize" Height="20" Width="20"/>
                 </Button>
                 <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="5" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" Background="#4b2c20" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20"/>

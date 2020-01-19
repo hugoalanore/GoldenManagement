@@ -10,7 +10,7 @@ namespace GoldenManagement.Models.DataAccess
 {
     public class DataAccessLayerBDD : IDataAccess
     {
-
+        #region Gestion des utilisateurs
         public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string motDePasse, RoleUtilisateur role)
         {
             if (prenom == String.Empty || nom == String.Empty || nomUtilisateur == String.Empty || motDePasse == String.Empty || role == null) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
@@ -87,5 +87,30 @@ namespace GoldenManagement.Models.DataAccess
                 return false;
             }
         }
+        #endregion
+
+        #region Gestion des formations
+
+        #endregion
+
+        #region Gestion des personnes
+
+        #endregion
+
+        #region Gestion des lieux
+
+        #endregion
+
+        #region Gestion du matériels
+
+        #endregion
+
+        #region Planification
+
+        #endregion
+
+        #region Facturation
+
+        #endregion
     }
 }

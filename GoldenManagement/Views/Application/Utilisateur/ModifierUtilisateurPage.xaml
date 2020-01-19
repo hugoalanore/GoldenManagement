@@ -11,6 +11,7 @@
       xmlns:System="clr-namespace:System;assembly=mscorlib"
       xmlns:EnumsAlias="clr-namespace:DataAccessLayer.Enums;assembly=DataAccessLayer"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      Height="775" Width="1425"
       >
 
     <Page.Resources>

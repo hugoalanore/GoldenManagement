@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GoldenManagement.Views.Application.Parametre"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="775" Width="1425"
       Title="AccueilParametrePage">
 
 
@@ -20,7 +20,7 @@
             <Setter Property="Background" Value="Purple"/>
         </Style>
     </Page.Resources>
-
+    
     <StackPanel Orientation="Horizontal" Margin="25,25,0,0">
         <materialDesign:ColorZone Padding="25" CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All">
             <StackPanel>

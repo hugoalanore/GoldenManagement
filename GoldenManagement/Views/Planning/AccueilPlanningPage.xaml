@@ -3,12 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:GoldenManagement.Views"
+      xmlns:local="clr-namespace:GoldenManagement.Views.Planning"
       mc:Ignorable="d"
       Title="Planning"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-      xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier">
+      xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier"
+      Height="775" Width="1425">
     
     <Page.Resources>
         <Style x:Key="cz_alert_cellule" TargetType="materialDesign:ColorZone">

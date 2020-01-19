@@ -44,10 +44,28 @@ namespace GoldenManagement.Views.Application
         public MainWindow()
         {
             InitializeComponent();
+
+            this.StateChanged += new EventHandler(MainWindow_StateChanged);
+
             AccueilPage = new AccueilPage();
             MainFrame.Content = AccueilPage;
         }
-        
+
+        void MainWindow_StateChanged(object sender, EventArgs e)
+        {
+            switch (this.WindowState)
+            {
+                case WindowState.Maximized:
+                    isMaximise = true;
+                    BTN_maximiser_icon.Kind= MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
+                    break;
+                case WindowState.Normal:
+                    isMaximise = false;
+                    BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
+                    break;
+            }
+        }
+
         private void BTN_maximiser_Click(object sender, RoutedEventArgs e)
         {
             if (!isMaximise)
@@ -74,6 +92,9 @@ namespace GoldenManagement.Views.Application
 
         private void CZ_appBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            if (e.LeftButton == MouseButtonState.Pressed && this.WindowState == WindowState.Maximized)
+                this.WindowState = WindowState.Normal;
+
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
         }

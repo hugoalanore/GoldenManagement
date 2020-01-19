@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GoldenManagement.Views.Application.Utilisateur"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="450" d:DesignWidth="800"
+      Height="775" Width="1425"
       Title="AccueilUtilisateurPage">
 
 

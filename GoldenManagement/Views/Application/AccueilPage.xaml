@@ -9,6 +9,7 @@
       Title="AccueilPage"
       FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
       xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier"
+      Height="775" Width="1425"
       >
     <Page.Resources>
         <!-- - - - - - - - - - - - - - - - - - - - - LE CALENDRIER - - - - - - - - - - - - - - - - - - - -->
