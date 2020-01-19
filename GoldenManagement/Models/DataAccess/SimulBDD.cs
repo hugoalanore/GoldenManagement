@@ -9,12 +9,12 @@ namespace GoldenManagement.Models.DataAccess
 {
     class SimulBDD : IDataAccess
     {
-        public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string password, RoleUtilisateur role)
+        public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string motDePasse, RoleUtilisateur role)
         {
             throw new NotImplementedException();
         }
 
-        public bool CheckNomUtilisateur(string nomUtilisateur)
+        public bool ExistUtilisateur(string nomUtilisateur)
         {
             throw new NotImplementedException();
         }
@@ -44,17 +44,12 @@ namespace GoldenManagement.Models.DataAccess
             throw new NotImplementedException();
         }
 
-        public bool ResetPassWord(int id, string password)
+        public bool UpdateMotDePasse(int id, string motDePasse)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdatePassWord(int id, string password)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateUtilisateur(string prenom, string nom, string nomUtilisateur, RoleUtilisateur role, int id)
+        public bool UpdateUtilisateur(string prenom, string nom, RoleUtilisateur role, int id)
         {
             throw new NotImplementedException();
         }

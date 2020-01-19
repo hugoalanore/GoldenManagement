@@ -1,8 +1,12 @@
 ﻿using DataAccessLayer.AccessLayer;
 using DataAccessLayer.Chiffrement;
+using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,27 +19,17 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                utilisateur.MotDePasse = StringCipher.Encrypt(utilisateur.MotDePasse);
+                if(Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString) != null)
+                {
+                    utilisateur.Role = Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString);
+                }
+
                 DBContext.Instance.Utilisateurs.Add(utilisateur);
                 Save();
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Create", e);
-            }
-        }
-
-        public new Utilisateur GetById(int id)
-        {
-            try
-            {
-                Utilisateur utilisateur = DBContext.Instance.Utilisateurs.Find(id).Clone();
-                utilisateur.MotDePasse = StringCipher.Decrypt(utilisateur.MotDePasse);
-                return utilisateur;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error on GetById", e);
+                throw new DALException("Error on Create", e);
             }
         }
 
@@ -43,30 +37,34 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                utilisateur = DBContext.Instance.Utilisateurs.Attach(utilisateur);
-                utilisateur.MotDePasse = StringCipher.Encrypt(utilisateur.MotDePasse);
+                if (Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString) != null)
+                {
+                    RoleUtilisateur roleUtilisateur = DBContext.Instance.RoleUtilisateurs.Single(c => c.Id == Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString).Id);
+                    if (!utilisateur.Role.Equals(roleUtilisateur))
+                    {
+                        utilisateur.Role = roleUtilisateur;
+                    }
+                }
                 DBContext.Instance.Entry(utilisateur).State = System.Data.Entity.EntityState.Modified;
                 Save();
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Update", e);
+                throw new DALException("Error on Update", e);
             }
         }
 
-        public void UpdateById(int id, string prenom, string nom, RoleUtilisateur role)
+        public new Utilisateur GetById(int id)
         {
             try
             {
-                Utilisateur utilisateur = GetById(id);
-                utilisateur.Prenom = prenom;
-                utilisateur.Nom = nom;
-                utilisateur.Role = role;
-                Update(utilisateur);
+                Utilisateur utilisateur = DBContext.Instance.Utilisateurs.Find(id);
+                DBContext.Instance.Entry(utilisateur).Reference(u => u.Role).Load();
+                return utilisateur;
             }
             catch (Exception e)
             {
-                throw new Exception("Error on UpdateById", e);
+                throw new DALException("Error on GetById", e);
             }
         }
 
@@ -74,18 +72,17 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                List<Utilisateur> utilisateurs = new List<Utilisateur>();
-                DBContext.Instance.Utilisateurs.ToList().ForEach(u => utilisateurs.Add(u.Clone()));
-                utilisateurs.ForEach(u => u.MotDePasse = StringCipher.Decrypt(u.MotDePasse));
-                return utilisateurs.ToList();
+                List<Utilisateur> utilisateurs = DBContext.Instance.Utilisateurs.ToList();
+                utilisateurs.ForEach(util => DBContext.Instance.Entry(util).Reference(u => u.Role).Load());
+                return utilisateurs;
             }
             catch (Exception e)
             {
-                throw new Exception("Error on GetAll", e);
+                throw new DALException("Error on GetAll", e);
             }
         }
 
-        public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
+        public Utilisateur GetByNomUtilisateur(string nomUtilisateur)
         {
             try
             {
@@ -93,7 +90,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on GetUtilisateurByNomUtilisateur", e);
+                throw new DALException("Error on GetByNomUtilisateur", e);
             }
         }
     }

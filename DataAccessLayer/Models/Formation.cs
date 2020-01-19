@@ -17,9 +17,9 @@ namespace DataAccessLayer.Models
         public string Intitule { get; set; }
         public int NbJours { get; set; }
         public bool EstActif { get; set; }
-        public TypeFormation TypeFormation { get; set; }
-        public virtual ICollection<MaterielFormation> MaterielRequisFormation { get; set; }
-        public virtual ICollection<FormationFormateur> FormationFormateur { get; set; }
+        public DomaineFormation Domaine { get; set; }
+        public virtual ICollection<MaterielFormation> MaterielFormations { get; set; }
+        public virtual ICollection<FormationFormateur> FormationFormateurs { get; set; }
         public virtual ICollection<Session> Sessions { get; set; }
     }
 }

@@ -20,12 +20,5 @@ namespace DataAccessLayer.Models
         public string NomUtilisateur { get; set; }
         public string MotDePasse { get; set; }
         public RoleUtilisateur Role { get; set; }
-
-        public Utilisateur() { }
-
-        public Utilisateur Clone()
-        {
-            return new Utilisateur() { Id = Id, Prenom = Prenom, NomUtilisateur = NomUtilisateur, MotDePasse = MotDePasse, Role = Role };
-        }
     }
 }

@@ -14,9 +14,9 @@ namespace DataAccessLayer.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public String Designation { get; set; }
+        public string Designation { get; set; }
         public bool EstActif { get; set; }
-        public virtual ICollection<MaterielFormation> MaterielRequisFormations { get; set; }
+        public virtual ICollection<MaterielFormation> MaterielFormations { get; set; }
         public virtual ICollection<StockMateriel> StockMateriels { get; set; }
     }
 }

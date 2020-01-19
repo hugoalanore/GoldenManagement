@@ -10,84 +10,76 @@ namespace GoldenManagement.Models.DataAccess
 {
     public class DataAccessLayerBDD : IDataAccess
     {
-        public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string password, RoleUtilisateur role)
+
+        public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string motDePasse, RoleUtilisateur role)
         {
-            if (prenom == String.Empty || nom == String.Empty || nomUtilisateur == String.Empty || password == String.Empty || role == null) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
+            if (prenom == String.Empty || nom == String.Empty || nomUtilisateur == String.Empty || motDePasse == String.Empty || role == null) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
             try
             {
-                Repository.Utilisateurs.Create(new Utilisateur() { Nom = nom, Prenom = prenom, NomUtilisateur = nomUtilisateur, MotDePasse = password, Role = role });
+                Repository.Utilisateur.Create(new Utilisateur() { Nom = nom, Prenom = prenom, NomUtilisateur = nomUtilisateur, MotDePasse = motDePasse, Role = role });
                 return true;
             }
             catch (Exception) { return false; }
         }
 
-        public bool CheckNomUtilisateur(string nomUtilisateur)
+        public bool ExistUtilisateur(string nomUtilisateur)
         {
             if (nomUtilisateur == String.Empty) { throw new ArgumentException("Le nom d'utilisateur ne peux pas être vide."); }
-            return Repository.Utilisateurs.GetUtilisateurByNomUtilisateur(nomUtilisateur) != null ? true : false;
+            return (Repository.Utilisateur.GetByNomUtilisateur(nomUtilisateur) != null) ? true : false;
         }
 
         public bool DeleteUtilisateur(int id)
         {
-            try { Repository.Utilisateurs.Delete(id); return true; }
+            try { Repository.Utilisateur.Delete(id); return true; }
             catch (Exception) { return false; }
         }
 
         public List<string> GetAllRoleUtilisateur()
         {
             List<string> roles = new List<string>();
-            Repository.RoleUtilisateurs.GetAll().ToList().ForEach(r => roles.Add(r.Designation.ToString()));
+            Repository.RoleUtilisateur.GetAll().ToList().ForEach(r => roles.Add(r.Designation.ToString()));
             return roles;
         }
 
         public List<Utilisateur> GetAllUtilisateurs()
         {
-            return Repository.Utilisateurs.GetAll().ToList();
+            return Repository.Utilisateur.GetAll().ToList();
         }
 
         public Utilisateur GetUtilisateurById(int id)
         {
-            return Repository.Utilisateurs.GetById(id);
+            return Repository.Utilisateur.GetById(id);
         }
 
         public Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur)
         {
             if (nomUtilisateur == null || nomUtilisateur == String.Empty) { throw new ArgumentException("Le nom d'utilisateur ne peux pas être vide"); }
-            return Repository.Utilisateurs.GetUtilisateurByNomUtilisateur(nomUtilisateur);
+            return Repository.Utilisateur.GetByNomUtilisateur(nomUtilisateur);
         }
 
-        public bool ResetPassWord(int id, string password)
+        public bool UpdateMotDePasse(int id, string motDePasse)
         {
-            if (password == null || password == String.Empty) { throw new ArgumentException("Le mot de passe ne peux pas être vide"); }
+            if (motDePasse == null || motDePasse == String.Empty) { throw new ArgumentException("Le mot de passe ne peux pas être vide"); }
             try
             {
-                Utilisateur utilisateur = Repository.Utilisateurs.GetById(id);
-                utilisateur.MotDePasse = password;
-                Repository.Utilisateurs.Update(utilisateur);
+                Utilisateur utilisateur = Repository.Utilisateur.GetById(id);
+                utilisateur.MotDePasse = motDePasse;
+                Repository.Utilisateur.Update(utilisateur);
                 return true;
             }
             catch (Exception) { return false; }
         }
 
-        public bool UpdatePassWord(int id, string password)
+        public bool UpdateUtilisateur(string prenom, string nom, RoleUtilisateur role, int id)
         {
-            if (password == null || password == String.Empty) { throw new ArgumentException("Le mot de passe ne peux pas être vide"); }
+            if (prenom == null || prenom == String.Empty || nom == null || nom == String.Empty || role == null) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
             try
             {
-                Utilisateur utilisateur = Repository.Utilisateurs.GetById(id);
-                utilisateur.MotDePasse = password;
-                Repository.Utilisateurs.Update(utilisateur);
-                return true;
-            }
-            catch (Exception) { return false; }
-        }
-
-        public bool UpdateUtilisateur(string prenom, string nom, string nomUtilisateur, RoleUtilisateur role, int id)
-        {
-            if (prenom == String.Empty || nom == String.Empty || nomUtilisateur == String.Empty || role == null) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
-            try
-            {
-                Repository.Utilisateurs.UpdateById(id, prenom, nom, role);
+                Utilisateur utilisateur = Repository.Utilisateur.GetById(id);
+                utilisateur.Prenom = prenom;
+                utilisateur.Nom = nom;
+                utilisateur.Role = role;
+                Repository.Utilisateur.Update(utilisateur);
                 return true;
             }
             catch (Exception)

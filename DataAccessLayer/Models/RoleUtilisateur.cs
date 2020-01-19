@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DataAccessLayer.Models.EEnum;
+using DataAccessLayer.Enums;
 
 namespace DataAccessLayer.Models
 {
@@ -15,6 +15,17 @@ namespace DataAccessLayer.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [NotMapped]
         public ERoleUtilisateur Designation { get; set; }
+        [Column("Designation")]
+        public string DesignationString {
+            get { return Designation.ToString(); }
+            set { Designation = value.ToEnum<ERoleUtilisateur>(); }
+        }
+
+        public override string ToString()
+        {
+            return Designation.ToString();
+        }
     }
 }

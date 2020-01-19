@@ -5,13 +5,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static DataAccessLayer.Models.EEnum;
+using DataAccessLayer.Enums;
 
 namespace DataAccessLayer.Models
 {
     public abstract class APersonne
     {
+        [NotMapped]
         public ECivilite Civilite { get; set; } 
+        [Column("Civilite")]
+        public string CiviliteString {
+            get { return Civilite.ToString(); }
+            set { Civilite = value.ToEnum<ECivilite>(); }
+        }
 
         [StringLength(50, ErrorMessage = "Le Nom ne peux pas dépasser 50 caractères.")]
         public string Nom { get; set; }

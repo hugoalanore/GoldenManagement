@@ -15,7 +15,7 @@ namespace DataAccessLayer.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public bool EstActif { get; set; }
-        public String Designation { get; set; }
+        public string Designation { get; set; }
         public Batiment Batiment { get; set; }
         public virtual ICollection<StockMateriel> StockMateriels { get; set; }
     }

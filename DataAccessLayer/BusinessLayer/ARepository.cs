@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.AccessLayer;
+using DataAccessLayer.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Create", e);
+                throw new DALException("Error on Create", e);
             }
         }
 
@@ -30,7 +31,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on GetAll", e);
+                throw new DALException("Error on GetAll", e);
             }
         }
 
@@ -42,7 +43,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on GetById", e);
+                throw new DALException("Error on GetById", e);
             }
         }
 
@@ -56,7 +57,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Update", e);
+                throw new DALException("Error on Update", e);
             }
         }
 
@@ -70,7 +71,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new Exception("Error on Delete", e);
+                throw new DALException("Error on Delete", e);
             }
         }
 
@@ -78,5 +79,6 @@ namespace DataAccessLayer.BusinessLayer
         {
             DBContext.Instance.SaveChanges();
         }
+
     }
 }

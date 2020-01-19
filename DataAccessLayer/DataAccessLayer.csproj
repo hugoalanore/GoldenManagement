@@ -86,12 +86,15 @@
     <Compile Include="BusinessLayer\SessionFormateurRepository.cs" />
     <Compile Include="BusinessLayer\SessionRepository.cs" />
     <Compile Include="BusinessLayer\StockMaterielRepository.cs" />
-    <Compile Include="BusinessLayer\TypeFormationRepository.cs" />
+    <Compile Include="BusinessLayer\DomaineFormationRepository.cs" />
     <Compile Include="BusinessLayer\UtilisateurRepository.cs" />
     <Compile Include="Chiffrement\StringCipher.cs" />
-    <Compile Include="Migrations\202001171533260_Models0.cs" />
-    <Compile Include="Migrations\202001171533260_Models0.Designer.cs">
-      <DependentUpon>202001171533260_Models0.cs</DependentUpon>
+    <Compile Include="Enums\EEnum.cs" />
+    <Compile Include="Enums\EnumHelper.cs" />
+    <Compile Include="Exceptions\DALException.cs" />
+    <Compile Include="Migrations\202001190110271_Models0.cs" />
+    <Compile Include="Migrations\202001190110271_Models0.Designer.cs">
+      <DependentUpon>202001190110271_Models0.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\CustomizedMySqlMigrationSqlGenerator.cs" />
@@ -100,7 +103,6 @@
     <Compile Include="Models\Apprenant.cs" />
     <Compile Include="Models\ArchivageSession.cs" />
     <Compile Include="Models\Batiment.cs" />
-    <Compile Include="Models\EEnum.cs" />
     <Compile Include="Models\Formateur.cs" />
     <Compile Include="Models\Formation.cs" />
     <Compile Include="Models\FormationFormateur.cs" />
@@ -114,7 +116,7 @@
     <Compile Include="Models\SessionApprenant.cs" />
     <Compile Include="Models\SessionFormateur.cs" />
     <Compile Include="Models\StockMateriel.cs" />
-    <Compile Include="Models\TypeFormation.cs" />
+    <Compile Include="Models\DomaineFormation.cs" />
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,8 +126,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001171533260_Models0.resx">
-      <DependentUpon>202001171533260_Models0.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001190110271_Models0.resx">
+      <DependentUpon>202001190110271_Models0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

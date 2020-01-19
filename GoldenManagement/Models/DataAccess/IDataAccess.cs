@@ -12,14 +12,13 @@ namespace GoldenManagement.Models.DataAccess
         #region Gestion des utilisateurs
         Utilisateur GetUtilisateurByNomUtilisateur(string nomUtilisateur);
         List<Utilisateur> GetAllUtilisateurs();
-        List<String> GetAllRoleUtilisateur();
-        bool AddUtilisateur(String prenom, String nom, String nomUtilisateur, String password, RoleUtilisateur role);
+        List<string> GetAllRoleUtilisateur();
+        bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string motDePasse, RoleUtilisateur role);
         bool DeleteUtilisateur(int id);
         Utilisateur GetUtilisateurById(int id);
-        bool UpdateUtilisateur(String prenom, String nom, String nomUtilisateur, RoleUtilisateur role, int id);
-        bool ResetPassWord(int id, String password);
-        bool CheckNomUtilisateur(String nomUtilisateur);
-        bool UpdatePassWord(int id, string password);
+        bool UpdateUtilisateur(string prenom, string nom, RoleUtilisateur role, int id);
+        bool ExistUtilisateur(string nomUtilisateur);
+        bool UpdateMotDePasse(int id, string motDePasse);
         #endregion
 
         #region Gestion des formations
@@ -34,11 +33,15 @@ namespace GoldenManagement.Models.DataAccess
 
         #endregion
 
-        #region Gestion du matériel
+        #region Gestion du matériels
 
         #endregion
 
         #region Planification
+
+        #endregion
+
+        #region Facturation
 
         #endregion
     }
