@@ -13,17 +13,12 @@
         ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Margin" Value="5,5"></Setter>
-            <Setter Property="Padding" Value="15,5"></Setter>
-        </Style>
+        
     </Window.Resources>
-
-
 
     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <!-- Barre du haut -->
-        <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548">
+        <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548" MouseDoubleClick="CZ_appBar_MouseDoubleClick">
             <DockPanel VerticalAlignment="Center">
                 <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="5,5,10,5" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click" Background="#4b2c20" BorderBrush="Transparent">
                     <materialDesign:PackIcon Kind="WindowClose" Height="20" Width="20"/>

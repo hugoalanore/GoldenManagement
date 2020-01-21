@@ -101,8 +101,6 @@
     <Compile Include="Views\Application\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Application\AppBar\AppBarFunctions.cs" />
-    <Compile Include="Views\Application\AppBar\Interop.cs" />
     <Compile Include="Views\Application\ConnexionWindow.xaml.cs">
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>

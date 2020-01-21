@@ -21,7 +21,6 @@ using GoldenManagement.Views.Materiel;
 using GoldenManagement.Views.Application.Parametre;
 using GoldenManagement.Views.Planning;
 using GoldenManagement.Views.Facturation;
-using GoldenManagement.Views.Application.AppBar;
 
 namespace GoldenManagement.Views.Application
 {
@@ -55,45 +54,46 @@ namespace GoldenManagement.Views.Application
         private bool windowsIsMaximize = false;
         private double windowsNormalWidth = 0;
         private double windowsNormalHeight = 0;
-        
+        private double windowsPositionTop = 0;
+        private double windowsPositionLeft = 0;
+
+        private void MaximizeWindow()
+        {
+            windowsNormalWidth = this.Width;
+            windowsNormalHeight = this.Height;
+            windowsPositionTop = this.Top;
+            windowsPositionLeft = this.Left;
+            this.Left = SystemParameters.WorkArea.Left;
+            this.Top = SystemParameters.WorkArea.Top;
+            this.Height = SystemParameters.WorkArea.Height;
+            this.Width = SystemParameters.WorkArea.Width;
+            BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
+            windowsIsMaximize = true;
+        }
+
+        private void NormalizeWindow()
+        {
+            this.Width = windowsNormalWidth;
+            this.Height = windowsNormalHeight;
+            this.Top = windowsPositionTop;
+            this.Left = windowsPositionLeft;
+            BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
+            windowsIsMaximize = false;
+        }
+
         void MainWindow_StateChanged(object sender, EventArgs e)
         {
-            if(this.WindowState == WindowState.Maximized)
+            if (this.WindowState == WindowState.Maximized)
             {
-                if (windowsIsMaximize == false)
-                {
-                    windowsNormalWidth = this.Width;
-                    windowsNormalHeight = this.Height;
-                    this.Left = SystemParameters.WorkArea.Left;
-                    this.Top = SystemParameters.WorkArea.Top;
-                    this.Height = SystemParameters.WorkArea.Height;
-                    this.Width = SystemParameters.WorkArea.Width;
-                    BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
-                    windowsIsMaximize = true;
-                }
+                this.WindowState = WindowState.Normal;
+                if (windowsIsMaximize == false) { MaximizeWindow(); }
             }
         }
 
         private void BTN_maximiser_Click(object sender, RoutedEventArgs e)
         {
-            if (windowsIsMaximize)
-            {
-                this.Width = windowsNormalWidth;
-                this.Height = windowsNormalHeight;
-                BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
-                windowsIsMaximize = false;
-            }
-            else if (!windowsIsMaximize)
-            {
-                windowsNormalWidth = this.Width;
-                windowsNormalHeight = this.Height;
-                this.Left = SystemParameters.WorkArea.Left;
-                this.Top = SystemParameters.WorkArea.Top;
-                this.Height = SystemParameters.WorkArea.Height;
-                this.Width = SystemParameters.WorkArea.Width;
-                BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
-                windowsIsMaximize = true;
-            }
+            if (windowsIsMaximize) { NormalizeWindow(); }
+            else { MaximizeWindow(); }
         }
 
         private void BTN_fermer_Click(object sender, RoutedEventArgs e)
@@ -105,11 +105,30 @@ namespace GoldenManagement.Views.Application
         {
             this.WindowState = WindowState.Minimized;
         }
-
         private void CZ_appBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
+
+            if (e.MouseDevice.LeftButton == MouseButtonState.Released &&
+                !(this.Left == SystemParameters.WorkArea.Left &&
+                this.Top == SystemParameters.WorkArea.Top &&
+                this.Height == SystemParameters.WorkArea.Height &&
+                this.Width == SystemParameters.WorkArea.Width))
+            {
+                if (windowsIsMaximize)
+                {
+                    windowsPositionTop = this.Top;
+                    windowsPositionLeft = this.Left;
+                    NormalizeWindow();
+                }
+            }
+        }
+
+        private void CZ_appBar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (windowsIsMaximize) { NormalizeWindow(); }
+            else { MaximizeWindow(); }
         }
         #endregion
 
@@ -227,5 +246,6 @@ namespace GoldenManagement.Views.Application
             BTN_parametres.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
         }
         #endregion
+
     }
 }
