@@ -21,6 +21,7 @@ using GoldenManagement.Views.Materiel;
 using GoldenManagement.Views.Application.Parametre;
 using GoldenManagement.Views.Planning;
 using GoldenManagement.Views.Facturation;
+using GoldenManagement.Views.Application.AppBar;
 
 namespace GoldenManagement.Views.Application
 {
@@ -39,11 +40,10 @@ namespace GoldenManagement.Views.Application
         AccueilPlanningPage AccueilPlanningPage = null;
         AccueilFacturationPage AccueilFacturationPage = null;
 
-        private bool isMaximise = false;
-
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
             this.StateChanged += new EventHandler(MainWindow_StateChanged);
 
@@ -51,32 +51,48 @@ namespace GoldenManagement.Views.Application
             MainFrame.Content = AccueilPage;
         }
 
+        #region Gestion de la barre d'application
+        private bool windowsIsMaximize = false;
+        private double windowsNormalWidth = 0;
+        private double windowsNormalHeight = 0;
+        
         void MainWindow_StateChanged(object sender, EventArgs e)
         {
-            switch (this.WindowState)
+            if(this.WindowState == WindowState.Maximized)
             {
-                case WindowState.Maximized:
-                    isMaximise = true;
-                    BTN_maximiser_icon.Kind= MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
-                    break;
-                case WindowState.Normal:
-                    isMaximise = false;
-                    BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
-                    break;
+                if (windowsIsMaximize == false)
+                {
+                    windowsNormalWidth = this.Width;
+                    windowsNormalHeight = this.Height;
+                    this.Left = SystemParameters.WorkArea.Left;
+                    this.Top = SystemParameters.WorkArea.Top;
+                    this.Height = SystemParameters.WorkArea.Height;
+                    this.Width = SystemParameters.WorkArea.Width;
+                    BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
+                    windowsIsMaximize = true;
+                }
             }
         }
 
         private void BTN_maximiser_Click(object sender, RoutedEventArgs e)
         {
-            if (!isMaximise)
+            if (windowsIsMaximize)
             {
-                isMaximise = true;
-                this.WindowState = WindowState.Maximized;
+                this.Width = windowsNormalWidth;
+                this.Height = windowsNormalHeight;
+                BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowMaximize;
+                windowsIsMaximize = false;
             }
-            else
+            else if (!windowsIsMaximize)
             {
-                isMaximise = false;
-                this.WindowState = WindowState.Normal;
+                windowsNormalWidth = this.Width;
+                windowsNormalHeight = this.Height;
+                this.Left = SystemParameters.WorkArea.Left;
+                this.Top = SystemParameters.WorkArea.Top;
+                this.Height = SystemParameters.WorkArea.Height;
+                this.Width = SystemParameters.WorkArea.Width;
+                BTN_maximiser_icon.Kind = MaterialDesignThemes.Wpf.PackIconKind.WindowRestore;
+                windowsIsMaximize = true;
             }
         }
 
@@ -92,13 +108,12 @@ namespace GoldenManagement.Views.Application
 
         private void CZ_appBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed && this.WindowState == WindowState.Maximized)
-                this.WindowState = WindowState.Normal;
-
             base.OnMouseLeftButtonDown(e);
             this.DragMove();
         }
+        #endregion
 
+        #region Les boutons de navigation
         private void BTN_planning_Click(object sender, RoutedEventArgs e)
         {
             if (AccueilPlanningPage == null)
@@ -211,5 +226,6 @@ namespace GoldenManagement.Views.Application
             BTN_facturation.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
             BTN_parametres.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
         }
+        #endregion
     }
 }

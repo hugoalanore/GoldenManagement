@@ -33,7 +33,7 @@
 
         // À la fin du dev, passer le constructeur en "private"
         public DBContext()
-            : base(StringCipher.Decrypt(ConfigurationManager.ConnectionStrings["DB_MYSQL_LOCAL_ADMIN"].ConnectionString))
+            : base(StringCipher.Decrypt(ConfigurationManager.ConnectionStrings["DB_MYSQL_RMS"].ConnectionString))
         {
             Database.SetInitializer<DBContext>(new DBInitializer());
             this.Configuration.LazyLoadingEnabled = false;

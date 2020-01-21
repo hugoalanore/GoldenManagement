@@ -13,9 +13,14 @@
         ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
-
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="5,5"></Setter>
+            <Setter Property="Padding" Value="15,5"></Setter>
+        </Style>
     </Window.Resources>
-    
+
+
+
     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <!-- Barre du haut -->
         <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548">
