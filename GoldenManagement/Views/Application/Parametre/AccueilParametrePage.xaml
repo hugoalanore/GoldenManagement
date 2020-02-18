@@ -29,23 +29,19 @@
                 </Grid>
                 <Grid>
                     <DockPanel VerticalAlignment="Center">
-                        <Button x:Name="BTN_modifierProfil" Click="BTN_modifierProfil_Click" Width="150" Height="60" Margin="10,10">
+                        <Button x:Name="BTN_modifierProfil" Click="BTN_Navigate_Click" Width="150" Height="60" Margin="10,10">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Contact" Height="25" Width="25" Foreground="White" Margin="-5,0,5,0"/>
                                 <TextBlock HorizontalAlignment="Right">Modifier Profil</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="BTN_modifierServeurBDD" Click="BTN_modifierServeurBDD_Click" Width="150" Height="60" Margin="10,10">
+                        <Button x:Name="BTN_modifierServeurBDD" Click="BTN_Navigate_Click" Width="150" Height="60" Margin="10,10">
                             <StackPanel Orientation="Horizontal">
-                                <Viewbox  Margin="-5,8,15,0">
-                                    <Canvas  Width="15" Height="35" >
-                                        <Path Data="M12,3C7.58,3 4,4.79 4,7C4,9.21 7.58,11 12,11C16.42,11 20,9.21 20,7C20,4.79 16.42,3 12,3M4,9V12C4,14.21 7.58,16 12,16C16.42,16 20,14.21 20,12V9C20,11.21 16.42,13 12,13C7.58,13 4,11.21 4,9M4,14V17C4,19.21 7.58,21 12,21C16.42,21 20,19.21 20,17V14C20,16.21 16.42,18 12,18C7.58,18 4,16.21 4,14Z" Fill="White" />
-                                    </Canvas>
-                                </Viewbox>
+                                <materialDesign:PackIcon Kind="Database" Height="25" Width="25" Foreground="White" Margin="-5,5,5,0"/>
                                 <TextBlock>Modifier<LineBreak/> serveur BDD</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button x:Name="BTN_modifierServeurMail" Click="BTN_modifierServeurMail_Click" Width="150" Height="60" Margin="10,10">
+                        <Button x:Name="BTN_modifierServeurMail" Click="BTN_Navigate_Click" Width="150" Height="60" Margin="10,10">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Mail" Height="25" Width="25" Foreground="White" Margin="-5,5,5,0"/>
                                 <TextBlock>Modifier<LineBreak/> serveur Mail</TextBlock>
@@ -55,7 +51,7 @@
                 </Grid>
                 <Grid>
                     <DockPanel VerticalAlignment="Center">
-                        <Button x:Name="BTN_gestionUtilisateurs" Click="BTN_gestionUtilisateurs_Click" Width="150" Height="60" Margin="10,10" HorizontalAlignment="Left">
+                        <Button x:Name="BTN_gestionUtilisateurs" Click="BTN_Navigate_Click" Width="150" Height="60" Margin="10,10" HorizontalAlignment="Left">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="People" Height="25" Width="25" Foreground="White" Margin="-5,5,5,0"/>
                                 <TextBlock>Gestion<LineBreak/> Utilisateurs</TextBlock>

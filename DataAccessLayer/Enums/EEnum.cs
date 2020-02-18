@@ -22,4 +22,16 @@ namespace DataAccessLayer.Enums
         Secretaire,
         Comptable
     }
+
+    public enum EGoldenAppCollection
+    {
+        Utilisateurs,
+        Salles,
+        Batiments,
+        Sessions,
+        Formations,
+        Apprenants,
+        Formateurs,
+        Materiels
+    }
 }

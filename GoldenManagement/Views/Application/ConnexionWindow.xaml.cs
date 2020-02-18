@@ -1,4 +1,7 @@
-﻿using DataAccessLayer.Exceptions;
+﻿using DataAccessLayer.AccessLayer;
+using DataAccessLayer.BusinessLayer;
+using DataAccessLayer.Exceptions;
+using DataAccessLayer.Models;
 using GoldenManagement.Controllers;
 using System;
 using System.Collections.Generic;
@@ -33,6 +36,7 @@ namespace GoldenManagement.Views.Application
         public ConnexionWindow()
         {
             InitializeComponent();
+
         }
 
         private void BTN_seConnecter_Click(object sender, RoutedEventArgs e)

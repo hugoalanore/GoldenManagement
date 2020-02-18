@@ -13,10 +13,36 @@
         ResizeMode="CanResizeWithGrip">
 
     <Window.Resources>
+        <!-- Design des boutons du menu -->
+        <Style x:Key="btn_menu" TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property ="Height" Value="Auto"/>
+            <Setter Property ="FontSize" Value="16"/>
+            <Setter Property ="FontWeight" Value="Light"/>
+            <Setter Property ="materialDesign:ButtonAssist.CornerRadius" Value="0"/>
+            <Setter Property ="Background" Value="#a98274"/>
+            <Setter Property ="BorderThickness" Value="0"/>
+            <Setter Property ="Foreground" Value="#99FFFFFF"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+
+        <!-- Design du logo des boutons du menu -->
+        <Style x:Key="pi_icon_menu" TargetType="materialDesign:PackIcon">
+            <Setter Property ="IsHitTestVisible" Value="False"/>
+            <Setter Property ="Height" Value="25"/>
+            <Setter Property ="Width" Value="25"/>
+            <Setter Property ="Foreground" Value="White"/>
+            <Setter Property ="VerticalAlignment" Value="Center"/>
+            <Setter Property ="HorizontalAlignment" Value="Center"/>
+        </Style>
         
+        <!-- Design du texte des boutons du menu -->
+        <Style x:Key="tb_texte_menu" TargetType="TextBlock">
+            <Setter Property ="VerticalAlignment" Value="Center"/>
+        </Style>
     </Window.Resources>
 
     <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
         <!-- Barre du haut -->
         <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" DockPanel.Dock="Top" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#795548" MouseDoubleClick="CZ_appBar_MouseDoubleClick">
             <DockPanel VerticalAlignment="Center">
@@ -36,83 +62,149 @@
         <!-- Barre de gauche -->
         <materialDesign:ColorZone Width="200" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="Accent" DockPanel.Dock="Left" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#5f4339" >
             <DockPanel>
-                <materialDesign:PackIcon Kind="Person" DockPanel.Dock="Top" Width="200" Height="200" Foreground="White"/>
-                <!--
-                <Ellipse DockPanel.Dock="Top" Width="150" Height="150" Margin="25" Opacity="0.8">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="../Ressources/GFF_logo_black.jpg"/>
-                    </Ellipse.Fill>
-                </Ellipse>
-                -->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
 
-                <Grid Width="201" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_accueil" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#FF303030" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_accueil_Click">
-                        <Button.Content>Accueil</Button.Content>
+                    <!-- Icon -->
+                    <materialDesign:PackIcon Grid.Row="0" Kind="Person" DockPanel.Dock="Top" Width="200" Height="200" Foreground="White"/>
+
+                    <!-- Accueil -->
+                    <Button Grid.Row="1" x:Name="BTN_accueil" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click" Background="#FF303030">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="Home" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Accueil</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Home" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_planning" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_planning_Click">
-                        <TextBlock>
-                            Assistant de<LineBreak/> planification
-                        </TextBlock>
+                    <!-- Planning -->
+                    <Button Grid.Row="2" x:Name="BTN_planning" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="Calendar" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Assistant de<LineBreak/> planification</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Calendar" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_formations" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_formations_Click">
-                        <Button.Content>Formations</Button.Content>
+                    <!-- Formations -->
+                    <Button Grid.Row="3" x:Name="BTN_formations" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="School" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Formations</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="School" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_formateurs" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_formateurs_Click">
-                        <Button.Content>Formateurs</Button.Content>
+                    <!-- Formateurs -->
+                    <Button Grid.Row="4" x:Name="BTN_formateurs" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="Teacher" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Formateurs</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Teacher" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
+                    <!-- Apprenants -->
+                    <Button Grid.Row="5" x:Name="BTN_apprenants" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_apprenants" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_apprenants_Click">
-                        <Button.Content>Apprenants</Button.Content>
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="BusSchool" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Apprenants</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="BusSchool" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_salles" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_salles_Click">
-                        <Button.Content>Salles</Button.Content>
+                    <!-- Salles -->
+                    <Button Grid.Row="6" x:Name="BTN_salles" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="Room" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Salles</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Room" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
+                    <!-- Matériel -->
+                    <Button Grid.Row="7" x:Name="BTN_materiels" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_materiels" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_materiels_Click">
-                        <Button.Content>Matériels</Button.Content>
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="ToolboxOutline" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Matériels</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="ToolboxOutline" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_facturation" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_facturation_Click">
-                        <Button.Content>Facturation</Button.Content>
+                    <!-- Facturation -->
+                    <Button Grid.Row="8" x:Name="BTN_facturation" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="Euro" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Facturation</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Euro" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                </Grid>
 
-                <Grid Width="200" DockPanel.Dock="Top">
-                    <Button x:Name="BTN_parametres" FontSize="16" FontWeight="Light" Style="{StaticResource MaterialDesignRaisedButton}" Height="55" materialDesign:ButtonAssist.CornerRadius="0" Background="#a98274" BorderThickness="0" Foreground="#99FFFFFF" Click="BTN_parametres_Click">
-                        <Button.Content>Paramètres</Button.Content>
+                    <!-- Paramètre -->
+                    <Button Grid.Row="9" x:Name="BTN_parametres" Style="{StaticResource btn_menu}" Click="BTN_Navigate_Click">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70"/>
+                                <ColumnDefinition Width="130"/>
+                            </Grid.ColumnDefinitions>
+
+                            <materialDesign:PackIcon Grid.Column="0"  Kind="Settings" Style="{StaticResource pi_icon_menu}"/>
+                            <TextBlock Grid.Column="1" Style="{StaticResource tb_texte_menu}">Paramètres</TextBlock>
+                        </Grid>
                     </Button>
-                    <materialDesign:PackIcon IsHitTestVisible="False" Kind="Settings" Height="25" Width="45" Foreground="White" VerticalAlignment="Center" Margin="15,0,0,0"/>
                 </Grid>
-
-                <Rectangle />
-
             </DockPanel>
+        </materialDesign:ColorZone>
+        
+        <!-- Barre de navigation -->
+        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowDepth="Depth0" materialDesign:ShadowAssist.ShadowEdges="All"  DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF303030">
+            <StackPanel Height="60" Orientation="Horizontal">
+                <Button Background="Transparent" BorderThickness="0">
+                    <materialDesign:PackIcon Kind="ArrowBack" Background="Transparent" Foreground="White" Height="25" Width="25"/>
+                </Button>
+            </StackPanel>
         </materialDesign:ColorZone>
 
         <!-- Partie du centre -->

@@ -21,43 +21,33 @@ namespace GoldenManagement.Views.Application.Parametre
     /// </summary>
     public partial class AccueilParametrePage : Page
     {
+        private AccueilUtilisateurPage accueilUtilisateursPage = null;
+        private AccueilMonProfilPage accueilMonProfilPage = null;
+        private AccueilBDDParametrePage accueilBDDParametrePage = null;
+        private AccueilMailParametrePage accueilMailParametrePage = null;
 
-        AccueilUtilisateurPage AccueilUtilisateursPage;
-        AccueilMonProfilPage AccueilMonProfilPage;
-        readonly MainWindow MainWindow;
-
-        public AccueilParametrePage(MainWindow MainWindow)
+        public AccueilParametrePage()
         {
             InitializeComponent();
-            this.MainWindow = MainWindow;
         }
 
-        private void BTN_modifierProfil_Click(object sender, RoutedEventArgs e)
+        private void BTN_Navigate_Click(object sender, RoutedEventArgs e)
         {
-            if (AccueilMonProfilPage == null)
-            {
-                AccueilMonProfilPage = new AccueilMonProfilPage();
-            }
-            MainWindow.MainFrame.Content = AccueilMonProfilPage;
-        }
+            Page pageToNavigate;
+            Button clickedButton = sender as Button;
 
-        private void BTN_modifierServeurBDD_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BTN_modifierServeurMail_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BTN_gestionUtilisateurs_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilUtilisateursPage == null)
-            {
-                AccueilUtilisateursPage = new AccueilUtilisateurPage(this.MainWindow);
-            }
-            MainWindow.MainFrame.Content = AccueilUtilisateursPage;
+            // Modifier profil
+            if (clickedButton.Name == BTN_modifierProfil.Name) pageToNavigate = (accueilMonProfilPage = accueilMonProfilPage ?? new AccueilMonProfilPage());
+            // Modifier Serveur BDD
+            else if (clickedButton.Name == BTN_modifierServeurBDD.Name) pageToNavigate = (accueilBDDParametrePage = accueilBDDParametrePage ?? new AccueilBDDParametrePage());
+            // Modifier Serveur Mail
+            else if (clickedButton.Name == BTN_modifierServeurMail.Name) pageToNavigate = (accueilMailParametrePage = accueilMailParametrePage ?? new AccueilMailParametrePage());
+            // Modifier Gestion Utilisateur
+            else if (clickedButton.Name == BTN_gestionUtilisateurs.Name) pageToNavigate = (accueilUtilisateursPage = accueilUtilisateursPage ?? new AccueilUtilisateurPage());
+            // Autres
+            else throw new Exception("Impossible de naviguer vers une page depuis le bouton : [" + clickedButton.Name + "].") { };
+            
+            NavigationService.Navigate(pageToNavigate);
         }
     }
 }

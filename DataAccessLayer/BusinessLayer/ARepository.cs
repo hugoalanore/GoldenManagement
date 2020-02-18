@@ -75,10 +75,9 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public void Save()
+        internal void Save()
         {
             DBContext.Instance.SaveChanges();
         }
-
     }
 }

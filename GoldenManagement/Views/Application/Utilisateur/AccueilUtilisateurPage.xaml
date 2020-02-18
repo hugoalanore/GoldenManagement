@@ -26,7 +26,7 @@
                     </Button>
                 </Grid>
                 <Grid>
-                    <ListView  Name="lvUsers" Grid.IsSharedSizeScope="True">
+                    <ListView  Name="lvUsers" Grid.IsSharedSizeScope="True" ItemsSource="{Binding Utilisateurs}" SelectedItem="{Binding SelectedUtilisateur}">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Width="150">

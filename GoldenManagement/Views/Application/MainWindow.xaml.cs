@@ -1,26 +1,16 @@
-﻿using GoldenManagement.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using GoldenManagement.Views.Personne.Apprenant;
-using GoldenManagement.Views.Personne.Formateur;
+﻿using GoldenManagement.Views.Application.Parametre;
+using GoldenManagement.Views.Facturation;
 using GoldenManagement.Views.Formation;
 using GoldenManagement.Views.Lieu;
 using GoldenManagement.Views.Materiel;
-using GoldenManagement.Views.Application.Parametre;
+using GoldenManagement.Views.Personne.Apprenant;
+using GoldenManagement.Views.Personne.Formateur;
 using GoldenManagement.Views.Planning;
-using GoldenManagement.Views.Facturation;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 
 namespace GoldenManagement.Views.Application
 {
@@ -29,25 +19,23 @@ namespace GoldenManagement.Views.Application
     /// </summary>
     public partial class MainWindow : Window
     {
-        AccueilPage AccueilPage = null;
-        AccueilApprenantPage AccueilApprenantsPage = null;
-        AccueilFormateurPage AccueilFormateursPage = null;
-        AccueilFormationPage AccueilFormationsPage = null;
-        AccueilLieuPage AccueilLieuxPage = null;
-        AccueilMaterielPage AccueilMaterielsPage = null;
-        AccueilParametrePage AccueilParametresPage = null;
-        AccueilPlanningPage AccueilPlanningPage = null;
-        AccueilFacturationPage AccueilFacturationPage = null;
+        private AccueilPage accueilPage = null;
+        private AccueilApprenantPage accueilApprenantPage = null;
+        private AccueilFormateurPage accueilFormateurPage = null;
+        private AccueilFormationPage accueilFormationPage = null;
+        private AccueilLieuPage accueilLieuPage = null;
+        private AccueilMaterielPage accueilMaterielPage = null;
+        private AccueilParametrePage accueilParametrePage = null;
+        private AccueilPlanningPage accueilPlanningPage = null;
+        private AccueilFacturationPage accueilFacturationPage = null;
 
         public MainWindow()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
             this.StateChanged += new EventHandler(MainWindow_StateChanged);
-
-            AccueilPage = new AccueilPage();
-            MainFrame.Content = AccueilPage;
+            accueilPage = new AccueilPage();
+            MainFrame.NavigationService.Navigate(accueilPage);
         }
 
         #region Gestion de la barre d'application
@@ -132,118 +120,51 @@ namespace GoldenManagement.Views.Application
         }
         #endregion
 
-        #region Les boutons de navigation
-        private void BTN_planning_Click(object sender, RoutedEventArgs e)
+        #region La navigation
+        private void BTN_Navigate_Click(object sender, RoutedEventArgs e)
         {
-            if (AccueilPlanningPage == null)
-            {
-                AccueilPlanningPage = new AccueilPlanningPage();
-            }
-            MainFrame.Content = AccueilPlanningPage;
-            ResetColorButtonMenu();
-            BTN_planning.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
+            Page pageToNavigate;
+            Button clickedButton = sender as Button;
+
+            // Accueil
+            if (clickedButton.Name == BTN_accueil.Name) pageToNavigate = (accueilPage = accueilPage ?? new AccueilPage());
+            // Planning
+            else if (clickedButton.Name == BTN_planning.Name) pageToNavigate = (accueilPlanningPage = accueilPlanningPage ?? new AccueilPlanningPage());
+            // Formation
+            else if (clickedButton.Name == BTN_formations.Name) pageToNavigate = (accueilFormationPage = accueilFormationPage ?? new AccueilFormationPage());
+            // Formateur
+            else if (clickedButton.Name == BTN_formateurs.Name) pageToNavigate = (accueilFormateurPage = accueilFormateurPage ?? new AccueilFormateurPage());
+            // Apprenant
+            else if (clickedButton.Name == BTN_apprenants.Name) pageToNavigate = (accueilApprenantPage = accueilApprenantPage ?? new AccueilApprenantPage());
+            // Salle
+            else if (clickedButton.Name == BTN_salles.Name) pageToNavigate = (accueilLieuPage = accueilLieuPage ?? new AccueilLieuPage());
+            // Materiel
+            else if (clickedButton.Name == BTN_materiels.Name) pageToNavigate = (accueilMaterielPage = accueilMaterielPage ?? new AccueilMaterielPage());
+            // Facturation
+            else if (clickedButton.Name == BTN_facturation.Name) pageToNavigate = (accueilFacturationPage = accueilFacturationPage ?? new AccueilFacturationPage());
+            // Paramètre
+            else if (clickedButton.Name == BTN_parametres.Name) pageToNavigate = (accueilParametrePage = accueilParametrePage ?? new AccueilParametrePage());
+            // Autres
+            else throw new Exception("Impossible de naviguer vers une page depuis le bouton : [" + clickedButton.Name + "].") { };
+
+            MainFrame.NavigationService.Navigate(pageToNavigate);
+            SetColorButtonMenu(clickedButton);
         }
 
-        private void BTN_accueil_Click(object sender, RoutedEventArgs e)
+        private void SetColorButtonMenu(Button clickedButton)
         {
-            if (AccueilPage == null)
-            {
-                AccueilPage = new AccueilPage();
-            }
-            MainFrame.Content = AccueilPage;
-            ResetColorButtonMenu();
-            BTN_accueil.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
+            SolidColorBrush couleurDefault = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
+            SolidColorBrush couleurClique = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
 
-        }
-
-        private void BTN_formations_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilFormationsPage == null)
-            {
-                AccueilFormationsPage = new AccueilFormationPage();
-            }
-            MainFrame.Content = AccueilFormationsPage;
-            ResetColorButtonMenu();
-            BTN_formations.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void BTN_formateurs_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilFormateursPage == null)
-            {
-                AccueilFormateursPage = new AccueilFormateurPage();
-            }
-            MainFrame.Content = AccueilFormateursPage;
-            ResetColorButtonMenu();
-            BTN_formateurs.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void BTN_apprenants_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilApprenantsPage == null)
-            {
-                AccueilApprenantsPage = new AccueilApprenantPage();
-            }
-            MainFrame.Content = AccueilApprenantsPage;
-            ResetColorButtonMenu();
-            BTN_apprenants.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void BTN_salles_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilLieuxPage == null)
-            {
-                AccueilLieuxPage = new AccueilLieuPage();
-            }
-            MainFrame.Content = AccueilLieuxPage;
-            ResetColorButtonMenu();
-            BTN_salles.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void BTN_materiels_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilMaterielsPage == null)
-            {
-                AccueilMaterielsPage = new AccueilMaterielPage();
-            }
-            MainFrame.Content = AccueilMaterielsPage;
-            ResetColorButtonMenu();
-            BTN_materiels.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void BTN_facturation_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilFacturationPage == null)
-            {
-                AccueilFacturationPage = new AccueilFacturationPage();
-            }
-            MainFrame.Content = AccueilFacturationPage;
-            ResetColorButtonMenu();
-            BTN_facturation.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void BTN_parametres_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilParametresPage == null)
-            {
-                AccueilParametresPage = new AccueilParametrePage(this);
-            }
-            MainFrame.Content = AccueilParametresPage;
-            ResetColorButtonMenu();
-            BTN_parametres.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF303030"));
-        }
-
-        private void ResetColorButtonMenu()
-        {
-            BTN_accueil.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_planning.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_formations.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_formateurs.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_apprenants.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_salles.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_materiels.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_facturation.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
-            BTN_parametres.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#a98274"));
+            BTN_accueil.Background = (clickedButton.Name == BTN_accueil.Name) ? couleurClique : couleurDefault;
+            BTN_planning.Background = (clickedButton.Name == BTN_planning.Name) ? couleurClique : couleurDefault;
+            BTN_formations.Background = (clickedButton.Name == BTN_formations.Name) ? couleurClique : couleurDefault;
+            BTN_formateurs.Background = (clickedButton.Name == BTN_formateurs.Name) ? couleurClique : couleurDefault;
+            BTN_apprenants.Background = (clickedButton.Name == BTN_apprenants.Name) ? couleurClique : couleurDefault;
+            BTN_salles.Background = (clickedButton.Name == BTN_salles.Name) ? couleurClique : couleurDefault;
+            BTN_materiels.Background = (clickedButton.Name == BTN_materiels.Name) ? couleurClique : couleurDefault;
+            BTN_facturation.Background = (clickedButton.Name == BTN_facturation.Name) ? couleurClique : couleurDefault;
+            BTN_parametres.Background = (clickedButton.Name == BTN_parametres.Name) ? couleurClique : couleurDefault;
         }
         #endregion
 

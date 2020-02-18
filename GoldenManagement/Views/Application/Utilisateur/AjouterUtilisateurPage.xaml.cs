@@ -24,16 +24,11 @@ namespace GoldenManagement.Views.Application.Utilisateur
     /// </summary>
     public partial class AjouterUtilisateurPage : Page
     {
-
         private readonly GoldenApp _GA = GoldenApp.Instance;
-        private readonly MainWindow MainWindow;
-        private AccueilUtilisateurPage AccueilUtilisateursPage;
 
-        public AjouterUtilisateurPage(MainWindow MainWindow, AccueilUtilisateurPage AccueilUtilisateursPage)
+        public AjouterUtilisateurPage()
         {
             InitializeComponent();
-            this.MainWindow = MainWindow;
-            this.AccueilUtilisateursPage = AccueilUtilisateursPage;
 
             foreach (ERoleUtilisateur roleUtilisateur in (ERoleUtilisateur[])Enum.GetValues(typeof(ERoleUtilisateur)))
             {
@@ -42,12 +37,8 @@ namespace GoldenManagement.Views.Application.Utilisateur
         }
 
         private void BTN_retour_Click(object sender, RoutedEventArgs e)
-        {
-            if (AccueilUtilisateursPage == null)
-            {
-                AccueilUtilisateursPage = new AccueilUtilisateurPage(this.MainWindow);
-            }
-            MainWindow.MainFrame.Content = AccueilUtilisateursPage;
+        { 
+            NavigationService.GoBack();
         }
 
         private void BTN_ajouterUtilisateur_Click(object sender, RoutedEventArgs e)
@@ -79,7 +70,6 @@ namespace GoldenManagement.Views.Application.Utilisateur
                         CB_role.Text = String.Empty;
                         PB_motDePasse.Password = String.Empty;
                         PB_motDePasseConfirmation.Password = String.Empty;
-                        AccueilUtilisateursPage.lesUtilisateurs = new ObservableCollection<DataAccessLayer.Models.Utilisateur>(_GA.GetAllUtilsateurs());
                     }
                     else
                     {

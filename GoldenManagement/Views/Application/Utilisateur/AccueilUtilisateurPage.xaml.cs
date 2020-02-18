@@ -23,36 +23,25 @@ namespace GoldenManagement.Views.Application.Utilisateur
     public partial class AccueilUtilisateurPage : Page
     {
         private readonly GoldenApp _GA = GoldenApp.Instance;
-        // private List<DataAccessLayer.Models.Utilisateur> utilisateurs = new List<DataAccessLayer.Models.Utilisateur>();
         private GridViewColumnHeader listViewSortCol = null;
         private SortAdorner listViewSortAdorner = null;
-
-        public ObservableCollection<DataAccessLayer.Models.Utilisateur> lesUtilisateurs;
-
+        
         AjouterUtilisateurPage AjouterUtilisateurPage;
-        readonly MainWindow MainWindow;
 
-        public AccueilUtilisateurPage(MainWindow MainWindow)
+        public AccueilUtilisateurPage()
         {
             InitializeComponent();
-            GetAllUtilisateurs();
-            this.MainWindow = MainWindow;
+            DataContext = GoldenApp.Instance;
         }
 
-        private void GetAllUtilisateurs()
-        {
-            // utilisateurs = _GA.GetAllUtilsateurs();
-            lesUtilisateurs = new ObservableCollection<DataAccessLayer.Models.Utilisateur>(_GA.GetAllUtilsateurs());
-            lvUsers.ItemsSource = lesUtilisateurs;
-        }
 
         private void BTN_ajouter_utilisateur_Click(object sender, RoutedEventArgs e)
         {
             if (AjouterUtilisateurPage == null)
             {
-                AjouterUtilisateurPage = new AjouterUtilisateurPage(this.MainWindow, this);
+                AjouterUtilisateurPage = new AjouterUtilisateurPage();
             }
-            MainWindow.MainFrame.Content = AjouterUtilisateurPage;
+            NavigationService.Navigate(AjouterUtilisateurPage);
         }
 
         private void BTN_show_utilisateur_Click(object sender, RoutedEventArgs e)
@@ -61,7 +50,7 @@ namespace GoldenManagement.Views.Application.Utilisateur
             dynamic yourdataObject = lvi.DataContext;
             int id = yourdataObject.Id;
 
-            MainWindow.MainFrame.Content = new ModifierUtilisateurPage(id, this.MainWindow, this);
+            NavigationService.Navigate(new ModifierUtilisateurPage(id));
         }
 
         private void LvUsersColumnHeader_Click(object sender, RoutedEventArgs e)

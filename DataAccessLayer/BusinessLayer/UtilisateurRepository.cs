@@ -23,7 +23,6 @@ namespace DataAccessLayer.BusinessLayer
                 {
                     utilisateur.Role = Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString);
                 }
-
                 DBContext.Instance.Utilisateurs.Add(utilisateur);
                 Save();
             }
@@ -72,8 +71,8 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                List<Utilisateur> utilisateurs = DBContext.Instance.Utilisateurs.ToList();
-                utilisateurs.ForEach(util => DBContext.Instance.Entry(util).Reference(u => u.Role).Load());
+                ICollection<Utilisateur> utilisateurs = DBContext.Instance.Utilisateurs.ToList();
+                utilisateurs.ToList().ForEach(util => DBContext.Instance.Entry(util).Reference(u => u.Role).Load());
                 return utilisateurs;
             }
             catch (Exception e)

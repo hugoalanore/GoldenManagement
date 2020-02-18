@@ -43,7 +43,7 @@ namespace GoldenManagement.Views.Application.Utilisateur
             {
                 if (PB_newMotDePasse.Password == PB_newMotDePasseConfirmation.Password)
                 {
-                    var IsOK = _GA.UpdatePassWord(_GA.LivingData.UtilisateurActif.Id, PB_motDePasse.Password, PB_newMotDePasse.Password, _GA.LivingData.UtilisateurActif.NomUtilisateur);
+                    var IsOK = _GA.UpdatePassWord(PB_motDePasse.Password, PB_newMotDePasse.Password, _GA.LivingData.UtilisateurActif.Id);
 
                     if (IsOK)
                     {

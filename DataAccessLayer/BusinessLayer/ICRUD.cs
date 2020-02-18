@@ -13,6 +13,5 @@ namespace DataAccessLayer.BusinessLayer
         void Create(T entity);
         void Update(T entity);
         void Delete(int id);
-        void Save();
     }
 }

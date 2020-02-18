@@ -16,6 +16,7 @@ namespace GoldenManagement.Controllers
         #region Constructeurs
         private PersonneController()
         {
+            
         }
         #endregion
     }

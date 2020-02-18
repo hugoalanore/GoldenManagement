@@ -123,7 +123,7 @@
 
                 <Border Grid.Column="0" Grid.Row="1" Style="{StaticResource bdr_jour}">
                     <Grid>
-                        <ContentPresenter Content="{Binding Jo-urs[0]}"/>
+                        <ContentPresenter Content="{Binding Jours[0]}"/>
                     </Grid>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource bdr_jour}">

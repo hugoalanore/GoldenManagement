@@ -33,21 +33,16 @@ namespace GoldenManagement.Views.Application.Utilisateur
 
         private readonly GoldenApp _GA = GoldenApp.Instance;
 
-        private readonly MainWindow MainWindow;
-        private AccueilUtilisateurPage AccueilUtilisateursPage;
-
         private DataAccessLayer.Models.Utilisateur _Utilisateur;
         public DataAccessLayer.Models.Utilisateur Utilisateur {
             get { return _Utilisateur; }
             set { if (_Utilisateur != value) { _Utilisateur = value; NotifyPropertyChanged(); } }
         }
 
-        public ModifierUtilisateurPage(int id, MainWindow MainWindow, AccueilUtilisateurPage AccueilUtilisateursPage)
+        public ModifierUtilisateurPage(int id)
         {
             InitializeComponent();
             Utilisateur = _GA.GetUtilisateurById(id);
-            this.MainWindow = MainWindow;
-            this.AccueilUtilisateursPage = AccueilUtilisateursPage;
 
             // All Field Lock
             TB_prenom.IsEnabled = false;
@@ -65,7 +60,6 @@ namespace GoldenManagement.Views.Application.Utilisateur
             }
             else
             {
-                // _GA.UpdateUtilisateur(TB_prenom.Text, TB_nom.Text, new RoleUtilisateur() { DesignationString = CB_role.Text }, this.idUtilisateur);
                 _GA.UpdateUtilisateur(Utilisateur.Prenom, Utilisateur.Nom, new RoleUtilisateur() { Designation = (ERoleUtilisateur)CB_role.SelectedItem }, Utilisateur.Id);
             }
         }
@@ -82,11 +76,7 @@ namespace GoldenManagement.Views.Application.Utilisateur
 
         private void BTN_retour_Click(object sender, RoutedEventArgs e)
         {
-            if (AccueilUtilisateursPage == null)
-            {
-                AccueilUtilisateursPage = new AccueilUtilisateurPage(this.MainWindow);
-            }
-            MainWindow.MainFrame.Content = AccueilUtilisateursPage;
+            NavigationService.GoBack();
         }
     }
 }
