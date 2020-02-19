@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,26 @@ namespace GoldenManagement.Controllers
         private PersonneController()
         {
             
+        }
+        #endregion
+
+        #region Gestion des Formateurs
+        public List<Formateur> GetAllFormateursFormations()
+        {
+            return null;
+            //return _GA.DataAccess.GetAllFormateursFormations();  // TODO mettre a jour
+        }
+
+        public bool AddFormateurFormation(int idFormation, int idFormateur)
+        {
+            return false;
+            //return _GA.DataAccess.AddFormateurFormation(idFormation, idFormateur);  // TODO mettre a jour
+        }
+
+        public bool DeleteFormateurFormation(int id)
+        {
+            return false;
+            //return _GA.DataAccess.DeleteFormateurFormation(id);  // TODO mettre a jour
         }
         #endregion
     }

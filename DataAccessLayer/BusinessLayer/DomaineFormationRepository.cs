@@ -9,5 +9,21 @@ namespace DataAccessLayer.BusinessLayer
 {
     public class DomaineFormationRepository : ARepository<DomaineFormation>
     {
+        public DomaineFormation GetDomaineFormationByDesignation(string designation)
+        {
+            try
+            {
+                return GetAll().Where(dF => dF.Designation == designation).FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error on GetTypeFormationByDesignation", e);
+            }
+        }
+
+        public ICollection<Formation> GetAllFormationByDomaine(string designation)
+        {
+            return GetDomaineFormationByDesignation(designation).Formations;
+        }
     }
 }

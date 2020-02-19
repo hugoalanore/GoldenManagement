@@ -1,0 +1,172 @@
+﻿<Page x:Class="GoldenManagement.Views.Formation.FicheFormationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GoldenManagement.Views.Formation"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FicheFormationPage">
+
+
+    <StackPanel Orientation="Horizontal" Margin="25,25,0,0">
+        <materialDesign:ColorZone Padding="25" CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All">
+            <StackPanel>
+                <DockPanel  x:Name="root">
+                    <Grid DockPanel.Dock="Top">
+                        <TextBlock Text="Fiche Formation" FontSize="32" Foreground="#CCFFFFFF"/>
+                    </Grid>
+                    <Grid DockPanel.Dock="Top">
+                        <Grid>
+                            <StackPanel Name="formModif">
+                                <ComboBox x:Name="CB_libelle" materialDesign:HintAssist.Hint="Libelle" Margin="0,10" FontSize="16" Foreground="White" IsEditable="True" Text="{Binding Libelle}">
+                                </ComboBox>
+                                <TextBox x:Name="TB_intitule" materialDesign:HintAssist.Hint="Intitule" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="16" Foreground="White" TabIndex="2" Text="{Binding Intitule}"/>
+                                <TextBox x:Name="TB_nbJour" materialDesign:HintAssist.Hint="Nb Jour" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="16" Foreground="White" TabIndex="3" Text="{Binding NbJour}"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid DockPanel.Dock="Top" Margin="0,15,0,0">
+                        <Button x:Name="BTN_modifierFormation" Margin="0,0,10,0" HorizontalAlignment="Left" Width="150" Content="Modifier" Click="BTN_modifierFormation_Click"/>
+                        <Button x:Name="BTN_supprimerFormation" Margin="10,0,0,0" HorizontalAlignment="Right" Width="150" Content="Supprimer" Click="BTN_supprimerFormation_Click"/>
+                    </Grid>
+                    <!-- Panneau Formateurs -->
+                    <Grid  DockPanel.Dock="Top">
+                        <Separator Name="MySeparator1" Height="3" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#CCFFFFFF" Margin="0,20,0,15" />
+                    </Grid>
+                    <Grid  DockPanel.Dock="Top">
+                        <TextBlock Text="Formateurs" FontSize="22" Foreground="#CCFFFFFF" Margin="0,0,0,10"/>
+                    </Grid>
+                    <!-- Table Formateurs -->
+                    <Grid DockPanel.Dock="Top">
+                        <StackPanel>
+                            <DockPanel VerticalAlignment="Center">
+                                <ComboBox x:Name="CB_Formateurs" materialDesign:HintAssist.Hint="Formateurs" Margin="0,8,30,0" FontSize="16" Foreground="White"/>
+                                <Button x:Name="BTN_ajoutFormateur" Width="80" Content="Ajouter" Click="BTN_ajoutFormateur_Click" TabIndex="2" HorizontalAlignment="Right"></Button>
+                            </DockPanel>
+                            <Grid>
+                                <ListView  Name="tableFormateur" Grid.IsSharedSizeScope="True" TabIndex="3">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Width="150">
+                                                <GridViewColumn.Header>
+                                                    <GridViewColumnHeader Tag="Prenom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">PRENOM</GridViewColumnHeader>
+                                                </GridViewColumn.Header>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Prenom}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="150">
+                                                <GridViewColumn.Header>
+                                                    <GridViewColumnHeader Tag="Nom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NOM</GridViewColumnHeader>
+                                                </GridViewColumn.Header>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Nom}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Focusable" Value="false"/>
+                                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="BTN_deleteFormateur_Click"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="true">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                    <Setter Property="Cursor" Value="Hand"/>
+                                                    <Setter Property="Background" Value="Gray"/>
+                                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                            <!-- End Table Formateurs -->
+                        </StackPanel>
+                    </Grid>
+                    <!-- Panneau Materiels Requis -->
+                    <Grid  DockPanel.Dock="Top">
+                        <Separator Name="MySeparator2" Height="3" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Background="#CCFFFFFF" Margin="0,20,0,15" />
+                    </Grid>
+                    <Grid  DockPanel.Dock="Top">
+                        <TextBlock Text="Materiels Requis" FontSize="22" Foreground="#CCFFFFFF" Margin="0,0,0,10"/>
+                    </Grid>
+                    <!-- Table Materiels Requis -->
+                    <Grid DockPanel.Dock="Top">
+                        <StackPanel>
+                            <DockPanel VerticalAlignment="Center">
+                                <ComboBox x:Name="CB_Materiel" materialDesign:HintAssist.Hint="Materiel" Margin="0,8,30,0" FontSize="16" Foreground="White"/>
+                                <TextBox x:Name="TB_Quatite" materialDesign:HintAssist.Hint="Quantite" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,0,0,0" FontSize="16" Foreground="White"/>
+                                <Button x:Name="BTN_ajoutMateriel" Width="80" Content="Ajouter" Click="BTN_ajoutMateriel_Click" TabIndex="2" HorizontalAlignment="Right"></Button>
+                            </DockPanel>
+                            <Grid>
+                                <ListView  Name="lvUsers" Grid.IsSharedSizeScope="True" TabIndex="3">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Width="150">
+                                                <GridViewColumn.Header>
+                                                    <GridViewColumnHeader Tag="Libelle" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">LIBELLE</GridViewColumnHeader>
+                                                </GridViewColumn.Header>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Libelle}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="150">
+                                                <GridViewColumn.Header>
+                                                    <GridViewColumnHeader Tag="Quantite" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">QUANTITE</GridViewColumnHeader>
+                                                </GridViewColumn.Header>
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding QuantiteFormation}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Focusable" Value="false"/>
+                                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="BTN_deleteMateriel_Click"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="true">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="true">
+                                                    <Setter Property="Cursor" Value="Hand"/>
+                                                    <Setter Property="Background" Value="Gray"/>
+                                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                </ListView>
+                            </Grid>
+                            <!-- End Table Materiels Requis -->
+                        </StackPanel>
+                    </Grid>
+                    <Grid  DockPanel.Dock="Top">
+                        <Border VerticalAlignment="Bottom" Height="40">
+                            <TextBox x:Name="TB_message" Margin="25,15,25,0" VerticalAlignment="Center" Foreground="Gray" FontSize="16"  TextAlignment="Center" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0"/>
+                        </Border>
+                    </Grid>
+                    <Grid  DockPanel.Dock="Top" Margin="0,15">
+                        <Button x:Name="BTN_retour" Margin="0,0,0,0" HorizontalAlignment="Center" Width="150" Content="Annuler" Click="BTN_retour_Click"/>
+                    </Grid>
+                </DockPanel>
+            </StackPanel>
+        </materialDesign:ColorZone>
+    </StackPanel>
+</Page>
+
