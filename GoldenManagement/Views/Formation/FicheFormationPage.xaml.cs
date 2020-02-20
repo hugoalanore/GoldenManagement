@@ -39,7 +39,7 @@ namespace GoldenManagement.Views.Formation
             GetFormation();
 
             // ComboBox Formation
-            CB_libelle.ItemsSource = FormationsController.GetAllDomaineFormation();
+            CB_libelle.ItemsSource = FormationsController.GetAllDomaineFormations();
 
             // ComboBox Materiel
             CB_Materiel.ItemsSource = MaterielsController.GetAllMateriels();
@@ -133,7 +133,7 @@ namespace GoldenManagement.Views.Formation
             NavigationService.Navigate(RetourPage);
         }
 
-        private void lvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
+        private void LvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
             string sortBy = column.Tag.ToString();

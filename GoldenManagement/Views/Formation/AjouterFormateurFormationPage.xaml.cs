@@ -62,7 +62,7 @@ namespace GoldenManagement.Views.Formation
 
         }
 
-        private void lvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
+        private void LvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
             string sortBy = column.Tag.ToString();

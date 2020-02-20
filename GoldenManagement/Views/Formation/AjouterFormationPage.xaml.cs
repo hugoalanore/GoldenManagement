@@ -30,7 +30,7 @@ namespace GoldenManagement.Views.Formation
             InitializeComponent();
             this.FicheDomaineFormationPage = FicheDomaineFormationPage;
 
-            foreach (var formationType in FormationsController.GetAllDomaineFormation())
+            foreach (var formationType in FormationsController.GetAllDomaineFormations())
             {
                 CB_libelle.Items.Add(formationType.Designation);
             }
@@ -56,7 +56,7 @@ namespace GoldenManagement.Views.Formation
             try
             {
                 TB_message.Text = String.Empty;
-                if (FormationsController.AddFormations(intitule, Int32.Parse(nbJour), FormationController.Instance.GetDomaineFormationByDesignation(libelle)))
+                if (FormationsController.AddFormation(intitule, Int32.Parse(nbJour), FormationController.Instance.GetDomaineFormationByDesignation(libelle)))
                 {
                     TB_message.Text = "Ajout Effectuer";
                     TB_intitule.Text = String.Empty;

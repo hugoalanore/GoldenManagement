@@ -30,7 +30,7 @@ namespace GoldenManagement.Views.Formation
         {
             InitializeComponent();
             GetAllFormations();
-            AllFormationsTypes.ItemsSource = FormationsController.GetAllDomaineFormation();
+            AllFormationsTypes.ItemsSource = FormationsController.GetAllDomaineFormations();
 
         }
 
@@ -52,7 +52,7 @@ namespace GoldenManagement.Views.Formation
                 return ((item as DataAccessLayer.Models.Formation).Intitule.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0 || (item as DataAccessLayer.Models.Formation).Intitule.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0);
         }
 
-        private void txtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void TxtFilter_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(lvUsers.ItemsSource).Refresh();
             TB_mySearch.Text = "Recherche : " + txtFilter.Text;
@@ -93,7 +93,7 @@ namespace GoldenManagement.Views.Formation
             NavigationService.Navigate(AjouterDomaineFormationPage);
         }
 
-        private void lvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
+        private void LvUsersColumnHeader_Click(object sender, RoutedEventArgs e)
         {
             GridViewColumnHeader column = (sender as GridViewColumnHeader);
             string sortBy = column.Tag.ToString();

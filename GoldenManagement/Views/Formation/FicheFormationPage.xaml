@@ -51,7 +51,7 @@
                                         <GridView>
                                             <GridViewColumn Width="150">
                                                 <GridViewColumn.Header>
-                                                    <GridViewColumnHeader Tag="Prenom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">PRENOM</GridViewColumnHeader>
+                                                    <GridViewColumnHeader Tag="Prenom" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">PRENOM</GridViewColumnHeader>
                                                 </GridViewColumn.Header>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
@@ -61,7 +61,7 @@
                                             </GridViewColumn>
                                             <GridViewColumn Width="150">
                                                 <GridViewColumn.Header>
-                                                    <GridViewColumnHeader Tag="Nom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NOM</GridViewColumnHeader>
+                                                    <GridViewColumnHeader Tag="Nom" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NOM</GridViewColumnHeader>
                                                 </GridViewColumn.Header>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
@@ -114,7 +114,7 @@
                                         <GridView>
                                             <GridViewColumn Width="150">
                                                 <GridViewColumn.Header>
-                                                    <GridViewColumnHeader Tag="Libelle" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">LIBELLE</GridViewColumnHeader>
+                                                    <GridViewColumnHeader Tag="Libelle" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">LIBELLE</GridViewColumnHeader>
                                                 </GridViewColumn.Header>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>
@@ -124,7 +124,7 @@
                                             </GridViewColumn>
                                             <GridViewColumn Width="150">
                                                 <GridViewColumn.Header>
-                                                    <GridViewColumnHeader Tag="Quantite" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">QUANTITE</GridViewColumnHeader>
+                                                    <GridViewColumnHeader Tag="Quantite" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">QUANTITE</GridViewColumnHeader>
                                                 </GridViewColumn.Header>
                                                 <GridViewColumn.CellTemplate>
                                                     <DataTemplate>

@@ -15,7 +15,7 @@
             <StackPanel>
                 <Grid DockPanel.Dock="Top" Width="500">
                     <TextBlock x:Name="TB_titleFormationType" Text="Fiche FormationType" FontSize="32" Foreground="#CCFFFFFF"/>
-                    <TextBox materialDesign:HintAssist.Hint="Barre de Recherche" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,0,10,10" Name="txtFilter" TextChanged="txtFilter_TextChanged" FontSize="16" Foreground="White" HorizontalAlignment="Right"/>
+                    <TextBox materialDesign:HintAssist.Hint="Barre de Recherche" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,0,10,10" Name="txtFilter" TextChanged="TxtFilter_TextChanged" FontSize="16" Foreground="White" HorizontalAlignment="Right"/>
                 </Grid>
                 <Grid>
                     <ListView Name="lvUsers">
@@ -23,7 +23,7 @@
                             <GridView>
                                 <GridViewColumn Width="150">
                                     <GridViewColumn.Header>
-                                        <GridViewColumnHeader Tag="Intitule" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">INTITULE</GridViewColumnHeader>
+                                        <GridViewColumnHeader Tag="Intitule" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">INTITULE</GridViewColumnHeader>
                                     </GridViewColumn.Header>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -33,7 +33,7 @@
                                 </GridViewColumn>
                                 <GridViewColumn Width="150">
                                     <GridViewColumn.Header>
-                                        <GridViewColumnHeader Tag="NbJour" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NB JOUR</GridViewColumnHeader>
+                                        <GridViewColumnHeader Tag="NbJour" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NB JOUR</GridViewColumnHeader>
                                     </GridViewColumn.Header>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>

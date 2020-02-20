@@ -22,7 +22,7 @@
                                 <GridView>
                                     <GridViewColumn Width="50">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="Id" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">ID</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="Id" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">ID</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -32,7 +32,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="Prenom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">PRENOM</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="Prenom" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">PRENOM</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -42,7 +42,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="Nom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">NOM</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="Nom" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">NOM</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -52,7 +52,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="Salle" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">SALLE</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="Salle" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">SALLE</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -62,7 +62,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="DateDeb" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">DATE DEBUT</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="DateDeb" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">DATE DEBUT</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -72,7 +72,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="DateFin" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">DATE FIN</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="DateFin" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" HorizontalAlignment="Center" FontSize="16">DATE FIN</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

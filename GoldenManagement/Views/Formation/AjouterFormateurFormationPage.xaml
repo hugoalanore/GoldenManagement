@@ -22,7 +22,7 @@
                                 <GridView>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="CheckBox" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">CheckBox</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="CheckBox" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">CheckBox</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -32,7 +32,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="Nom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">Nom</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="Nom" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">Nom</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -42,7 +42,7 @@
                                     </GridViewColumn>
                                     <GridViewColumn Width="150">
                                         <GridViewColumn.Header>
-                                            <GridViewColumnHeader Tag="Prenom" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">Prenom</GridViewColumnHeader>
+                                            <GridViewColumnHeader Tag="Prenom" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">Prenom</GridViewColumnHeader>
                                         </GridViewColumn.Header>
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

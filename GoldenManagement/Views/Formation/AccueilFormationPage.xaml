@@ -22,7 +22,7 @@
             <StackPanel>
                 <Grid Margin="0,0,0,10">
                     <TextBlock Text="Formations" FontSize="32" Foreground="#CCFFFFFF" Margin="0,0,0,5"/>
-                    <TextBox materialDesign:HintAssist.Hint="Barre de Recherche" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,0,10,10" Name="txtFilter" TextChanged="txtFilter_TextChanged" FontSize="16" Foreground="White" HorizontalAlignment="Right"/>
+                    <TextBox materialDesign:HintAssist.Hint="Barre de Recherche" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,0,10,10" Name="txtFilter" TextChanged="TxtFilter_TextChanged" FontSize="16" Foreground="White" HorizontalAlignment="Right"/>
                 </Grid>
                 <Grid>
                     <WrapPanel Orientation="Horizontal" Width="840">
@@ -64,7 +64,7 @@
                             <GridView>
                                 <GridViewColumn Width="150">
                                     <GridViewColumn.Header>
-                                        <GridViewColumnHeader Tag="Libelle" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">LIBELLE</GridViewColumnHeader>
+                                        <GridViewColumnHeader Tag="Libelle" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">LIBELLE</GridViewColumnHeader>
                                     </GridViewColumn.Header>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -74,7 +74,7 @@
                                 </GridViewColumn>
                                 <GridViewColumn Width="150">
                                     <GridViewColumn.Header>
-                                        <GridViewColumnHeader Tag="Intitule" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">INTITULE</GridViewColumnHeader>
+                                        <GridViewColumnHeader Tag="Intitule" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">INTITULE</GridViewColumnHeader>
                                     </GridViewColumn.Header>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -84,7 +84,7 @@
                                 </GridViewColumn>
                                 <GridViewColumn Width="150">
                                     <GridViewColumn.Header>
-                                        <GridViewColumnHeader Tag="NbJour" Click="lvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NB JOUR</GridViewColumnHeader>
+                                        <GridViewColumnHeader Tag="NbJour" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NB JOUR</GridViewColumnHeader>
                                     </GridViewColumn.Header>
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>

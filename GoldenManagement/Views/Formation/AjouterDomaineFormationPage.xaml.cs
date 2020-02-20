@@ -42,7 +42,7 @@ namespace GoldenManagement.Views.Formation
             try
             {
                 TB_message.Text = String.Empty;
-                if (FormationsController.AddTypeFormations(typeFormation))
+                if (FormationsController.AddDomaineFormation(typeFormation))
                 {
                     TB_message.Text = "Ajout Effectuer";
                     TB_nomTypeFormation.Text = String.Empty;

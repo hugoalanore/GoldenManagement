@@ -29,7 +29,7 @@ namespace GoldenManagement.Controllers
             return Repository.Formation.GetAll().ToList();
         }
 
-        public List<DomaineFormation> GetAllDomaineFormation()
+        public List<DomaineFormation> GetAllDomaineFormations()
         {
             return Repository.DomaineFormation.GetAll().ToList();
         }
@@ -41,62 +41,83 @@ namespace GoldenManagement.Controllers
             return formation;
         }
 
-        public List<Formation> GetAllFormationByDomaine(string designation)//TODO verif
+        public List<Formation> GetAllFormationsByDomaine(string designation)//TODO verif
         {
             return Repository.DomaineFormation.GetAllFormationByDomaine(designation).ToList();
         }
 
-        public bool UpdateFormation(int id, DomaineFormation domaineFormation, int nbJour, String intitule)
-        {
-            if (GetTypeFormationByType(domaineFormation.Designation))
-            {
-                return UpdateFormations(intitule, nbJour, domaineFormation, id);
-            }
-            else
-            {
-                AddTypeFormations(domaineFormation.Designation);
-                return UpdateFormations(intitule, nbJour, domaineFormation, id);
-            }
-        }
-
-        public bool UpdateFormations(string intitule, int nbJour, DomaineFormation domaineFormation, int id)//TODO verif
+        public bool UpdateFormation(int id, DomaineFormation domaineFormation, int nbJour, string intitule)
         {
             if (intitule == string.Empty || domaineFormation == null || domaineFormation.Designation == string.Empty) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
 
-            try
+            if (DomaineFormationExist(domaineFormation.Designation))
             {
-                Repository.Formation.UpdateById(id, intitule, nbJour, domaineFormation);
-                return true;
+                try
+                {
+                    Repository.Formation.UpdateById(id, intitule, nbJour, domaineFormation);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
             }
-            catch (Exception)
+            else
+            {
+                try
+                {
+                    AddDomaineFormation(domaineFormation.Designation);
+                    Repository.Formation.UpdateById(id, intitule, nbJour, domaineFormation);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool AddFormation(string intitule, int nbJour, DomaineFormation domaineFormation)
+        {
+            if (intitule == string.Empty || domaineFormation == null || domaineFormation.Designation == string.Empty) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
+            if (DomaineFormationExist(domaineFormation.Designation))
+            {
+                try
+                {
+                    Repository.Formation.Create(new Formation() { Intitule = intitule, NbJours = nbJour, Domaine = domaineFormation });
+                    return true;
+                }
+                catch (Exception) { return false; }
+            }
+            else
+            {
+                try
+                {
+                    AddDomaineFormation(domaineFormation.Designation);
+                    Repository.Formation.Create(new Formation() { Intitule = intitule, NbJours = nbJour, Domaine = domaineFormation });
+                    return true;
+                }
+                catch (Exception) { return false; }
+            }
+        }
+
+        public bool AddDomaineFormation(string designation)
+        {
+            if (designation == string.Empty) { throw new ArgumentException("La désignation du domaine ne peut pas être vides."); }
+
+            if (DomaineFormationExist(designation))
             {
                 return false;
             }
-        }
-
-        public bool AddFormations(String intitule, int nbJour, DomaineFormation domaineFormation)
-        {
-            if (GetTypeFormationByType(domaineFormation.Designation))
-            {
-                return AddFormation(intitule, nbJour, domaineFormation);
-            }
             else
             {
-                AddTypeFormations(domaineFormation.Designation);
-                return AddFormation(intitule, nbJour, domaineFormation);
+                try
+                {
+                    Repository.DomaineFormation.Create(new DomaineFormation() { Designation = designation });
+                    return true;
+                }
+                catch (Exception) { return false; }
             }
-        }
-
-        public bool AddFormation(string intitule, int nbJour, DomaineFormation domaineFormation)//TODO verif
-        {
-            if (intitule == string.Empty || domaineFormation == null || domaineFormation.Designation == string.Empty) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
-
-            try
-            {
-                Repository.Formation.Create(new Formation() { Intitule = intitule, NbJours = nbJour, Domaine = domaineFormation });
-                return true;
-            }
-            catch (Exception) { return false; }
         }
 
         public bool DeleteFormation(int id)
@@ -105,31 +126,12 @@ namespace GoldenManagement.Controllers
             catch (Exception) { return false; }
         }
 
-        public bool AddTypeFormations(string libelle)
+        public DomaineFormation GetDomaineFormationByDesignation(string designation)// TODO verif
         {
-            if (GetTypeFormationByType(libelle))
-            {
-                return false;
-            }
-            else
-            {
-                return AddTypeFormation(libelle);
-            }
+            return Repository.DomaineFormation.GetDomaineFormationByDesignation(designation);
         }
 
-        public bool AddTypeFormation(string designation)// TODO verif
-        {
-            if (designation == string.Empty) { throw new ArgumentException("Le type ne peuvent pas être vides."); }
-
-            try
-            {
-                Repository.DomaineFormation.Create(new DomaineFormation() { Designation = designation });
-                return true;
-            }
-            catch (Exception) { return false; }
-        }
-
-        public bool GetTypeFormationByType(string designation)// TODO verif
+        public bool DomaineFormationExist(string designation)
         {
             try
             {
@@ -141,12 +143,6 @@ namespace GoldenManagement.Controllers
                 return false;
             }
         }
-
-        public DomaineFormation GetDomaineFormationByDesignation(string designation)// TODO verif
-        {
-            return Repository.DomaineFormation.GetDomaineFormationByDesignation(designation);
-        }
-
         #endregion
     }
 }
