@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Exceptions;
+using Utiles;
 
 namespace GoldenManagement.Controllers
 {
@@ -67,6 +68,8 @@ namespace GoldenManagement.Controllers
                     if (utilisateur != null && StringCipher.Decrypt(utilisateur.MotDePasse) == motDePasse)
                     {
                         LivingData.UtilisateurActif = utilisateur;
+                        //TODO: A tester!
+                        Logger.log.Info("Log for living Data is work!!!");
                         return true;
                     }
                     else
