@@ -2,6 +2,7 @@
 using DataAccessLayer.Chiffrement;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
+using DataAccessLayer.Utiles.Log4net;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -85,7 +86,8 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                return GetAll().Where(u => u.NomUtilisateur == nomUtilisateur).FirstOrDefault();
+               Logger.log.Info("It's works!!");
+               return GetAll().Where(u => u.NomUtilisateur == nomUtilisateur).FirstOrDefault();
             }
             catch (Exception e)
             {

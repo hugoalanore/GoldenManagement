@@ -10,8 +10,11 @@ using System.Threading.Tasks;
 
 namespace GoldenManagement.Utiles.Log4net
 {
-    public static class Logger
+    abstract class Logger
     {
-        public static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        /// <summary>
+        /// Affecter la valeur "LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);" à la variable ILog log
+        /// </summary>
+        public abstract ILog Log { get; }
     }
 }

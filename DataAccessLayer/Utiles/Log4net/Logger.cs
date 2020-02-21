@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Utiles.Log4net
 {
-    public static class Logger
+    public class Logger
     {
         public static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
     }
