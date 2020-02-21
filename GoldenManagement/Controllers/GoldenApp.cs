@@ -12,7 +12,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Exceptions;
-using Utiles;
+using GoldenManagement.Utiles.Log4net;
 
 namespace GoldenManagement.Controllers
 {
@@ -55,11 +55,12 @@ namespace GoldenManagement.Controllers
         #region Gestion des paramètres
 
         #endregion
-
-
+        
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
+            //TODO: A tester!
+            Logger.log.Info("Log for living Data is work!!!");
             if ((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
             {
                 try
@@ -68,8 +69,6 @@ namespace GoldenManagement.Controllers
                     if (utilisateur != null && StringCipher.Decrypt(utilisateur.MotDePasse) == motDePasse)
                     {
                         LivingData.UtilisateurActif = utilisateur;
-                        //TODO: A tester!
-                        Logger.log.Info("Log for living Data is work!!!");
                         return true;
                     }
                     else
@@ -81,11 +80,15 @@ namespace GoldenManagement.Controllers
                 // Les arguments ne sont pas correcte (nom d'utilisateur ou mot de passe vide)
                 catch (ArgumentException e)
                 {
+                    //
+                    Logger.log.Error("Les arguments passés en paramètre ne sont pas conformes : {0}",e);
                     throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
                 }
             }
             else
             {
+                //TODO: 
+                Logger.log.Error("Les arguments passés en paramètre ne sont pas conformes");
                 throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes");
             }
         }

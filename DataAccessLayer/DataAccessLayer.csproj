@@ -91,7 +91,7 @@
     <Compile Include="BusinessLayer\StockMaterielRepository.cs" />
     <Compile Include="BusinessLayer\DomaineFormationRepository.cs" />
     <Compile Include="BusinessLayer\UtilisateurRepository.cs" />
-    <Compile Include="Chiffrement\StringCipher.cs" />
+    <Compile Include="Utiles\Chiffrement\StringCipher.cs" />
     <Compile Include="Enums\EEnum.cs" />
     <Compile Include="Enums\EnumHelper.cs" />
     <Compile Include="Exceptions\DALException.cs" />
@@ -123,6 +123,7 @@
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utiles\Log4net\Logger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

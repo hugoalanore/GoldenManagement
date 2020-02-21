@@ -3,6 +3,7 @@ using DataAccessLayer.BusinessLayer;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
 using GoldenManagement.Controllers;
+using GoldenManagement.Utiles.Log4net;
 using System;
 using System.Collections.Generic;
 using System.Linq;

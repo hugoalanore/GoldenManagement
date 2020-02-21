@@ -100,6 +100,7 @@
     <Compile Include="Controllers\MaterielController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
+    <Compile Include="Utiles\Log4net\Logger.cs" />
     <Compile Include="Views\Application\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -283,10 +284,6 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{0eeba9d9-44ac-46a9-a46d-7cd8b71e51f3}</Project>
       <Name>DataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utiles\Utiles.csproj">
-      <Project>{E22C5865-1E0A-4AE6-8C5C-37599BC8F009}</Project>
-      <Name>Utiles</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
