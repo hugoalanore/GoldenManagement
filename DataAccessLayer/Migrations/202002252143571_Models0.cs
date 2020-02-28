@@ -233,8 +233,11 @@ namespace DataAccessLayer.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Designation = c.String(unicode: false),
+                        RoleUtilisateur_Id = c.Int(),
                     })
-                .PrimaryKey(t => t.Id);
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.ROLE_UTILISATEUR", t => t.RoleUtilisateur_Id)
+                .Index(t => t.RoleUtilisateur_Id);
             
             CreateTable(
                 "dbo.UTILISATEUR",
@@ -256,6 +259,7 @@ namespace DataAccessLayer.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.UTILISATEUR", "Role_Id", "dbo.ROLE_UTILISATEUR");
+            DropForeignKey("dbo.ROLE_UTILISATEUR", "RoleUtilisateur_Id", "dbo.ROLE_UTILISATEUR");
             DropForeignKey("dbo.SESSION_APPRENANT", "Session_Id", "dbo.SESSION");
             DropForeignKey("dbo.SESSION", "Salle_Id", "dbo.SALLE");
             DropForeignKey("dbo.JOUR_SESSION", "Session_Id", "dbo.SESSION");
@@ -273,6 +277,7 @@ namespace DataAccessLayer.Migrations
             DropForeignKey("dbo.FORMATION", "Domaine_Id", "dbo.DOMAINE_FORMATION");
             DropForeignKey("dbo.SESSION_APPRENANT", "Apprenant_Id", "dbo.APPRENANT");
             DropIndex("dbo.UTILISATEUR", new[] { "Role_Id" });
+            DropIndex("dbo.ROLE_UTILISATEUR", new[] { "RoleUtilisateur_Id" });
             DropIndex("dbo.JOUR_SESSION", new[] { "Session_Id" });
             DropIndex("dbo.JOUR_SESSION", new[] { "Jour_Id" });
             DropIndex("dbo.SALLE", new[] { "Batiment_Id" });
