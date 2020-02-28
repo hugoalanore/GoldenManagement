@@ -19,7 +19,7 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                if(Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString) != null)
+                if (Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString) != null)
                 {
                     utilisateur.Role = Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString);
                 }
@@ -85,7 +85,10 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                return GetAll().Where(u => u.NomUtilisateur == nomUtilisateur).FirstOrDefault();
+                Utilisateur utilisateur = DBContext.Instance.Utilisateurs.FirstOrDefault(u => u.NomUtilisateur == nomUtilisateur);
+                if (utilisateur != null)
+                    DBContext.Instance.Entry(utilisateur).Reference(u => u.Role).Load();
+                return utilisateur;
             }
             catch (Exception e)
             {

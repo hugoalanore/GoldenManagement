@@ -59,7 +59,7 @@ namespace GoldenManagement.Controllers
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
-            if ((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
+            if (!string.IsNullOrEmpty(nomUtilisateur) && !string.IsNullOrEmpty(motDePasse))
             {
                 try
                 {
@@ -101,7 +101,7 @@ namespace GoldenManagement.Controllers
 
         public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string password, RoleUtilisateur role)
         {
-            if (nomUtilisateur == String.Empty) { throw new ArgumentException("Le nom d'utilisateur ne peux pas être vide."); }
+            if (string.IsNullOrEmpty(nomUtilisateur)) { throw new ArgumentException("Le nom d'utilisateur ne peux pas être vide."); }
 
             try
             {
@@ -139,7 +139,7 @@ namespace GoldenManagement.Controllers
 
         public bool UpdateUtilisateur(string prenom, string nom, RoleUtilisateur role, int id)
         {
-            if (prenom == null || prenom == String.Empty || nom == null || nom == String.Empty || role == null) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
+            if (string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(nom)) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
             try
             {
                 Utilisateur utilisateur = Repository.Utilisateur.GetById(id);
