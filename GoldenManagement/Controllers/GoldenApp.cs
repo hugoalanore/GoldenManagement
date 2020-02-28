@@ -59,7 +59,7 @@ namespace GoldenManagement.Controllers
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
             //TODO: A tester!
-            Logger.log.Info("Log for living Data is work!!!");
+            Logger.Log.Info("Log for living Data is work!!!");
             if ((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
             {
                 try
@@ -80,14 +80,14 @@ namespace GoldenManagement.Controllers
                 catch (ArgumentException e)
                 {
                     //
-                    Logger.log.Error("Les arguments passés en paramètre ne sont pas conformes : {0}",e);
+                    Logger.Log.Error("Les arguments passés en paramètre ne sont pas conformes : {0}",e);
                     throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
                 }
             }
             else
             {
                 //TODO: 
-                Logger.log.Error("Les arguments passés en paramètre ne sont pas conformes");
+                Logger.Log.Error("Les arguments passés en paramètre ne sont pas conformes");
                 throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes");
             }
         }

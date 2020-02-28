@@ -88,7 +88,7 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-               Logger.log.Info("It's works!!");
+               Logger.Log.Info("It's works!!");
                return GetAll().Where(u => u.NomUtilisateur == nomUtilisateur).FirstOrDefault();
             }
             catch (Exception e)
