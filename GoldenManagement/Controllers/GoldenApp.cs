@@ -12,9 +12,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Exceptions;
-using GoldenManagement.Utiles.Log4net;
 using log4net;
 using System.Reflection;
+using Outils.Log4net;
 
 namespace GoldenManagement.Controllers
 {
@@ -24,7 +24,6 @@ namespace GoldenManagement.Controllers
         private static readonly Lazy<GoldenApp> lazy = new Lazy<GoldenApp>(() => new GoldenApp());
         public static GoldenApp Instance { get { return lazy.Value; } }
         #endregion
-
 
         #region Propriétés et collections
         // Application
@@ -42,11 +41,8 @@ namespace GoldenManagement.Controllers
         // Bien
         public ObservableCollection<Materiel> Materiels { get { return new ObservableCollection<Materiel>(Repository.Materiel.GetAll()); } }
         // La classe des données vivante de l'application
-        public LivingData LivingData { get; set; }
-
-        public override ILog Log => throw new NotImplementedException();
+        public LivingData LivingData { get; set; } 
         #endregion
-
 
         #region Constructeurs
         private GoldenApp()
@@ -55,7 +51,6 @@ namespace GoldenManagement.Controllers
         }
         #endregion
 
-
         #region Gestion des paramètres
 
         #endregion
@@ -63,6 +58,8 @@ namespace GoldenManagement.Controllers
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
+            //TODO: A tester!
+            Logger.log.Info("Log for living Data is work!!!");
             if ((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
             {
                 try
@@ -83,14 +80,14 @@ namespace GoldenManagement.Controllers
                 catch (ArgumentException e)
                 {
                     //
-                    Log.Error("Les arguments passés en paramètre ne sont pas conformes : {0}",e);
+                    Logger.log.Error("Les arguments passés en paramètre ne sont pas conformes : {0}",e);
                     throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
                 }
             }
             else
             {
                 //TODO: 
-                Log.Error("Les arguments passés en paramètre ne sont pas conformes");
+                Logger.log.Error("Les arguments passés en paramètre ne sont pas conformes");
                 throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes");
             }
         }

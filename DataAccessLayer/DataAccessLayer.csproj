@@ -123,7 +123,6 @@
     <Compile Include="Models\Utilisateur.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utiles\Log4net\Logger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -133,6 +132,12 @@
     <EmbeddedResource Include="Migrations\202001190110271_Models0.resx">
       <DependentUpon>202001190110271_Models0.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Outils\Outils.csproj">
+      <Project>{d439bdb0-4dc9-42e4-a1dc-ced9fb1589a9}</Project>
+      <Name>Outils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

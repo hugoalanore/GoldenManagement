@@ -2,13 +2,15 @@
 using DataAccessLayer.Chiffrement;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
-using DataAccessLayer.Utiles.Log4net;
+using log4net;
 using MySql.Data.MySqlClient;
+using Outils.Log4net;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -91,6 +93,8 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
+                //TODO Test log DAL
+                Logger.Log.Error("Test Log DAL: Done");
                 throw new DALException("Error on GetByNomUtilisateur", e);
             }
         }
