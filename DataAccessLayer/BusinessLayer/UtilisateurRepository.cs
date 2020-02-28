@@ -1,18 +1,10 @@
 ﻿using DataAccessLayer.AccessLayer;
-using DataAccessLayer.Chiffrement;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
-using log4net;
-using MySql.Data.MySqlClient;
-using Outils.Log4net;
+using DataAccessLayer.Outiles.Log4net;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
@@ -88,13 +80,11 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-               Logger.Log.Info("It's works!!");
-               return GetAll().Where(u => u.NomUtilisateur == nomUtilisateur).FirstOrDefault();
+                return GetAll().Where(u => u.NomUtilisateur == nomUtilisateur).FirstOrDefault();
             }
             catch (Exception e)
             {
-                //TODO Test log DAL
-                Logger.Log.Error("Test Log DAL: Done");
+                Logger.Log.Error(e);
                 throw new DALException("Error on GetByNomUtilisateur", e);
             }
         }

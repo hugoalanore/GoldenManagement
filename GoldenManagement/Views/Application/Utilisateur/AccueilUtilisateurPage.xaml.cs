@@ -1,6 +1,6 @@
 ﻿using DataAccessLayer.Models;
 using GoldenManagement.Controllers;
-using GoldenManagement.Views.Outils;
+using GoldenManagement.Views.OutilsIHM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

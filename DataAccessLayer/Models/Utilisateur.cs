@@ -1,4 +1,4 @@
-﻿using DataAccessLayer.Chiffrement;
+﻿using DataAccessLayer.Outiles.Chiffrement;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

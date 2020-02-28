@@ -91,7 +91,6 @@
     <Compile Include="BusinessLayer\StockMaterielRepository.cs" />
     <Compile Include="BusinessLayer\DomaineFormationRepository.cs" />
     <Compile Include="BusinessLayer\UtilisateurRepository.cs" />
-    <Compile Include="Utiles\Chiffrement\StringCipher.cs" />
     <Compile Include="Enums\EEnum.cs" />
     <Compile Include="Enums\EnumHelper.cs" />
     <Compile Include="Exceptions\DALException.cs" />
@@ -121,6 +120,8 @@
     <Compile Include="Models\StockMateriel.cs" />
     <Compile Include="Models\DomaineFormation.cs" />
     <Compile Include="Models\Utilisateur.cs" />
+    <Compile Include="Outiles\Chiffrement\StringCipher.cs" />
+    <Compile Include="Outiles\Log4net\Logger.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -133,11 +134,6 @@
       <DependentUpon>202001190110271_Models0.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Outils\Outils.csproj">
-      <Project>{d439bdb0-4dc9-42e4-a1dc-ced9fb1589a9}</Project>
-      <Name>Outils</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

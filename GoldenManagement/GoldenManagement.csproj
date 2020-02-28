@@ -100,6 +100,7 @@
     <Compile Include="Controllers\MaterielController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
+    <Compile Include="Outils\Log4net\Logger.cs" />
     <Compile Include="Views\Application\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -148,7 +149,7 @@
     <Compile Include="Views\Application\Utilisateur\ModifierUtilisateurPage.xaml.cs">
       <DependentUpon>ModifierUtilisateurPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Outils\SortAdorner.cs" />
+    <Compile Include="Views\OutilsIHM\SortAdorner.cs" />
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -283,10 +284,6 @@
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{0eeba9d9-44ac-46a9-a46d-7cd8b71e51f3}</Project>
       <Name>DataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Outils\Outils.csproj">
-      <Project>{d439bdb0-4dc9-42e4-a1dc-ced9fb1589a9}</Project>
-      <Name>Outils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

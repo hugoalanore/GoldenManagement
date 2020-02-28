@@ -1,6 +1,6 @@
 ﻿namespace DataAccessLayer.AccessLayer
 {
-    using DataAccessLayer.Chiffrement;
+    using DataAccessLayer.Outiles.Chiffrement;
     using DataAccessLayer.Exceptions;
     using DataAccessLayer.Models;
     using MySql.Data.Entity;

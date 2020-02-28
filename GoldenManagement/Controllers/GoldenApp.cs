@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.BusinessLayer;
 using DataAccessLayer.Models;
-using DataAccessLayer.Chiffrement;
+using DataAccessLayer.Outiles.Chiffrement;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -14,11 +14,11 @@ using DataAccessLayer.Enums;
 using DataAccessLayer.Exceptions;
 using log4net;
 using System.Reflection;
-using Outils.Log4net;
+using GoldenManagement.Outils.Log4net;
 
 namespace GoldenManagement.Controllers
 {
-    class GoldenApp : Logger, INotifyPropertyChanged
+    class GoldenApp : INotifyPropertyChanged
     {
         #region Singleton
         private static readonly Lazy<GoldenApp> lazy = new Lazy<GoldenApp>(() => new GoldenApp());
@@ -58,8 +58,6 @@ namespace GoldenManagement.Controllers
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
-            //TODO: A tester!
-            Logger.Log.Info("Log for living Data is work!!!");
             if ((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
             {
                 try
@@ -79,15 +77,13 @@ namespace GoldenManagement.Controllers
                 // Les arguments ne sont pas correcte (nom d'utilisateur ou mot de passe vide)
                 catch (ArgumentException e)
                 {
-                    //
-                    Logger.Log.Error("Les arguments passés en paramètre ne sont pas conformes : {0}",e);
+                    Logger.Log.Error(e);
                     throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
                 }
             }
             else
             {
-                //TODO: 
-                Logger.Log.Error("Les arguments passés en paramètre ne sont pas conformes");
+                Logger.Log.Warn("Les arguments passés en paramètre ne sont pas conformes");
                 throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes");
             }
         }
@@ -196,6 +192,7 @@ namespace GoldenManagement.Controllers
             }
             catch (ArgumentException e)
             {
+                Logger.Log.Error(e.Message);
                 throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
             }
         }

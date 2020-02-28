@@ -1,5 +1,5 @@
 ﻿using DataAccessLayer.BusinessLayer;
-using DataAccessLayer.Chiffrement;
+using DataAccessLayer.Outiles.Chiffrement;
 using DataAccessLayer.Models;
 using DataAccessLayer.Enums;
 using System;
