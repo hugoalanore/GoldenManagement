@@ -25,7 +25,7 @@ namespace DataAccessLayer.Models
             set { Designation = value.ToEnum<ERoleUtilisateur>(); }
         }
 
-        public virtual ICollection<RoleUtilisateur> RoleUtilisateurs { get; set; }
+        public virtual ICollection<Utilisateur> Utilisateurs { get; set; }
 
         public override string ToString()
         {

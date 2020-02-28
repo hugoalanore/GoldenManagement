@@ -75,7 +75,7 @@ namespace DataAccessLayer.BusinessLayer
                 utilisateurs.ToList().ForEach(util => DBContext.Instance.Entry(util).Reference(u => u.Role).Load());
                 return utilisateurs;
             }
-            catch (Exception e)
+             catch (Exception e)
             {
                 throw new DALException("Error on GetAll", e);
             }

@@ -58,7 +58,7 @@
                 lazy.Value.Database.Connection.Open();
                 lazy.Value.Database.Connection.Close();
             }
-            catch (Exception)
+            catch
             {
                 return false;
             }
