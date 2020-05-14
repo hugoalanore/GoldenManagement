@@ -1,0 +1,61 @@
+﻿<Window x:Class="GoldenManagement.Views.Application.ConnexionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoldenManagement.Views.Application"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Fenêtre de connexion" Height="525" Width="350" ResizeMode="NoResize"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" 
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <Rectangle Height="280" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2281D1"/>
+                    <GradientStop Color="#FF34268A" Offset="1"/>
+                    <GradientStop Color="#FF33288B" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <materialDesign:ColorZone Height="40" x:Name="CZ_appBar" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" MouseLeftButtonDown="CZ_appBar_MouseLeftButtonDown" Background="#FF2D49A5">
+            <DockPanel>
+                <Button x:Name="BTN_fermer" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_fermer_Click" TabIndex="5">
+                    <materialDesign:PackIcon Kind="WindowClose" Height="20" Width="20"/>
+                </Button>
+                <Button x:Name="BTN_minimiser" Height="28" Width="28" Margin="3" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Click="BTN_minimiser_Click" TabIndex="4">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20"/>
+                </Button>
+            </DockPanel>
+        </materialDesign:ColorZone>
+
+        <Ellipse Width="100" Height="100" VerticalAlignment="Top" Margin="0,65,0,0">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="../../Ressources/GFF_logo_white.jpg"/>
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <Rectangle Width="280" Height="240" Fill="White" VerticalAlignment="Bottom" Margin="0,100" RadiusY="15" RadiusX="15">
+            <Rectangle.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
+            <TextBlock Text="CONNEXION" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="25" Foreground="Gray" FontSize="18" FontWeight="Light"/>
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <TextBox x:Name="TB_nomUtilisateur" materialDesign:HintAssist.Hint="Nom d'utilisateur" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10" FontSize="16" TabIndex="1"/>
+                <PasswordBox x:Name="PB_motDePasse" materialDesign:HintAssist.Hint="Mot de passe" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10" FontSize="16" TabIndex="2"/>
+            </StackPanel>
+        </Grid>
+
+        <Button x:Name="BTN_seConnecter" VerticalAlignment="Bottom" Margin="0,85" Width="150" Content="Se connecter" Click="BTN_seConnecter_Click" TabIndex="3"/>
+
+        <Border VerticalAlignment="Bottom" Height="80">
+            <TextBox x:Name="TB_connexionResultat" Margin="25,0,25,0" VerticalAlignment="Center" Foreground="Gray" FontSize="16"  TextAlignment="Center" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0"/>
+        </Border>
+    </Grid>
+</Window>

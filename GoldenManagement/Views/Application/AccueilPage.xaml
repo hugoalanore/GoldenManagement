@@ -1,0 +1,450 @@
+﻿<Page x:Class="GoldenManagement.Views.Application.AccueilPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GoldenManagement.Views.Application"
+      mc:Ignorable="d"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      Title="AccueilPage"
+      FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+      xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier"
+      Height="775" Width="1425"
+      >
+    <Page.Resources>
+        <!-- - - - - - - - - - - - - - - - - - - - - LE CALENDRIER - - - - - - - - - - - - - - - - - - - -->
+        <!-- Dimensions pour les cellules de journée -->
+        <Style x:Key="dimension_cellule_jour" TargetType="{x:Type FrameworkElement}">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Height" Value="100"/>
+        </Style>
+        <!-- Design des GRID pour les entêtes des jours -->
+        <Style x:Key="grid_entete_semaine" TargetType="Grid" BasedOn="{StaticResource dimension_cellule_jour}">
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <!-- Design des TEXTBLOCK pour les entêtes des jours -->
+        <Style x:Key="tb_entete_semaine" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style>
+        <!-- Design des GRID pour les jours -->
+        <Style x:Key="grid_jour" TargetType="Grid" BasedOn="{StaticResource dimension_cellule_jour}">
+        </Style>
+        <!-- Design des TEXTBLOCK pour les jours -->
+        <Style x:Key="tb_date_jour" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property ="HorizontalAlignment" Value="Right"/>
+            <Setter Property ="Foreground" Value="White"/>
+        </Style>
+        <!-- Design des COLORZONE pour les jours du week end -->
+        <Style x:Key="cz_jour_weekend" TargetType="materialDesign:ColorZone" BasedOn="{StaticResource dimension_cellule_jour}">
+            <Setter Property ="materialDesign:ShadowAssist.ShadowDepth" Value="Depth3"/>
+            <Setter Property ="Background" Value="#FF363636"/>
+        </Style>
+        <!-- Design des BORDER pour les jours -->
+        <Style x:Key="bdr_jour" TargetType="Border">
+            <Setter Property="BorderBrush" Value="#FF1E1F23"/>
+        </Style>
+        <!-- Design des BORDER pour le jour actuel -->
+        <Style  x:Key="bdr_jour_aujourdhui" TargetType="Border" BasedOn="{StaticResource bdr_jour}">
+            <Setter Property="Background" Value="#FFA98274"/>
+        </Style>
+        <!-- Design des TEXTBLOCK pour le jour actuel -->
+        <Style x:Key="tb_date_jour_aujourdhui" TargetType="TextBlock" BasedOn="{StaticResource tb_date_jour}">
+            <Setter Property ="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <!-- - - - - - - - - - - - - - - - - - - - - LES ALERTES - - - - - - - - - - - - - - - - - - - -->
+        <!-- Design des TEXTBLOCK pour le jour actuel -->
+        <Style x:Key="cz_alert_cellule" TargetType="materialDesign:ColorZone">
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth2"/>
+            <Setter Property="materialDesign:ShadowAssist.ShadowEdges" Value="All"/>
+        </Style>
+        <!-- Design des TEXTBLOCK pour le jour actuel -->
+        <Style x:Key="tb_alert_jour" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="44"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#CCFFFFFF"/>
+        </Style>
+        <!-- Design des TEXTBLOCK pour le jour actuel -->
+        <Style x:Key="tb_alert_text" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontSize" Value="19"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="#CCFFFFFF"/>
+        </Style>
+    </Page.Resources>
+
+    <StackPanel Orientation="Horizontal" Margin="25,25,0,0">
+        <materialDesign:ColorZone Padding="25"  CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All">
+            <StackPanel>
+                <TextBlock Text="Janvier 2020" FontSize="32" Foreground="#CCFFFFFF" Margin="0,0,0,15" />
+                <!-- Les entêtes -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="LUNDI" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="MARDI" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="MERCREDI" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="JEUDI" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="VENDREDI" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="SAMEDI" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                    <Grid Margin="0,0,1,0" Style="{StaticResource grid_entete_semaine}">
+                        <TextBlock Text="DIMANCHE" Style="{StaticResource tb_entete_semaine}"/>
+                    </Grid>
+                </StackPanel>
+                <!-- Les journées de la 1ère ligne -->
+                <StackPanel Orientation="Horizontal">
+                    <!-- 1er jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="0,0,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Fill="#FF519FE4"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center" Text="Formation sécurité" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+                            <TextBlock Text="30" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <!-- 2ème jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,0,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Fill="#FF519FE4"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center" Text="Formation sécurité" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Fill="#FF9B6C1B"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" HorizontalAlignment="Center" Text="Formation SST" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" Fill="#FF5D9C77"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" HorizontalAlignment="Center" Text="Formation pattisserie" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="20" Height="20" VerticalAlignment="Top" Margin="0,80,0,0" Fill="#FFBF5A2B" HorizontalAlignment="Left"/>
+
+                            <Rectangle Width="20" Height="20" VerticalAlignment="Top" Margin="25,80,0,0" Fill="#FFFFE469" HorizontalAlignment="Left"/>
+
+                            <Rectangle Width="20" Height="20" VerticalAlignment="Top" Margin="50,80,0,0" Fill="#FFE44ACF" HorizontalAlignment="Left"/>
+
+                            <TextBlock Text="31" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,0,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" Fill="#FF519FE4"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,5,0,0" HorizontalAlignment="Center" Text="Formation sécurité" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Fill="#FF9B6C1B"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" HorizontalAlignment="Center" Text="Formation SST" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" Fill="#FF5D9C77"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" HorizontalAlignment="Center" Text="Formation pattisserie" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="20" Height="20" VerticalAlignment="Top" Margin="0,80,0,0" Fill="#FFBF5A2B" HorizontalAlignment="Left"/>
+
+                            <Rectangle Width="20" Height="20" VerticalAlignment="Top" Margin="25,80,0,0" Fill="#FFFFE469" HorizontalAlignment="Left"/>
+
+                            <TextBlock Text="1 Jan" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,0,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" Fill="#FF9B6C1B"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,30,0,0" HorizontalAlignment="Center" Text="Formation SST" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" Fill="#FF5D9C77"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" HorizontalAlignment="Center" Text="Formation pattisserie" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <TextBlock Text="2" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,0,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <Rectangle Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" Fill="#FF5D9C77"/>
+                            <TextBlock Width="150" Height="20" VerticalAlignment="Top" Margin="0,55,0,0" HorizontalAlignment="Center" Text="Formation pattisserie" Foreground="#99FFFFFF" Padding="5,2,0,0"/>
+
+                            <TextBlock Text="3" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,0,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Left,Top" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="4" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,0,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Right,Top" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="5" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                </StackPanel>
+                <!-- Les journées de la 2ème ligne -->
+                <StackPanel Orientation="Horizontal">
+                    <!-- 1er jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="0,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="6" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <!-- 2ème jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="7" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="8" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="9" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="10" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Left" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="11" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Right" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="12" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                </StackPanel>
+                <!-- Les journées de la 3ème ligne -->
+                <StackPanel Orientation="Horizontal">
+                    <!-- 1er jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="0,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="13" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5" FontWeight="Light"/>
+                        </Grid>
+                    </Border>
+                    <!-- 2ème jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour_aujourdhui}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="14" Style="{StaticResource tb_date_jour_aujourdhui}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="15" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5" FontWeight="Light"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="16" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="17" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Left" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="18" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Right" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="19" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                </StackPanel>
+                <!-- Les journées de la 4ème ligne -->
+                <StackPanel Orientation="Horizontal">
+                    <!-- 1er jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="0,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="20" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <!-- 2ème jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="21" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0" Opacity="0.99">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="22" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="23" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="24" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Left" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="25" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Right" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="26" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                </StackPanel>
+                <!-- Les journées de la 5ème ligne -->
+                <StackPanel Orientation="Horizontal">
+                    <!-- 1er jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="0,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="27" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <!-- 2ème jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="28" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="29" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="30" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="31" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Left" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="1 Fev" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Right" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="2" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                </StackPanel>
+                <!-- Les journées de la 6ème ligne -->
+                <StackPanel Orientation="Horizontal">
+                    <!-- 1er jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="0,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="3" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <!-- 2ème jour / 1ère ligne -->
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="4" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="5" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="6" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <Grid Style="{StaticResource grid_jour}">
+                            <TextBlock Text="7" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Bottom,Left" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="8" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                    <Border Style="{StaticResource bdr_jour}" BorderThickness="1,1,0,0">
+                        <materialDesign:ColorZone materialDesign:ShadowAssist.ShadowEdges="Bottom,Right" Style="{StaticResource cz_jour_weekend}">
+                            <TextBlock Text="9" Style="{StaticResource tb_date_jour}" Margin="0,0,5,5"/>
+                        </materialDesign:ColorZone>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:ColorZone>
+
+        <materialDesign:ColorZone Margin="20,0,0,0"  Padding="24"  CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All">
+            <StackPanel Orientation="Vertical">
+                <materialDesign:ColorZone Background="#FF4343A6" Style="{StaticResource cz_alert_cellule}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="12" Style="{StaticResource tb_alert_jour}"/>
+                        <TextBlock Text="Matériels à recommander" Style="{StaticResource tb_alert_text}"/>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+
+                <materialDesign:ColorZone Background="#FF2B98B0" Style="{StaticResource cz_alert_cellule}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="4" Style="{StaticResource tb_alert_jour}"/>
+                        <TextBlock Text="Formations ce mois" Style="{StaticResource tb_alert_text}"/>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+
+                <materialDesign:ColorZone Background="#FF2192F0" Style="{StaticResource cz_alert_cellule}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="27" Style="{StaticResource tb_alert_jour}"/>
+                        <TextBlock Text="Formations en cours" Style="{StaticResource tb_alert_text}"/>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+
+                <materialDesign:ColorZone Background="#FF993EC3" Style="{StaticResource cz_alert_cellule}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="0" Style="{StaticResource tb_alert_jour}"/>
+                        <TextBlock Text="Facture impayeé" Style="{StaticResource tb_alert_text}"/>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+
+                <materialDesign:ColorZone Background="#FFB94F4F" Style="{StaticResource cz_alert_cellule}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="45" Style="{StaticResource tb_alert_jour}"/>
+                        <TextBlock Text="Formations à venir" Style="{StaticResource tb_alert_text}"/>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+
+                <materialDesign:ColorZone Background="#FF76B94F" Style="{StaticResource cz_alert_cellule}">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="77" Style="{StaticResource tb_alert_jour}"/>
+                        <TextBlock Text="candidats inscrits" Style="{StaticResource tb_alert_text}"/>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </StackPanel>
+        </materialDesign:ColorZone>
+    </StackPanel>
+</Page>
