@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.AccessLayer;
+using DataAccessLayer.DataLayer;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
 using DataAccessLayer.Outiles.Log4net;
@@ -8,18 +9,13 @@ using System.Linq;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public class UtilisateurRepository : ARepository<Utilisateur>
+    public class UtilisateurRepository : ICRUD<Utilisateur>
     {
-        public new void Create(Utilisateur utilisateur)
+        public void Create(Utilisateur utilisateur)
         {
             try
             {
-                if (Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString) != null)
-                {
-                    utilisateur.Role = Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString);
-                }
-                DBContext.Instance.Utilisateurs.Add(utilisateur);
-                Save();
+                DataMock.Instance.Utilisateurs.Add(utilisateur);
             }
             catch (Exception e)
             {
@@ -27,20 +23,11 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public new void Update(Utilisateur utilisateur)
+        public void Update(Utilisateur utilisateur)
         {
             try
             {
-                if (Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString) != null)
-                {
-                    RoleUtilisateur roleUtilisateur = DBContext.Instance.RoleUtilisateurs.Single(c => c.Id == Repository.RoleUtilisateur.GetByDesignation(utilisateur.Role.DesignationString).Id);
-                    if (!utilisateur.Role.Equals(roleUtilisateur))
-                    {
-                        utilisateur.Role = roleUtilisateur;
-                    }
-                }
-                DBContext.Instance.Entry(utilisateur).State = System.Data.Entity.EntityState.Modified;
-                Save();
+                utilisateur.CopyPropertiesTo(DataMock.Instance.Utilisateurs.First(a => a.Id == utilisateur.Id));
             }
             catch (Exception e)
             {
@@ -48,13 +35,11 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public new Utilisateur GetById(int id)
+        public Utilisateur GetById(int id)
         {
             try
             {
-                Utilisateur utilisateur = DBContext.Instance.Utilisateurs.Find(id);
-                DBContext.Instance.Entry(utilisateur).Reference(u => u.Role).Load();
-                return utilisateur;
+                return DataMock.Instance.Utilisateurs.First(a => a.Id == id);
             }
             catch (Exception e)
             {
@@ -62,13 +47,11 @@ namespace DataAccessLayer.BusinessLayer
             }
         }
 
-        public new ICollection<Utilisateur> GetAll()
+        public IEnumerable<Utilisateur> GetAll()
         {
             try
             {
-                ICollection<Utilisateur> utilisateurs = DBContext.Instance.Utilisateurs.ToList();
-                utilisateurs.ToList().ForEach(util => DBContext.Instance.Entry(util).Reference(u => u.Role).Load());
-                return utilisateurs;
+                return DataMock.Instance.Utilisateurs;
             }
              catch (Exception e)
             {
@@ -80,15 +63,24 @@ namespace DataAccessLayer.BusinessLayer
         {
             try
             {
-                Utilisateur utilisateur = DBContext.Instance.Utilisateurs.FirstOrDefault(u => u.NomUtilisateur == nomUtilisateur);
-                if (utilisateur != null)
-                    DBContext.Instance.Entry(utilisateur).Reference(u => u.Role).Load();
-                return utilisateur;
+                return DataMock.Instance.Utilisateurs.FirstOrDefault(u => u.NomUtilisateur == nomUtilisateur);
             }
             catch (Exception e)
             {
                 Logger.Log.Error(e);
                 throw new DALException("Error on GetByNomUtilisateur", e);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                DataMock.Instance.Utilisateurs.Remove(DataMock.Instance.Utilisateurs.First(a => a.Id == id));
+            }
+            catch (Exception e)
+            {
+                throw new DALException("Error on Delete", e);
             }
         }
     }
