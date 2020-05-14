@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.AccessLayer;
+using DataAccessLayer.DataLayer;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
 using System;
@@ -9,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
-    public class FormationRepository : ARepository<Formation>
+    public class FormationRepository : ICRUD<Formation>
     {
         public new Formation GetById(int id)
         {
             try
             {
-                Formation formation = DBContext.Instance.Formations.Find(id);
+                Formation formation = DataMock.Instance.Formations.First(a => a.Id == id);
                 DBContext.Instance.Entry(formation).Reference(f => f.Domaine).Load();
                 return formation;
             }
@@ -46,13 +47,62 @@ namespace DataAccessLayer.BusinessLayer
             try
             {
                 List<MaterielFormation> materielFormations = GetById(id).MaterielFormations.ToList();
-                // List<Materiel> materiels = new List<Materiel>();
-                // materielFormations.ForEach(mF => materiels.Add(mF.Materiel));
                 return materielFormations;
             }
             catch (Exception e)
             {
                 throw new Exception("Error on GetAllMaterielsByIdFormation", e);
+            }
+        }
+
+
+        public IEnumerable<Formation> GetAll()
+        {
+            try
+            {
+                return DataMock.Instance.Formations;
+            }
+            catch (Exception e)
+            {
+                throw new DALException("Error on GetAll", e);
+            }
+        }
+
+        public void Create(Formation entity)
+        {
+
+            try
+            {
+                DataMock.Instance.Formations.Add(entity);
+            }
+            catch (Exception e)
+            {
+                throw new DALException("Error on Create", e);
+            }
+
+        }
+
+        public void Update(Formation entity)
+        {
+            try
+            {
+                entity.CopyPropertiesTo(DataMock.Instance.Formations.First(a => a.Id == entity.Id));
+            }
+            catch (Exception e)
+            {
+                throw new DALException("Error on Update", e);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                DataMock.Instance.Formations.Remove(DataMock.Instance.Formations.First(a => a.Id == id));
+            }
+            catch (Exception e)
+            {
+                throw new DALException("Error on Delete", e);
             }
         }
     }
