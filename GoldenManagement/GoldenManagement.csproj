@@ -109,6 +109,24 @@
     <Compile Include="Views\Application\Parametre\AccueilMailParametrePage.xaml.cs">
       <DependentUpon>AccueilMailParametrePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Formation\AjouterDomaineFormationPage.xaml.cs">
+      <DependentUpon>AjouterDomaineFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\AjouterFormateurFormationPage.xaml.cs">
+      <DependentUpon>AjouterFormateurFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\AjouterFormationPage.xaml.cs">
+      <DependentUpon>AjouterFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\FicheDomaineFormationPage.xaml.cs">
+      <DependentUpon>FicheDomaineFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\FicheFormationHistoriquePage.xaml.cs">
+      <DependentUpon>FicheFormationHistoriquePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\FicheFormationPage.xaml.cs">
+      <DependentUpon>FicheFormationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Personne\Apprenant\AccueilApprenantPage.xaml.cs">
       <DependentUpon>AccueilApprenantPage.xaml</DependentUpon>
     </Compile>
@@ -184,6 +202,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Application\Parametre\AccueilMailParametrePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AjouterDomaineFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AjouterFormateurFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AjouterFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\FicheDomaineFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\FicheFormationHistoriquePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\FicheFormationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
