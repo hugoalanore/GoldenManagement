@@ -16,5 +16,10 @@ namespace DataAccessLayer.Models
         public int Id { get; set; }
         public bool EstActif { get; set; }
         public virtual ICollection<SessionApprenant> SessionApprenants { get; set; }
+
+        public Apprenant (Apprenant app)
+        {
+            this.Id = app.Id;
+        }
     }
 }
