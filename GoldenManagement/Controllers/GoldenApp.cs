@@ -58,7 +58,7 @@ namespace GoldenManagement.Controllers
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
-            if ((nomUtilisateur != null && nomUtilisateur != String.Empty) && (motDePasse != null && motDePasse != String.Empty))
+            if (!string.IsNullOrEmpty(nomUtilisateur) && !string.IsNullOrEmpty(motDePasse))
             {
                 try
                 {
@@ -107,7 +107,6 @@ namespace GoldenManagement.Controllers
                 Logger.Log.Warn("L'argument \"NomUtilisateur\" passé en paramètre n'est pas conforme.");
                 throw new ArgumentException("L'argument \"NomUtilisateur\" passé en paramètre n'est pas conforme."); 
             }
-
             try
             {
                 bool utilisateurExist = (Repository.Utilisateur.GetByNomUtilisateur(nomUtilisateur) != null) ? true : false;

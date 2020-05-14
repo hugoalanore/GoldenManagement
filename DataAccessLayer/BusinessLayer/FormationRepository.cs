@@ -24,5 +24,36 @@ namespace DataAccessLayer.BusinessLayer
                 throw new DALException("Error on GetById", e);
             }
         }
+
+        public void UpdateById(int id, string intitule, int nbJour, DomaineFormation domaineFormation)
+        {
+            try
+            {
+                Formation formation = GetById(id);
+                formation.Intitule = intitule;
+                formation.NbJours = nbJour;
+                formation.Domaine = domaineFormation;
+                Update(formation);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error on UpdateById", e);
+            }
+        }
+
+        public ICollection<MaterielFormation> GetAllMaterielsByIdFormation(int id)
+        {
+            try
+            {
+                List<MaterielFormation> materielFormations = GetById(id).MaterielFormations.ToList();
+                // List<Materiel> materiels = new List<Materiel>();
+                // materielFormations.ForEach(mF => materiels.Add(mF.Materiel));
+                return materielFormations;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error on GetAllMaterielsByIdFormation", e);
+            }
+        }
     }
 }

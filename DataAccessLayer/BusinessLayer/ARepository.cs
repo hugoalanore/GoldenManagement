@@ -15,6 +15,7 @@ namespace DataAccessLayer.BusinessLayer
             try
             {
                 DBContext.Instance.Set<T>().Add(entity);
+                
                 Save();
             }
             catch (Exception e)
