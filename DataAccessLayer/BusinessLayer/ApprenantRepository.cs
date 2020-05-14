@@ -19,7 +19,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
-                throw new DALException("Error on GetAll", e); //sfgdsfs
+                throw new DALException("Error on GetAll", e);
             }
         }
 

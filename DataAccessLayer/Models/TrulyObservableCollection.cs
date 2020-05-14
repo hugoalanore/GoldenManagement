@@ -25,6 +25,7 @@ namespace DataAccessLayer.Models
             foreach (var item in items)
             {
                 this.Add(item);
+
             }
         }
 
