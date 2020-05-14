@@ -1,0 +1,119 @@
+﻿<Page x:Class="GoldenManagement.Views.Formation.AccueilFormationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GoldenManagement.Views.Formation"
+       mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      d:DesignHeight="450" d:DesignWidth="1043.699"
+      Title="AccueilFormationPage">
+
+    <Page.Resources>
+        <Style  x:Key="TB_test_test" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Page.Resources>
+
+
+    <StackPanel Orientation="Horizontal" Margin="25,25,0,0">
+        <materialDesign:ColorZone Padding="25" CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All">
+            <StackPanel>
+                <Grid Margin="0,0,0,10">
+                    <TextBlock Text="Formations" FontSize="32" Foreground="#CCFFFFFF" Margin="0,0,0,5"/>
+                    <TextBox materialDesign:HintAssist.Hint="Barre de Recherche" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,0,10,10" Name="txtFilter" TextChanged="TxtFilter_TextChanged" FontSize="16" Foreground="White" HorizontalAlignment="Right"/>
+                </Grid>
+                <Grid>
+                    <WrapPanel Orientation="Horizontal" Width="840">
+                        <ItemsControl x:Name="AllFormationsTypes" HorizontalAlignment="Left">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding Libelle}" Tag="{Binding Id}" Width="200" Height="100" Margin="0,10,10,0" Click="BTN_FormationType_Click"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                        </ItemsControl>
+                    </WrapPanel>
+                </Grid>
+                <Grid>
+                    <Button FontSize="16" x:Name="BTN_addFormationType" Margin="0,0,0,0" Foreground="Aqua" Background="Transparent" BorderBrush="Transparent" HorizontalAlignment="Right" Click="BTN_addFormationType_Click">
+                        <Button.Content>+ Ajouter une categorie</Button.Content>
+                    </Button>
+                    <!--<Button HorizontalAlignment="Left" Click="DisplayPopup" Width="150" Margin="20,10,0,0">
+                        <StackPanel>
+                            <TextBlock>Display Your Popup Text</TextBlock>
+                            <Popup Name="myPopup">
+                                <TextBlock Name="myPopupText"  Background="LightBlue" Foreground="Blue">
+                                    Popup Text
+                                </TextBlock>
+                            </Popup>
+                        </StackPanel>
+                    </Button>-->
+                </Grid>
+                <Grid Margin="0,10,0,0">
+                    <TextBlock x:Name="TB_mySearch" Text="Recherche :" FontSize="20" Foreground="#CCFFFFFF" Margin="0,0,0,5"/>
+                </Grid>
+                <Grid>
+                    <ListView Name="lvUsers">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.Header>
+                                        <GridViewColumnHeader Tag="Libelle" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">LIBELLE</GridViewColumnHeader>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Libelle}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.Header>
+                                        <GridViewColumnHeader Tag="Intitule" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">INTITULE</GridViewColumnHeader>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Intitule}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="150">
+                                    <GridViewColumn.Header>
+                                        <GridViewColumnHeader Tag="NbJour" Click="LvUsersColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NB JOUR</GridViewColumnHeader>
+                                    </GridViewColumn.Header>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding NbJour}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Focusable" Value="false"/>
+                                <EventSetter Event="PreviewMouseLeftButtonDown" Handler="BTN_show_utilisateur_Click"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="true">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Cursor" Value="Hand"/>
+                                        <Setter Property="Background" Value="Gray"/>
+                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </Grid>
+            </StackPanel>
+        </materialDesign:ColorZone>
+    </StackPanel>
+</Page>

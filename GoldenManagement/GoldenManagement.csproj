@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,14 +45,14 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.17\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
@@ -93,18 +94,80 @@
     <Compile Include="Calendrier\SessionUC.xaml.cs">
       <DependentUpon>SessionUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Accueil2Page.xaml.cs">
-      <DependentUpon>Accueil2Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\AccueilPage.xaml.cs">
+    <Compile Include="Controllers\FacturationController.cs" />
+    <Compile Include="Controllers\FormationController.cs" />
+    <Compile Include="Controllers\LieuController.cs" />
+    <Compile Include="Controllers\MaterielController.cs" />
+    <Compile Include="Controllers\PersonneController.cs" />
+    <Compile Include="Controllers\PlanningController.cs" />
+    <Compile Include="Outils\Log4net\Logger.cs" />
+    <Compile Include="Views\Application\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ConnexionWindow.xaml.cs">
+    <Compile Include="Views\Application\ConnexionWindow.xaml.cs">
       <DependentUpon>ConnexionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\DashboardWindow.xaml.cs">
-      <DependentUpon>DashboardWindow.xaml</DependentUpon>
+    <Compile Include="Views\Application\Parametre\AccueilBDDParametrePage.xaml.cs">
+      <DependentUpon>AccueilBDDParametrePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Application\Parametre\AccueilMailParametrePage.xaml.cs">
+      <DependentUpon>AccueilMailParametrePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\AjouterDomaineFormationPage.xaml.cs">
+      <DependentUpon>AjouterDomaineFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\AjouterFormateurFormationPage.xaml.cs">
+      <DependentUpon>AjouterFormateurFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\AjouterFormationPage.xaml.cs">
+      <DependentUpon>AjouterFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\FicheDomaineFormationPage.xaml.cs">
+      <DependentUpon>FicheDomaineFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\FicheFormationHistoriquePage.xaml.cs">
+      <DependentUpon>FicheFormationHistoriquePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\FicheFormationPage.xaml.cs">
+      <DependentUpon>FicheFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personne\Apprenant\AccueilApprenantPage.xaml.cs">
+      <DependentUpon>AccueilApprenantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Facturation\AccueilFacturationPage.xaml.cs">
+      <DependentUpon>AccueilFacturationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personne\Formateur\AccueilFormateurPage.xaml.cs">
+      <DependentUpon>AccueilFormateurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Formation\AccueilFormationPage.xaml.cs">
+      <DependentUpon>AccueilFormationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Lieu\AccueilLieuPage.xaml.cs">
+      <DependentUpon>AccueilLieuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Materiel\AccueilMaterielPage.xaml.cs">
+      <DependentUpon>AccueilMaterielPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Application\Parametre\AccueilParametrePage.xaml.cs">
+      <DependentUpon>AccueilParametrePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Planning\AccueilPlanningPage.xaml.cs">
+      <DependentUpon>AccueilPlanningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Application\Utilisateur\AccueilMonProfilPage.xaml.cs">
+      <DependentUpon>AccueilMonProfilPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Application\Utilisateur\AccueilUtilisateurPage.xaml.cs">
+      <DependentUpon>AccueilUtilisateurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Application\Utilisateur\AjouterUtilisateurPage.xaml.cs">
+      <DependentUpon>AjouterUtilisateurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Application\Utilisateur\ModifierUtilisateurPage.xaml.cs">
+      <DependentUpon>ModifierUtilisateurPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OutilsIHM\SortAdorner.cs" />
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,7 +180,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\Application\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -125,34 +188,102 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controller\GoldenApp.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Controllers\GoldenApp.cs" />
+    <Compile Include="Views\Application\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Accueil2Page.xaml">
+    <Page Include="Views\Application\AccueilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\AccueilPage.xaml">
+    <Page Include="Views\Application\ConnexionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ConnexionWindow.xaml">
+    <Page Include="Views\Application\Parametre\AccueilBDDParametrePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\DashboardWindow.xaml">
+    <Page Include="Views\Application\Parametre\AccueilMailParametrePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AjouterDomaineFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AjouterFormateurFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AjouterFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\FicheDomaineFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\FicheFormationHistoriquePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\FicheFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personne\Apprenant\AccueilApprenantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Facturation\AccueilFacturationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personne\Formateur\AccueilFormateurPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Formation\AccueilFormationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Lieu\AccueilLieuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Materiel\AccueilMaterielPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Application\Parametre\AccueilParametrePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Planning\AccueilPlanningPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Application\Utilisateur\AccueilMonProfilPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Application\Utilisateur\AccueilUtilisateurPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Application\Utilisateur\AjouterUtilisateurPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Application\Utilisateur\ModifierUtilisateurPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\BusinessObjects\Utilisateur.cs" />
-    <Compile Include="Model\DataAccess\IDataAccess.cs" />
-    <Compile Include="Model\DataAccess\MySQL.cs" />
-    <Compile Include="Model\DataAccess\SimulBDD.cs" />
-    <Compile Include="Model\LivingData.cs" />
+    <Compile Include="Models\LivingData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -179,10 +310,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\GestionEntites\" />
-    <Folder Include="View\GestionPlanning\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Ressources\GFF_logo_black_full.jpg" />
     <Resource Include="Ressources\GFF_logo_white.jpg" />
@@ -193,6 +321,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\GFF_logo_black.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{0eeba9d9-44ac-46a9-a46d-7cd8b71e51f3}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

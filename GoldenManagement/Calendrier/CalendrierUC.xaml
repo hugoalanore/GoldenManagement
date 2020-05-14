@@ -7,8 +7,8 @@
              mc:Ignorable="d"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-             
              xmlns:Calendrier="clr-namespace:GoldenManagement.Calendrier"
+             Width="1110" Height="740"
              >
 
     <UserControl.Resources>
