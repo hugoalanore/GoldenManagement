@@ -5,10 +5,67 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GoldenManagement.Views.Materiel"
       mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Height="775" Width="1425"
       Title="AccueilMaterielPage">
 
-    <StackPanel Orientation="Horizontal" Margin="25,25,0,0">
-        
-    </StackPanel>
+
+
+    <materialDesign:ColorZone  Padding="24"  CornerRadius="5" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF3C3C3C" materialDesign:ShadowAssist.ShadowDepth="Depth3" materialDesign:ShadowAssist.ShadowEdges="All" Height="600" Width="400">
+        <StackPanel>
+            <Grid Margin="0,0,0,10">
+                <TextBlock Text="Liste Matériels" FontSize="32" Foreground="#CCFFFFFF" Margin="0,0,0,5"/>
+                <Button FontSize="16" x:Name="BTN_ajouter_apprenant" Foreground="Aqua" Background="Transparent" BorderBrush="Transparent" Click="BTN_ajouter_materiel_Click" HorizontalAlignment="Right">
+                    <Button.Content>+ Ajouter</Button.Content>
+                </Button>
+            </Grid>
+
+            <Grid>
+                <ListView  Name="lvApprenants" Grid.IsSharedSizeScope="True">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Nom" Click="LvMaterielsColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">NOM</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Nom}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="150">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader Tag="Description" Click="LvMaterielsColumnHeader_Click" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="16">DESCRIPTION</GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Description}" Foreground="#CCFFFFFF" FontWeight="Bold" FontSize="14"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Focusable" Value="false"/>
+                            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="BTN_show_apprenant_Click"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="true">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                    <Setter Property="Background" Value="Gray"/>
+                                    <Setter Property="BorderBrush" Value="Transparent"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </Grid>
+
+        </StackPanel>
+    </materialDesign:ColorZone>
 </Page>

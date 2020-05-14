@@ -16,29 +16,13 @@ using System.Windows.Shapes;
 namespace GoldenManagement.Views.Personne.Apprenant
 {
     /// <summary>
-    /// Logique d'interaction pour AccueilApprenantsPage.xaml
+    /// Logique d'interaction pour FicheApprenantHistoriquePage.xaml
     /// </summary>
-    public partial class AccueilApprenantPage : Page
+    public partial class FicheApprenantHistoriquePage : Page
     {
-        public AccueilApprenantPage()
+        public FicheApprenantHistoriquePage()
         {
             InitializeComponent();
-
-        }
-
-        private void BTN_ajouter_apprenant_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void LvApprenantsColumnHeader_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BTN_show_apprenant_Click(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

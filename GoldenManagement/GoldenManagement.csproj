@@ -131,11 +131,23 @@
     <Compile Include="Views\Formation\FicheFormationPage.xaml.cs">
       <DependentUpon>FicheFormationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Materiel\AffecterMaterielPage.xaml.cs">
+      <DependentUpon>AffecterMaterielPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Materiel\AjouterMaterielPage.xaml.cs">
+      <DependentUpon>AjouterMaterielPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Personne\Apprenant\AccueilApprenantPage.xaml.cs">
       <DependentUpon>AccueilApprenantPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Facturation\AccueilFacturationPage.xaml.cs">
       <DependentUpon>AccueilFacturationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personne\Apprenant\AjouterApprenantPage.xaml.cs">
+      <DependentUpon>AjouterApprenantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Personne\Apprenant\FicheApprenantHistoriquePage.xaml.cs">
+      <DependentUpon>FicheApprenantHistoriquePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Personne\Formateur\AccueilFormateurPage.xaml.cs">
       <DependentUpon>AccueilFormateurPage.xaml</DependentUpon>
@@ -233,11 +245,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Materiel\AffecterMaterielPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Materiel\AjouterMaterielPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Personne\Apprenant\AccueilApprenantPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Facturation\AccueilFacturationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personne\Apprenant\AjouterApprenantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Personne\Apprenant\FicheApprenantHistoriquePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

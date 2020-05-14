@@ -24,5 +24,15 @@ namespace GoldenManagement.Views.Materiel
         {
             InitializeComponent();
         }
+
+        private void BTN_ajouter_materiel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void LvMaterielsColumnHeader_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

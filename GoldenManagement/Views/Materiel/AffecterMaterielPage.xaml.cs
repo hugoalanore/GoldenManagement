@@ -13,30 +13,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GoldenManagement.Views.Personne.Apprenant
+namespace GoldenManagement.Views.Materiel
 {
     /// <summary>
-    /// Logique d'interaction pour AccueilApprenantsPage.xaml
+    /// Logique d'interaction pour AffecterMaterielPage.xaml
     /// </summary>
-    public partial class AccueilApprenantPage : Page
+    public partial class AffecterMaterielPage : Page
     {
-        public AccueilApprenantPage()
+        public AffecterMaterielPage()
         {
             InitializeComponent();
-
         }
 
-        private void BTN_ajouter_apprenant_Click(object sender, RoutedEventArgs e)
+        private void BTN_affecterMateriel_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void LvApprenantsColumnHeader_Click(object sender, RoutedEventArgs e)
+        private void BTN_annuler_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void BTN_show_apprenant_Click(object sender, MouseButtonEventArgs e)
+        private void BTN_confirmer_Click(object sender, RoutedEventArgs e)
         {
 
         }

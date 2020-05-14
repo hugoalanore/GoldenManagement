@@ -12,7 +12,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Exceptions;
-using log4net;
 using System.Reflection;
 using GoldenManagement.Outils.Log4net;
 

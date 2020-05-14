@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GoldenManagement.Views.Formation"
       mc:Ignorable="d" 
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="838" d:DesignWidth="800"
       Title="FicheFormationPage">
 
 
