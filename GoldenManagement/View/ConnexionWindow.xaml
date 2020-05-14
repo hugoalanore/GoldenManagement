@@ -52,10 +52,12 @@
             </StackPanel>
         </Grid>
 
+
         <Button x:Name="BTN_seConnecter" VerticalAlignment="Bottom" Margin="0,85" Width="150" Content="Se connecter" Click="BTN_seConnecter_Click" TabIndex="3"/>
 
         <Border VerticalAlignment="Bottom" Height="80">
             <TextBox x:Name="TB_connexionResultat" Margin="25,0,25,0" VerticalAlignment="Center" Foreground="Gray" FontSize="16"  TextAlignment="Center" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0"/>
         </Border>
+
     </Grid>
 </Window>
