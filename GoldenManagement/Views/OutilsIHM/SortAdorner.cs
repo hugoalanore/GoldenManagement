@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 
-namespace GoldenManagement.Views.Outils
+namespace GoldenManagement.Views.OutilsIHM
 {
     class SortAdorner : Adorner
     {

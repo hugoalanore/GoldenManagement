@@ -15,7 +15,7 @@ namespace DataAccessLayer.Enums
         /// <param name="s">string to convert to enum value.</param>
         public static T ToEnum<T>(this string s) where T : struct
         {
-            return Enum.TryParse(s, out T newValue) ? newValue : default;
+            return Enum.TryParse(s, out T newValue) ? newValue : default(T);
             //T newValue;
             //return Enum.TryParse(s, out newValue) ? newValue : default(T);
         }

@@ -1,14 +1,4 @@
-﻿using DataAccessLayer.BusinessLayer;
-using DataAccessLayer.Chiffrement;
-using DataAccessLayer.Enums;
-using DataAccessLayer.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataAccessLayer
+﻿namespace DataAccessLayer
 {
     class Program
     {

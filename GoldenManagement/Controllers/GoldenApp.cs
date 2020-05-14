@@ -6,12 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.BusinessLayer;
 using DataAccessLayer.Models;
-using DataAccessLayer.Chiffrement;
+using DataAccessLayer.Outiles.Chiffrement;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Exceptions;
+using log4net;
+using System.Reflection;
+using GoldenManagement.Outils.Log4net;
 
 namespace GoldenManagement.Controllers
 {
@@ -21,7 +24,6 @@ namespace GoldenManagement.Controllers
         private static readonly Lazy<GoldenApp> lazy = new Lazy<GoldenApp>(() => new GoldenApp());
         public static GoldenApp Instance { get { return lazy.Value; } }
         #endregion
-
 
         #region Propriétés et collections
         // Application
@@ -42,7 +44,6 @@ namespace GoldenManagement.Controllers
         public LivingData LivingData { get; set; } 
         #endregion
 
-
         #region Constructeurs
         private GoldenApp()
         {
@@ -50,12 +51,10 @@ namespace GoldenManagement.Controllers
         }
         #endregion
 
-
         #region Gestion des paramètres
 
         #endregion
-
-
+        
         #region Gestion des utilisateurs
         public bool ConnexionApplication(string nomUtilisateur, string motDePasse)
         {
@@ -78,11 +77,13 @@ namespace GoldenManagement.Controllers
                 // Les arguments ne sont pas correcte (nom d'utilisateur ou mot de passe vide)
                 catch (ArgumentException e)
                 {
+                    Logger.Log.Error(e);
                     throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
                 }
             }
             else
             {
+                Logger.Log.Warn("Les arguments passés en paramètre ne sont pas conformes");
                 throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes");
             }
         }
@@ -101,8 +102,11 @@ namespace GoldenManagement.Controllers
 
         public bool AddUtilisateur(string prenom, string nom, string nomUtilisateur, string password, RoleUtilisateur role)
         {
-            if (string.IsNullOrEmpty(nomUtilisateur)) { throw new ArgumentException("Le nom d'utilisateur ne peux pas être vide."); }
-
+            if (nomUtilisateur == String.Empty)
+            {
+                Logger.Log.Warn("L'argument \"NomUtilisateur\" passé en paramètre n'est pas conforme.");
+                throw new ArgumentException("L'argument \"NomUtilisateur\" passé en paramètre n'est pas conforme."); 
+            }
             try
             {
                 bool utilisateurExist = (Repository.Utilisateur.GetByNomUtilisateur(nomUtilisateur) != null) ? true : false;
@@ -117,8 +121,9 @@ namespace GoldenManagement.Controllers
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Logger.Log.Error(e);
                 return false;
             }
         }
@@ -131,15 +136,20 @@ namespace GoldenManagement.Controllers
                 CollectionChanged(EGoldenAppCollection.Utilisateurs);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Logger.Log.Error(e);
                 return false;
             }
         }
 
         public bool UpdateUtilisateur(string prenom, string nom, RoleUtilisateur role, int id)
         {
-            if (string.IsNullOrEmpty(prenom) || string.IsNullOrEmpty(nom)) { throw new ArgumentException("Les paramètres ne peuvent pas être vides."); }
+            if (prenom == null || prenom == String.Empty || nom == null || nom == String.Empty || role == null) 
+            {
+                Logger.Log.Warn("Les arguments passés en paramètre ne sont pas conformes.");
+                throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes."); 
+            }
             try
             {
                 Utilisateur utilisateur = Repository.Utilisateur.GetById(id);
@@ -150,8 +160,9 @@ namespace GoldenManagement.Controllers
                 CollectionChanged(EGoldenAppCollection.Utilisateurs);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Logger.Log.Error(e);
                 return false;
             }
         }
@@ -166,8 +177,9 @@ namespace GoldenManagement.Controllers
                 return true;
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Logger.Log.Error("Les arguments passés en paramètre ne sont pas conformes.", e);
                 return false;
             }
         }
@@ -191,7 +203,8 @@ namespace GoldenManagement.Controllers
             }
             catch (ArgumentException e)
             {
-                throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes", e);
+                Logger.Log.Error("Les arguments passés en paramètre ne sont pas conformes.", e);
+                throw new ArgumentException("Les arguments passés en paramètre ne sont pas conformes.", e);
             }
         }
         #endregion

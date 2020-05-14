@@ -1,15 +1,10 @@
 ﻿using DataAccessLayer.AccessLayer;
-using DataAccessLayer.Chiffrement;
 using DataAccessLayer.Exceptions;
 using DataAccessLayer.Models;
-using MySql.Data.MySqlClient;
+using DataAccessLayer.Outiles.Log4net;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.BusinessLayer
 {
@@ -92,6 +87,7 @@ namespace DataAccessLayer.BusinessLayer
             }
             catch (Exception e)
             {
+                Logger.Log.Error(e);
                 throw new DALException("Error on GetByNomUtilisateur", e);
             }
         }

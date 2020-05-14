@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Security.Cryptography;
-using System.Threading.Tasks;
 using System.IO;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
-namespace DataAccessLayer.Chiffrement
+namespace DataAccessLayer.Outiles.Chiffrement
 {
     public static class StringCipher
     {

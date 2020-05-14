@@ -45,6 +45,9 @@
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -97,6 +100,7 @@
     <Compile Include="Controllers\MaterielController.cs" />
     <Compile Include="Controllers\PersonneController.cs" />
     <Compile Include="Controllers\PlanningController.cs" />
+    <Compile Include="Outils\Log4net\Logger.cs" />
     <Compile Include="Views\Application\AccueilPage.xaml.cs">
       <DependentUpon>AccueilPage.xaml</DependentUpon>
     </Compile>
@@ -163,7 +167,7 @@
     <Compile Include="Views\Application\Utilisateur\ModifierUtilisateurPage.xaml.cs">
       <DependentUpon>ModifierUtilisateurPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Outils\SortAdorner.cs" />
+    <Compile Include="Views\OutilsIHM\SortAdorner.cs" />
     <Page Include="Calendrier\CalendrierUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
